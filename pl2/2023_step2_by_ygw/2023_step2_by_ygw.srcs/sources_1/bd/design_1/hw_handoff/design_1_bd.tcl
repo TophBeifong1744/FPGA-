@@ -223,7 +223,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
    CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
-   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
+   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {60.000000} \
    CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
@@ -244,7 +244,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ARMPLL_CTRL_FBDIV {40} \
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
-   CONFIG.PCW_CLK0_FREQ {100000000} \
+   CONFIG.PCW_CLK0_FREQ {60000000} \
    CONFIG.PCW_CLK1_FREQ {10000000} \
    CONFIG.PCW_CLK2_FREQ {10000000} \
    CONFIG.PCW_CLK3_FREQ {10000000} \
@@ -263,14 +263,14 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_EN_EMIO_UART0 {0} \
    CONFIG.PCW_EN_UART0 {1} \
    CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {6} \
-   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {3} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {5} \
    CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR1 {1} \
-   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100} \
+   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {60} \
    CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
    CONFIG.PCW_FPGA_FCLK1_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK2_ENABLE {0} \
@@ -318,8 +318,8 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_UIPARAM_DDR_T_RP {7} \
  ] $processing_system7_0
 
-  # Create instance: rst_ps7_0_100M, and set properties
-  set rst_ps7_0_100M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_100M ]
+  # Create instance: rst_ps7_0_60M, and set properties
+  set rst_ps7_0_60M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_60M ]
 
   # Create instance: xlconstant_0, and set properties
   set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
@@ -353,13 +353,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net feature_bram_writer_0_bram_we [get_bd_pins blk_mem_gen_0/web] [get_bd_pins feature_bram_writer_0/bram_we]
   connect_bd_net -net feature_bram_writer_0_hist_freq_rd_addr [get_bd_pins demod_pool_core_0/hist_freq_rd_addr] [get_bd_pins feature_bram_writer_0/hist_freq_rd_addr]
   connect_bd_net -net feature_bram_writer_0_hist_mag_rd_addr [get_bd_pins demod_pool_core_0/hist_mag_rd_addr] [get_bd_pins feature_bram_writer_0/hist_mag_rd_addr]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins blk_mem_gen_0/clkb] [get_bd_pins demod_pool_core_0/aclk] [get_bd_pins feature_bram_writer_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_100M/slowest_sync_clk]
-  connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_100M/ext_reset_in]
-  connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins axi_smc/aresetn] [get_bd_pins rst_ps7_0_100M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins demod_pool_core_0/aresetn] [get_bd_pins feature_bram_writer_0/aresetn] [get_bd_pins rst_ps7_0_100M/peripheral_aresetn]
-  connect_bd_net -net rst_ps7_0_100M_peripheral_reset [get_bd_pins blk_mem_gen_0/rstb] [get_bd_pins rst_ps7_0_100M/peripheral_reset]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins rst_ps7_0_100M/mb_debug_sys_rst] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net xlconstant_1_dout [get_bd_pins rst_ps7_0_100M/aux_reset_in] [get_bd_pins rst_ps7_0_100M/dcm_locked] [get_bd_pins xlconstant_1/dout]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins blk_mem_gen_0/clkb] [get_bd_pins demod_pool_core_0/aclk] [get_bd_pins feature_bram_writer_0/aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins rst_ps7_0_60M/slowest_sync_clk]
+  connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_60M/ext_reset_in]
+  connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins axi_smc/aresetn] [get_bd_pins rst_ps7_0_60M/interconnect_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins demod_pool_core_0/aresetn] [get_bd_pins feature_bram_writer_0/aresetn] [get_bd_pins rst_ps7_0_60M/peripheral_aresetn]
+  connect_bd_net -net rst_ps7_0_100M_peripheral_reset [get_bd_pins blk_mem_gen_0/rstb] [get_bd_pins rst_ps7_0_60M/peripheral_reset]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins rst_ps7_0_60M/mb_debug_sys_rst] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net xlconstant_1_dout [get_bd_pins rst_ps7_0_60M/aux_reset_in] [get_bd_pins rst_ps7_0_60M/dcm_locked] [get_bd_pins xlconstant_1/dout]
 
   # Create address segments
   create_bd_addr_seg -range 0x00002000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0

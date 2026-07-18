@@ -3,7 +3,6 @@ verilog xil_defaultlib --include "../../../../2023_step2_by_ygw.srcs/sources_1/b
 "../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
 "../../../bd/design_1/ip/design_1_demod_pool_core_0_0/sim/design_1_demod_pool_core_0_0.v" \
 "../../../bd/design_1/ip/design_1_blk_mem_gen_0_0/sim/design_1_blk_mem_gen_0_0.v" \
-"../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/sim/bd_6f02.v" \
 "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_0/sim/bd_6f02_one_0.v" \
 
 sv xil_defaultlib --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/979d/hdl/verilog" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/b2d0/hdl/verilog" \
@@ -20,10 +19,11 @@ sv xil_defaultlib --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/des
 "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_12/sim/bd_6f02_m00e_0.sv" \
 
 verilog xil_defaultlib --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/979d/hdl/verilog" --include "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/b2d0/hdl/verilog" \
+"../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/sim/bd_6f02.v" \
 "../../../bd/design_1/ip/design_1_axi_smc_1/sim/design_1_axi_smc_1.v" \
-"../../../bd/design_1/sim/design_1.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_0_0/sim/design_1_xlconstant_0_0.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_1_0/sim/design_1_xlconstant_1_0.v" \
+"../../../bd/design_1/sim/design_1.v" \
 
 verilog xil_defaultlib "glbl.v"
 

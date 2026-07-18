@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
 -- Date        : Sat Jul 18 00:33:40 2026
 -- Host        : Toph running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_0/design_1_blk_mem_gen_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_blk_mem_gen_0_0 -prefix
+--               design_1_blk_mem_gen_0_0_ design_1_blk_mem_gen_0_0_stub.vhdl
 -- Design      : design_1_blk_mem_gen_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-2

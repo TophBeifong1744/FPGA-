@@ -88,9 +88,6 @@ vcom -work proc_sys_reset_v5_0_13 -93 \
 vcom -work xil_defaultlib -93 \
 "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_1/sim/design_1_rst_ps7_0_100M_1.vhd" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/979d/hdl/verilog" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/b2d0/hdl/verilog" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+F:/Xilinx/Vivado/2018.3/data/xilinx_vip/include" \
-"../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/sim/bd_6f02.v" \
-
 vlog -work xlconstant_v1_1_5  -v2k5 "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/979d/hdl/verilog" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/b2d0/hdl/verilog" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+F:/Xilinx/Vivado/2018.3/data/xilinx_vip/include" \
 "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/4649/hdl/xlconstant_v1_1_vl_rfs.v" \
 
@@ -148,10 +145,11 @@ vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../2023_step2_by_ygw.srcs/s
 "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_12/sim/bd_6f02_m00e_0.sv" \
 
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/979d/hdl/verilog" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/b2d0/hdl/verilog" "+incdir+../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+F:/Xilinx/Vivado/2018.3/data/xilinx_vip/include" \
+"../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/sim/bd_6f02.v" \
 "../../../bd/design_1/ip/design_1_axi_smc_1/sim/design_1_axi_smc_1.v" \
-"../../../bd/design_1/sim/design_1.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_0_0/sim/design_1_xlconstant_0_0.v" \
 "../../../bd/design_1/ip/design_1_xlconstant_1_0/sim/design_1_xlconstant_1_0.v" \
+"../../../bd/design_1/sim/design_1.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

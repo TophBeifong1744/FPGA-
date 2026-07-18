@@ -3,7 +3,7 @@
 ## 1. 固定接口假设
 
 - Vivado 2018.3，器件 Zynq-7020。
-- PL 处理时钟 100 MHz；第一级 DDC/CIC/FIR 输出约 1 MSPS。
+- PL 处理时钟 60 MHz；第一级 DDC/CIC/FIR 输出约 1 MSPS。
 - 输入为同一时钟域下的 16 位有符号复数基带，`I/Q` 按 CORDIC Signed Fraction 的 Q1.14 表示，范围限制在 `[-1,+1)`。
 - `s_valid` 只在新抽取样本到达时拉高；只有 `s_valid && s_ready` 时样本才被接收。
 - 窗长默认 `N=8192`，在 1 MSPS 下约 8.192 ms。
