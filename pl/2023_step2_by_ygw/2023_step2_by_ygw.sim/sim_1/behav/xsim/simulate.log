@@ -1,0 +1,36 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+--------------------------------------------------
+RESULT:       CW
+mean_mag_num    = 67108864
+var_mag_num     = 0
+mean_freq_num   = 0
+var_freq_num    = 0
+psk_spike_count = 0
+psk_flag        = 0
+--------------------------------------------------
+RESULT:       AM
+mean_mag_num    = 60773242
+var_mag_num     = 452946035681756
+mean_freq_num   = 0
+var_freq_num    = 0
+psk_spike_count = 0
+psk_flag        = 0
+--------------------------------------------------
+RESULT:       FM
+mean_mag_num    = 67099440
+var_mag_num     = 9885440
+mean_freq_num   = 10817
+var_freq_num    = 8308968799091583
+psk_spike_count = 0
+psk_flag        = 0
+--------------------------------------------------
+RESULT:     2PSK
+mean_mag_num    = 67108864
+var_mag_num     = 0
+mean_freq_num   = -2097152
+var_freq_num    = 558551906910208
+psk_spike_count = 64
+psk_flag        = 1
+All four test cases completed.
+$finish called at time : 657440 ns : File "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_demod_pool_core.v" Line 167

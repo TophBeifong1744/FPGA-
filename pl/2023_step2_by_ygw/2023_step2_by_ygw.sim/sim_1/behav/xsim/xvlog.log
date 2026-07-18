@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module demod_pool_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hist16_snapshot
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module phase_diff_wrap
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module psk_spike_detector
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module running_stats16
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_demod_pool_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_demod_pool_core
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
