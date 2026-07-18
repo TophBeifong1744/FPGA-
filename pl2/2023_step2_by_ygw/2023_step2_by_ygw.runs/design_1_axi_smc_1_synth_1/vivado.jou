@@ -2,8 +2,8 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sat Jul 18 00:32:53 2026
-# Process ID: 48052
+# Start of session at: Sat Jul 18 17:15:52 2026
+# Process ID: 12772
 # Current directory: F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1
 # Command line: vivado.exe -log design_1_axi_smc_1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_smc_1.tcl
 # Log file: F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1.vds

@@ -18,8 +18,6 @@ proc create_report { reportName command } {
   }
 }
 set_msg_config -id {HDL-1065} -limit 10000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7z020clg400-2
@@ -30,12 +28,12 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.cache/wt [current_project]
 set_property parent.project_path F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.xpr [current_project]
-set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.xci
+read_ip -quiet F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.xci
 set_property used_in_implementation false [get_files -all f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_1/bd_6f02_psr_aclk_0_board.xdc]
 set_property used_in_implementation false [get_files -all f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_1/bd_6f02_psr_aclk_0.xdc]
 set_property used_in_implementation false [get_files -all f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_5/bd_6f02_s00a2s_0_ooc.xdc]
@@ -100,32 +98,32 @@ write_checkpoint -force -noxdef design_1_axi_smc_1.dcp
 create_report "design_1_axi_smc_1_synth_1_synth_report_utilization_0" "report_utilization -file design_1_axi_smc_1_utilization_synth.rpt -pb design_1_axi_smc_1_utilization_synth.pb"
 
 if { [catch {
-  file copy -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1.dcp f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.dcp
+  file copy -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1.dcp F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.v
+  write_verilog -force -mode synth_stub F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.vhdl
+  write_vhdl -force -mode synth_stub F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.v
+  write_verilog -force -mode funcsim F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -135,32 +133,32 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1.dcp f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.dcp
+  file copy -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1.dcp F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_stub.v f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.v
+  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_stub.v F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_stub.vhdl f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.vhdl
+  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_stub.vhdl F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_sim_netlist.v f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.v
+  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_sim_netlist.v F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_sim_netlist.vhdl f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.vhdl
+  file rename -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.runs/design_1_axi_smc_1_synth_1/design_1_axi_smc_1_sim_netlist.vhdl F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -169,13 +167,13 @@ if { [catch {
 
 if {[file isdir F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.ip_user_files/ip/design_1_axi_smc_1]} {
   catch { 
-    file copy -force f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.v F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.ip_user_files/ip/design_1_axi_smc_1
+    file copy -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.v F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.ip_user_files/ip/design_1_axi_smc_1
   }
 }
 
 if {[file isdir F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.ip_user_files/ip/design_1_axi_smc_1]} {
   catch { 
-    file copy -force f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.vhdl F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.ip_user_files/ip/design_1_axi_smc_1
+    file copy -force F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1_stub.vhdl F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.ip_user_files/ip/design_1_axi_smc_1
   }
 }
 file delete __synthesis_is_running__

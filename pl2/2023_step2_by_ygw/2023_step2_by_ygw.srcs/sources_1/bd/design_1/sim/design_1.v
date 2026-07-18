@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sat Jul 18 01:23:44 2026
+//Date        : Sat Jul 18 17:15:35 2026
 //Host        : Toph running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -403,7 +403,7 @@ module design_1
         .PS_CLK(FIXED_IO_ps_clk),
         .PS_PORB(FIXED_IO_ps_porb),
         .PS_SRSTB(FIXED_IO_ps_srstb));
-  design_1_rst_ps7_0_100M_1 rst_ps7_0_100M
+  design_1_rst_ps7_0_100M_1 rst_ps7_0_60M
        (.aux_reset_in(xlconstant_1_dout),
         .dcm_locked(xlconstant_1_dout),
         .ext_reset_in(processing_system7_0_FCLK_RESET0_N),
