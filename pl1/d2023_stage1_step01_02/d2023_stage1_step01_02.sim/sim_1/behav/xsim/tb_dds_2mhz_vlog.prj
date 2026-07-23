@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  -i "../../../../../" --include "../../../../../" \
+"../../../../../dds_2mhz_wrapper.v" \
+"../../../../../tb_dds_2mhz.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
