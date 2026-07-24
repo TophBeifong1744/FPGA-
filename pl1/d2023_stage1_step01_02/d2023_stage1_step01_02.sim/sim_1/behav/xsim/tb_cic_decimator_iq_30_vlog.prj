@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  -i "../../../../../" --include "../../../../../" \
+"../../../../../adc_signal_source.v" \
+"../../../../../cic_decimator_iq_30.v" \
+"../../../../../dds_2mhz_wrapper.v" \
+"../../../../../iq_mixer.v" \
+"../../../../../tb_cic_decimator_iq_30.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

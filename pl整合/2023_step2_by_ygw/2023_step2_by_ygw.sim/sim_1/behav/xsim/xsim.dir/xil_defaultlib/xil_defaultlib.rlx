@@ -1,0 +1,12 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_demod_pool_core.v,1784300160,verilog,,,,tb_demod_pool_core,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core.v,1784285069,verilog,,F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v,,demod_pool_core,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v,1784285069,verilog,,F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v,,hist16_snapshot,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v,1784285069,verilog,,F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v,,phase_diff_wrap,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v,1784285069,verilog,,F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v,,psk_spike_detector,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v,1784285069,verilog,,F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_demod_pool_core.v,,running_stats16,,,,,,,,
+F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/sim/cordic_translate_0.vhd,1784285789,vhdl,,,,cordic_translate_0,,,,,,,,

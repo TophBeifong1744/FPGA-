@@ -1,0 +1,4 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+[TB-PASS] Stage1-to-PL2 adapter scaling/FIFO test passed.
+$finish called at time : 724971 ps : File "F:/Vivado/2023/D2023_stage1_step01_02/tb_stage1_to_pl2_adapter.v" Line 209

@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/sim/cordic_translate_0.vhd" \
+
+nosort
