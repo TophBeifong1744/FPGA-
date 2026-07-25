@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sat Jul 25 20:13:07 2026
+//Date        : Sun Jul 26 02:04:58 2026
 //Host        : Toph running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -33,7 +33,13 @@ module design_1_wrapper
     FIXED_IO_ps_srstb,
     ad_clk_0,
     adc_db_0,
-    adc_otr_0);
+    adc_otr_0,
+    lcd_bl,
+    lcd_clk,
+    lcd_de,
+    lcd_hs,
+    lcd_rgb,
+    lcd_vs);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -58,6 +64,12 @@ module design_1_wrapper
   output ad_clk_0;
   input [11:0]adc_db_0;
   input adc_otr_0;
+  output [0:0]lcd_bl;
+  output lcd_clk;
+  output lcd_de;
+  output lcd_hs;
+  output [23:0]lcd_rgb;
+  output lcd_vs;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -83,6 +95,12 @@ module design_1_wrapper
   wire ad_clk_0;
   wire [11:0]adc_db_0;
   wire adc_otr_0;
+  wire [0:0]lcd_bl;
+  wire lcd_clk;
+  wire lcd_de;
+  wire lcd_hs;
+  wire [23:0]lcd_rgb;
+  wire lcd_vs;
 
   design_1 design_1_i
        (.DDR_addr(DDR_addr),
@@ -108,5 +126,11 @@ module design_1_wrapper
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .ad_clk_0(ad_clk_0),
         .adc_db_0(adc_db_0),
-        .adc_otr_0(adc_otr_0));
+        .adc_otr_0(adc_otr_0),
+        .lcd_bl(lcd_bl),
+        .lcd_clk(lcd_clk),
+        .lcd_de(lcd_de),
+        .lcd_hs(lcd_hs),
+        .lcd_rgb(lcd_rgb),
+        .lcd_vs(lcd_vs));
 endmodule
