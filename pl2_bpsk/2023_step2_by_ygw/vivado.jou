@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 00:30:51 2026
+# Process ID: 135084
+# Current directory: F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent123328 F:\Vivado\2023\main\FPGA--main\pl2\2023_step2_by_ygw\2023_step2_by_ygw.xpr
+# Log file: F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/vivado.log
+# Journal file: F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/2023_step2_by_ygw.xpr
+update_compile_order -fileset sources_1
+generate_target Simulation [get_files F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/cordic_translate_0.xci]
+launch_simulation
+source tb_demod_pool_core_bpsk.tcl
+set_property -name {xsim.simulate.runtime} -value {4ms} -objects [get_filesets sim_1]
+relaunch_sim
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top demod_pool_core_bpsk [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+source tb_demod_pool_core_bpsk.tcl
+archive_project F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw.xpr.zip -temp_dir F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/.Xil/Vivado-135084-Y9000P -force -exclude_run_results -include_local_ip_cache
+close_sim

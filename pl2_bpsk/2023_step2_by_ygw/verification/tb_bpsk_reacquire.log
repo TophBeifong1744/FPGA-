@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 00:18:24 2026
+# Process ID: 126144
+# Current directory: F:/Vivado/2023/main/FPGA--main
+# Command line: xsim.exe -log tb_bpsk_reacquire.log -mode tcl -source {xsim.dir/tb_bpsk_reacquire_behav/xsim_script.tcl}
+# Log file: F:/Vivado/2023/main/FPGA--main/tb_bpsk_reacquire.log
+# Journal file: F:/Vivado/2023/main/FPGA--main\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_bpsk_reacquire_behav/xsim_script.tcl
+# xsim {tb_bpsk_reacquire_behav} -autoloadwcfg -runall
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+run -all
+REACQUIRE code=3 bits=273 min_errors=0 freq_word=-67256
+PASS: tb_bpsk_reacquire
+$finish called at time : 1744790 ns : File "F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_bpsk_reacquire.v" Line 97
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Jul 25 00:18:29 2026...

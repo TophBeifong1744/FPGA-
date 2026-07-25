@@ -1,0 +1,5 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+INTEGRATED accepted=37500 feature=37499 frames=4 spikes=27 code=2 bits=282 min_errors=0
+PASS: tb_demod_pool_core_bpsk real CORDIC integration
+$finish called at time : 1875920 ns : File "F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_demod_pool_core_bpsk.v" Line 117

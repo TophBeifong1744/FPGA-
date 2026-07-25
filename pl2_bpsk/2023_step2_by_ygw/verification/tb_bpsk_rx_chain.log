@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 00:23:35 2026
+# Process ID: 131416
+# Current directory: F:/Vivado/2023/main/FPGA--main
+# Command line: xsim.exe -log tb_bpsk_rx_chain.log -mode tcl -source {xsim.dir/tb_bpsk_rx_chain_behav/xsim_script.tcl}
+# Log file: F:/Vivado/2023/main/FPGA--main/tb_bpsk_rx_chain.log
+# Journal file: F:/Vivado/2023/main/FPGA--main\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_bpsk_rx_chain_behav/xsim_script.tcl
+# xsim {tb_bpsk_rx_chain_behav} -autoloadwcfg -runall
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+run -all
+CASE rate=6000 cfo=-5000 code=1 bits=283 min_errors=0 freq_word=-83986 PASS
+CASE rate=6000 cfo=5000 code=1 bits=283 min_errors=0 freq_word=83774 PASS
+CASE rate=8000 cfo=-5000 code=2 bits=282 min_errors=0 freq_word=-84001 PASS
+CASE rate=8000 cfo=5000 code=2 bits=282 min_errors=0 freq_word=83796 PASS
+CASE rate=10000 cfo=-5000 code=3 bits=282 min_errors=0 freq_word=-83981 PASS
+CASE rate=10000 cfo=5000 code=3 bits=282 min_errors=0 freq_word=83769 PASS
+PASS: tb_bpsk_rx_chain all cases
+$finish called at time : 11751500 ns : File "F:/Vivado/2023/main/FPGA--main/pl2/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sim_1/imports/sim/tb_bpsk_rx_chain.v" Line 179
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Jul 25 00:23:39 2026...
