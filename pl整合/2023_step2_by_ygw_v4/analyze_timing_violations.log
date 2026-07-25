@@ -1,0 +1,275 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 17:30:23 2026
+# Process ID: 50504
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -mode batch -source F:\Vivado\2023\main\FPGA--main\analyze_external_timing_violations_v2.tcl -log F:\Vivado\2023_pl_new\2023_step2_by_ygw\analyze_timing_violations.log -journal F:\Vivado\2023_pl_new\2023_step2_by_ygw\analyze_timing_violations.jou
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/analyze_timing_violations.log
+# Journal file: F:\Vivado\2023_pl_new\2023_step2_by_ygw\analyze_timing_violations.jou
+#-----------------------------------------------------------
+source {F:\Vivado\2023\main\FPGA--main\analyze_external_timing_violations_v2.tcl}
+# set project_file {F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.xpr}
+# set detail_report {F:/Vivado/2023_pl_new/2023_step2_by_ygw/all_failing_setup_paths.rpt}
+# open_project $project_file
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinks/Vivado/2018.3/data/ip'.
+# open_run impl_1
+INFO: [Netlist 29-17] Analyzing 2894 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'design_1_i/clk_wiz_0/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1542.844 ; gain = 15.684
+Restored from archive | CPU: 2.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1542.844 ; gain = 15.684
+Generating merged BMM file for the design top 'design_1_wrapper'...
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1547.449 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 313 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 276 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 37 instances
+
+open_run: Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1547.449 ; gain = 1127.574
+# set failing_paths [get_timing_paths -quiet \
+#     -delay_type max \
+#     -slack_lesser_than 0.0 \
+#     -max_paths 1000 \
+#     -nworst 1]
+# puts "CODEX_FAILING_PATH_COUNT [llength $failing_paths]"
+CODEX_FAILING_PATH_COUNT 201
+# set index 0
+# foreach path $failing_paths {
+#     incr index
+#     set slack [get_property SLACK $path]
+#     set start_pin [get_property STARTPOINT_PIN $path]
+#     set end_pin [get_property ENDPOINT_PIN $path]
+#     set path_group [get_property GROUP $path]
+#     set delay [get_property DATAPATH_DELAY $path]
+#     set levels [get_property LOGIC_LEVELS $path]
+#     puts "CODEX_PATH|$index|$slack|$delay|$levels|$path_group|$start_pin|$end_pin"
+# }
+CODEX_PATH|1|-9.961|26.589|45|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[21]/D
+CODEX_PATH|2|-9.956|26.584|45|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[23]/D
+CODEX_PATH|3|-9.896|26.524|45|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/D
+CODEX_PATH|4|-9.891|26.491|44|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[17]/D
+CODEX_PATH|5|-9.886|26.486|44|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[19]/D
+CODEX_PATH|6|-9.877|26.505|45|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[20]/D
+CODEX_PATH|7|-9.826|26.426|44|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[18]/D
+CODEX_PATH|8|-9.807|26.407|44|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[16]/D
+CODEX_PATH|9|-9.793|26.393|43|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[13]/D
+CODEX_PATH|10|-9.788|26.388|43|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[15]/D
+CODEX_PATH|11|-9.728|26.328|43|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[14]/D
+CODEX_PATH|12|-9.709|26.309|43|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[12]/D
+CODEX_PATH|13|-9.515|26.116|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[11]/D
+CODEX_PATH|14|-9.466|26.067|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[10]/D
+CODEX_PATH|15|-9.421|26.022|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[9]/D
+CODEX_PATH|16|-9.337|25.938|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[8]/D
+CODEX_PATH|17|-9.266|25.354|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[9]/R
+CODEX_PATH|18|-9.245|25.627|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[22]/D
+CODEX_PATH|19|-9.242|25.331|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[2]/R
+CODEX_PATH|20|-9.242|25.331|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[3]/R
+CODEX_PATH|21|-9.230|25.562|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[9]/D
+CODEX_PATH|22|-9.222|25.710|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[5]/D
+CODEX_PATH|23|-9.217|25.705|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[7]/D
+CODEX_PATH|24|-9.157|25.645|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[6]/D
+CODEX_PATH|25|-9.138|25.626|42|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[4]/D
+CODEX_PATH|26|-9.128|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[4]/R
+CODEX_PATH|27|-9.128|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[5]/R
+CODEX_PATH|28|-9.128|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[8]/R
+CODEX_PATH|29|-9.093|25.474|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[23]/D
+CODEX_PATH|30|-9.057|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[0]/R
+CODEX_PATH|31|-9.057|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[1]/R
+CODEX_PATH|32|-9.057|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[6]/R
+CODEX_PATH|33|-9.057|25.217|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[7]/R
+CODEX_PATH|34|-9.030|25.518|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[3]/D
+CODEX_PATH|35|-9.016|25.360|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[0]/CE
+CODEX_PATH|36|-9.016|25.360|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[1]/CE
+CODEX_PATH|37|-9.016|25.360|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[6]/CE
+CODEX_PATH|38|-9.016|25.360|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[7]/CE
+CODEX_PATH|39|-8.981|25.469|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[2]/D
+CODEX_PATH|40|-8.959|25.334|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[2]/CE
+CODEX_PATH|41|-8.959|25.334|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[3]/CE
+CODEX_PATH|42|-8.947|25.323|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[9]/CE
+CODEX_PATH|43|-8.846|25.334|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[1]/D
+CODEX_PATH|44|-8.842|25.218|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[4]/CE
+CODEX_PATH|45|-8.842|25.218|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[5]/CE
+CODEX_PATH|46|-8.842|25.218|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[8]/CE
+CODEX_PATH|47|-8.725|25.183|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[13]/D
+CODEX_PATH|48|-8.710|25.198|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[0]/D
+CODEX_PATH|49|-8.634|25.093|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[19]/D
+CODEX_PATH|50|-8.632|25.089|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[12]/D
+CODEX_PATH|51|-8.589|25.049|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[14]/D
+CODEX_PATH|52|-8.558|25.062|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[11]/D
+CODEX_PATH|53|-8.528|24.987|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[3]/D
+CODEX_PATH|54|-8.526|24.983|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[20]/D
+CODEX_PATH|55|-8.514|24.975|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[8]/D
+CODEX_PATH|56|-8.511|24.971|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[5]/D
+CODEX_PATH|57|-8.499|25.001|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[7]/D
+CODEX_PATH|58|-8.491|24.992|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[0]/D
+CODEX_PATH|59|-8.487|24.990|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[16]/D
+CODEX_PATH|60|-8.484|24.986|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[17]/D
+CODEX_PATH|61|-8.484|24.983|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[15]/D
+CODEX_PATH|62|-8.445|24.905|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[21]/D
+CODEX_PATH|63|-8.443|24.904|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[6]/D
+CODEX_PATH|64|-8.435|24.975|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[18]/D
+CODEX_PATH|65|-8.423|25.007|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[2]/D
+CODEX_PATH|66|-8.397|24.857|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[2]/D
+CODEX_PATH|67|-8.395|24.856|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[4]/D
+CODEX_PATH|68|-8.389|25.007|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[3]/D
+CODEX_PATH|69|-8.372|24.871|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[10]/D
+CODEX_PATH|70|-8.370|24.872|41|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[9]/D
+CODEX_PATH|71|-8.369|24.911|40|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/frequency_word_reg[1]/D
+CODEX_PATH|72|-8.321|24.863|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/carrier_locked_reg/D
+CODEX_PATH|73|-8.307|24.851|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[6]/D
+CODEX_PATH|74|-8.305|24.847|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[0]/D
+CODEX_PATH|75|-8.273|24.854|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[7]/D
+CODEX_PATH|76|-8.269|24.850|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[1]/D
+CODEX_PATH|77|-8.201|24.753|38|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/rate_code_reg[0]/D
+CODEX_PATH|78|-8.199|24.749|38|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/rate_code_reg[1]/D
+CODEX_PATH|79|-8.196|24.780|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[5]/D
+CODEX_PATH|80|-8.190|24.776|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[4]/D
+CODEX_PATH|81|-8.188|24.776|36|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/lock_score_reg[8]/D
+CODEX_PATH|82|-3.408|19.614|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[1]/D
+CODEX_PATH|83|-3.159|19.730|29|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[13]/D
+CODEX_PATH|84|-3.154|19.725|29|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[15]/D
+CODEX_PATH|85|-3.097|19.476|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[2]/D
+CODEX_PATH|86|-3.094|19.665|29|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[14]/D
+CODEX_PATH|87|-3.075|19.646|29|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[12]/D
+CODEX_PATH|88|-3.071|19.438|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[7]/D
+CODEX_PATH|89|-3.061|19.632|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[9]/D
+CODEX_PATH|90|-3.056|19.627|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[11]/D
+CODEX_PATH|91|-3.022|19.401|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[6]/D
+CODEX_PATH|92|-2.996|19.567|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[10]/D
+CODEX_PATH|93|-2.977|19.548|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[8]/D
+CODEX_PATH|94|-2.913|19.385|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[5]/D
+CODEX_PATH|95|-2.861|19.431|26|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[7]/D
+CODEX_PATH|96|-2.823|19.312|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[15]/D
+CODEX_PATH|97|-2.812|19.382|26|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[6]/D
+CODEX_PATH|98|-2.808|19.297|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[13]/D
+CODEX_PATH|99|-2.804|19.171|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[4]/D
+CODEX_PATH|100|-2.780|19.287|32|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[6]/D
+CODEX_PATH|101|-2.774|19.263|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[14]/D
+CODEX_PATH|102|-2.725|19.296|27|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[5]/D
+CODEX_PATH|103|-2.724|19.213|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[12]/D
+CODEX_PATH|104|-2.682|19.138|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[0]/D
+CODEX_PATH|105|-2.677|19.166|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[9]/D
+CODEX_PATH|106|-2.672|19.161|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[11]/D
+CODEX_PATH|107|-2.664|19.201|34|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[2]/D
+CODEX_PATH|108|-2.641|19.212|27|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[4]/D
+CODEX_PATH|109|-2.620|19.125|34|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[1]/D
+CODEX_PATH|110|-2.612|19.101|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[10]/D
+CODEX_PATH|111|-2.593|19.082|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[8]/D
+CODEX_PATH|112|-2.585|19.074|34|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[0]/D
+CODEX_PATH|113|-2.580|19.068|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[5]/D
+CODEX_PATH|114|-2.575|19.063|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[7]/D
+CODEX_PATH|115|-2.542|19.048|33|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[7]/D
+CODEX_PATH|116|-2.528|19.029|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_8k_reg[3]/D
+CODEX_PATH|117|-2.515|19.003|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[6]/D
+CODEX_PATH|118|-2.513|19.084|25|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[3]/D
+CODEX_PATH|119|-2.496|18.984|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[4]/D
+CODEX_PATH|120|-2.464|19.035|25|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[2]/D
+CODEX_PATH|121|-2.379|18.867|29|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[3]/D
+CODEX_PATH|122|-2.367|18.874|32|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[5]/D
+CODEX_PATH|123|-2.342|18.913|25|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[1]/D
+CODEX_PATH|124|-2.330|18.818|29|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[2]/D
+CODEX_PATH|125|-2.267|18.792|33|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[3]/D
+CODEX_PATH|126|-2.202|18.773|26|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/i_recovered_reg[0]/D
+CODEX_PATH|127|-2.199|18.688|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[1]/D
+CODEX_PATH|128|-2.129|18.684|34|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_6k_reg[4]/D
+CODEX_PATH|129|-2.063|18.552|28|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/phase_word_reg[22]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_costas/q_recovered_reg[0]/D
+CODEX_PATH|130|-2.017|18.457|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[7]/D
+CODEX_PATH|131|-1.972|18.371|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[1]/D
+CODEX_PATH|132|-1.971|18.444|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[6]/D
+CODEX_PATH|133|-1.969|18.384|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[2]/D
+CODEX_PATH|134|-1.958|18.337|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[4]/D
+CODEX_PATH|135|-1.879|18.291|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[0]/D
+CODEX_PATH|136|-1.860|18.333|31|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[5]/D
+CODEX_PATH|137|-1.793|18.266|30|clk_out2_design_1_clk_wiz_0_0|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/interval_reg[11]/C|design_1_i/demod_pool_core_bpsk_0/inst/u_bpsk_rx/u_rate_detector/score_10k_reg[3]/D
+CODEX_PATH|138|-1.135|17.670|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[21]/D
+CODEX_PATH|139|-1.126|17.645|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[10]/D
+CODEX_PATH|140|-1.126|17.663|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[22]/D
+CODEX_PATH|141|-1.117|17.691|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[4]/D
+CODEX_PATH|142|-1.116|17.653|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[5]/D
+CODEX_PATH|143|-1.113|17.636|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[7]/D
+CODEX_PATH|144|-1.110|17.684|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[3]/D
+CODEX_PATH|145|-1.105|17.658|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[9]/D
+CODEX_PATH|146|-1.096|17.649|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[8]/D
+CODEX_PATH|147|-1.092|17.666|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[6]/D
+CODEX_PATH|148|-1.071|17.603|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[19]/D
+CODEX_PATH|149|-1.064|17.598|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[0]/D
+CODEX_PATH|150|-1.051|17.622|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[6]/D
+CODEX_PATH|151|-1.044|17.617|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[31]/D
+CODEX_PATH|152|-1.043|17.580|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[17]/D
+CODEX_PATH|153|-1.021|17.555|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[11]/D
+CODEX_PATH|154|-1.020|17.594|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[8]/D
+CODEX_PATH|155|-1.019|17.556|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[23]/D
+CODEX_PATH|156|-1.006|17.540|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[10]/D
+CODEX_PATH|157|-1.004|17.540|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[11]/D
+CODEX_PATH|158|-1.001|17.574|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[24]/D
+CODEX_PATH|159|-0.996|17.569|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[12]/D
+CODEX_PATH|160|-0.988|17.561|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[14]/D
+CODEX_PATH|161|-0.988|17.561|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[15]/D
+CODEX_PATH|162|-0.976|17.513|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[19]/D
+CODEX_PATH|163|-0.974|17.509|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[15]/D
+CODEX_PATH|164|-0.959|17.533|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[20]/D
+CODEX_PATH|165|-0.954|17.528|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[16]/D
+CODEX_PATH|166|-0.935|17.472|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[1]/D
+CODEX_PATH|167|-0.923|17.457|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[0]/D
+CODEX_PATH|168|-0.921|17.457|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[13]/D
+CODEX_PATH|169|-0.920|17.397|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[29]/D
+CODEX_PATH|170|-0.912|17.486|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[24]/D
+CODEX_PATH|171|-0.899|17.418|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[3]/D
+CODEX_PATH|172|-0.895|17.411|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[30]/D
+CODEX_PATH|173|-0.894|17.467|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[25]/D
+CODEX_PATH|174|-0.894|17.467|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[28]/D
+CODEX_PATH|175|-0.889|17.426|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[1]/D
+CODEX_PATH|176|-0.887|17.422|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[12]/D
+CODEX_PATH|177|-0.882|17.419|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[13]/D
+CODEX_PATH|178|-0.869|17.406|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[25]/D
+CODEX_PATH|179|-0.869|17.443|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[27]/D
+CODEX_PATH|180|-0.865|17.418|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[4]/D
+CODEX_PATH|181|-0.855|17.429|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[2]/D
+CODEX_PATH|182|-0.851|17.389|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[23]/D
+CODEX_PATH|183|-0.851|17.385|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[16]/D
+CODEX_PATH|184|-0.849|17.425|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[26]/D
+CODEX_PATH|185|-0.848|17.422|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[14]/D
+CODEX_PATH|186|-0.843|17.380|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[17]/D
+CODEX_PATH|187|-0.833|17.407|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[2]/D
+CODEX_PATH|188|-0.828|17.365|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[27]/D
+CODEX_PATH|189|-0.826|17.399|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[9]/D
+CODEX_PATH|190|-0.819|17.393|20|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[18]/D
+CODEX_PATH|191|-0.818|17.355|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[18]/D
+CODEX_PATH|192|-0.803|17.377|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[7]/D
+CODEX_PATH|193|-0.792|17.368|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[28]/D
+CODEX_PATH|194|-0.773|17.310|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[21]/D
+CODEX_PATH|195|-0.758|17.294|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[20]/D
+CODEX_PATH|196|-0.743|17.316|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[5]/D
+CODEX_PATH|197|-0.741|17.315|21|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep__0/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_q_reg[22]/D
+CODEX_PATH|198|-0.685|17.216|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[29]/D
+CODEX_PATH|199|-0.649|17.219|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[30]/D
+CODEX_PATH|200|-0.582|17.117|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[26]/D
+CODEX_PATH|201|-0.568|17.140|22|clk_out2_design_1_clk_wiz_0_0|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/mac_index_reg[1]_rep/C|design_1_i/ddc_stage1_pl2_top_0/inst/u_ddc_stage1/u_fir_decimator_iq_2/out_i_reg[31]/D
+# report_timing -delay_type max \
+#     -slack_lesser_than 0.0 \
+#     -max_paths 300 \
+#     -nworst 1 \
+#     -sort_by group \
+#     -path_type full_clock_expanded \
+#     -file $detail_report
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 300 -nworst 1 -delay_type max -sort_by group.
+# close_project
+# exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 25 17:30:59 2026...

@@ -1,0 +1,69 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 17:28:51 2026
+# Process ID: 37124
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -mode batch -source F:\Vivado\2023\main\FPGA--main\analyze_external_timing_violations.tcl -log F:\Vivado\2023_pl_new\2023_step2_by_ygw\analyze_timing_violations.log -journal F:\Vivado\2023_pl_new\2023_step2_by_ygw\analyze_timing_violations.jou
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/analyze_timing_violations.log
+# Journal file: F:\Vivado\2023_pl_new\2023_step2_by_ygw\analyze_timing_violations.jou
+#-----------------------------------------------------------
+source {F:\Vivado\2023\main\FPGA--main\analyze_external_timing_violations.tcl}
+# set project_file {F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.xpr}
+# set detail_report {F:/Vivado/2023_pl_new/2023_step2_by_ygw/all_failing_setup_paths.rpt}
+# open_project $project_file
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinks/Vivado/2018.3/data/ip'.
+# open_run impl_1
+INFO: [Netlist 29-17] Analyzing 2894 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'design_1_i/clk_wiz_0/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1542.859 ; gain = 15.613
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1542.859 ; gain = 15.613
+Generating merged BMM file for the design top 'design_1_wrapper'...
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1547.062 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 313 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 276 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 37 instances
+
+open_run: Time (s): cpu = 00:00:13 ; elapsed = 00:00:26 . Memory (MB): peak = 1547.062 ; gain = 1127.723
+# set failing_paths [get_timing_paths -quiet \
+#     -delay_type max \
+#     -slack_lesser_than 0.0 \
+#     -max_paths 1000 \
+#     -nworst 1000]
+# puts "CODEX_FAILING_PATH_COUNT [llength $failing_paths]"
+CODEX_FAILING_PATH_COUNT 1000
+# if {[llength $failing_paths] > 0} {
+#     puts "CODEX_PATH_PROPERTIES [list_property [lindex $failing_paths 0]]"
+# }
+CODEX_PATH_PROPERTIES ARRIVAL_TIME CLASS CLOCK_PESSIMISM CORNER DATAPATH_DELAY DATAPATH_LOGIC_DELAY DATAPATH_NET_DELAY DELAY_TYPE ENDPOINT_CLOCK ENDPOINT_CLOCK_DELAY ENDPOINT_CLOCK_EDGE ENDPOINT_CLOCK_ROOT ENDPOINT_PIN EXCEPTION GROUP INPUT_DELAY INTER_SLR_COMPENSATION LOGIC_LEVELS MAX_FANOUT NAME OUTPUT_DELAY REQUIRED_TIME REQUIREMENT ROUTABLE_NETS SKEW SLACK STARTPOINT_CLOCK STARTPOINT_CLOCK_DELAY STARTPOINT_CLOCK_EDGE STARTPOINT_CLOCK_ROOT STARTPOINT_PIN UNCERTAINTY USER_UNCERTAINTY
+# set index 0
+# foreach path $failing_paths {
+#     incr index
+#     set slack [get_property SLACK $path]
+#     set start_pin [get_property STARTPOINT_PIN $path]
+#     set end_pin [get_property ENDPOINT_PIN $path]
+#     set path_group [get_property PATH_GROUP $path]
+#     set delay [get_property DATAPATH_DELAY $path]
+#     set levels [get_property LOGIC_LEVELS $path]
+#     puts "CODEX_PATH|$index|$slack|$delay|$levels|$path_group|$start_pin|$end_pin"
+# }
+ERROR: [Common 17-54] The object 'timing_path' does not have a property 'PATH_GROUP'.
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 25 17:29:36 2026...

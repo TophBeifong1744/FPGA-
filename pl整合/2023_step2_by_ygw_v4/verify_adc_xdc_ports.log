@@ -1,0 +1,133 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 18:24:53 2026
+# Process ID: 73868
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -mode batch -source F:\Vivado\2023\main\FPGA--main\verify_adc_xdc_ports.tcl -log F:\Vivado\2023_pl_new\2023_step2_by_ygw\verify_adc_xdc_ports.log -journal F:\Vivado\2023_pl_new\2023_step2_by_ygw\verify_adc_xdc_ports.jou
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/verify_adc_xdc_ports.log
+# Journal file: F:\Vivado\2023_pl_new\2023_step2_by_ygw\verify_adc_xdc_ports.jou
+#-----------------------------------------------------------
+source {F:\Vivado\2023\main\FPGA--main\verify_adc_xdc_ports.tcl}
+# open_project {F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinks/Vivado/2018.3/data/ip'.
+# open_run synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7z020clg400-2
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ad9226_stage1_driver_0_0/design_1_ad9226_stage1_driver_0_0.dcp' for cell 'design_1_i/ad9226_stage1_driver_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/design_1_axi_bram_ctrl_0_0.dcp' for cell 'design_1_i/axi_bram_ctrl_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/design_1_axi_smc_1.dcp' for cell 'design_1_i/axi_smc'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_0/design_1_blk_mem_gen_0_0.dcp' for cell 'design_1_i/blk_mem_gen_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.dcp' for cell 'design_1_i/clk_wiz_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ddc_stage1_pl2_top_0_0/design_1_ddc_stage1_pl2_top_0_0.dcp' for cell 'design_1_i/ddc_stage1_pl2_top_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/design_1_demod_pool_core_bpsk_0_0.dcp' for cell 'design_1_i/demod_pool_core_bpsk_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_feature_bram_writer_0_0/design_1_feature_bram_writer_0_0.dcp' for cell 'design_1_i/feature_bram_writer_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ila_bpsk_0_0/design_1_ila_bpsk_0_0.dcp' for cell 'design_1_i/ila_bpsk_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.dcp' for cell 'design_1_i/processing_system7_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1.dcp' for cell 'design_1_i/rst_ps7_0_60M'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1.dcp' for cell 'design_1_i/rst_sample_60M'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.dcp' for cell 'design_1_i/util_vector_logic_0'
+INFO: [Project 1-454] Reading design checkpoint 'f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_util_vector_logic_0_1/design_1_util_vector_logic_0_1.dcp' for cell 'design_1_i/util_vector_logic_1'
+INFO: [Netlist 29-17] Analyzing 2931 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. design_1_i/clk_wiz_0/inst/clkin1_ibufg 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Constraints 18-550] Could not create 'IBUF_LOW_PWR' constraint because net 'design_1_i/clk_wiz_0/clk_in1' is not directly connected to top level port. Synthesis is ignored for IBUF_LOW_PWR but preserved for implementation.
+INFO: [Chipscope 16-324] Core: design_1_i/ila_bpsk_0 UUID: 9b5b8d06-65a9-5bae-9180-38ba20404ea8 
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+WARNING: [Vivado 12-2489] -input_jitter contains time 0.499980 which will be rounded to 0.500 to ensure it is an integer multiple of 1 picosecond [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc:21]
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xdc] for cell 'design_1_i/processing_system7_0/inst'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1_board.xdc] for cell 'design_1_i/rst_ps7_0_60M/U0'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1_board.xdc] for cell 'design_1_i/rst_ps7_0_60M/U0'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1.xdc] for cell 'design_1_i/rst_ps7_0_60M/U0'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_rst_ps7_0_100M_1/design_1_rst_ps7_0_100M_1.xdc] for cell 'design_1_i/rst_ps7_0_60M/U0'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_1/bd_6f02_psr_aclk_0_board.xdc] for cell 'design_1_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_1/bd_6f02_psr_aclk_0_board.xdc] for cell 'design_1_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_1/bd_6f02_psr_aclk_0.xdc] for cell 'design_1_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_1/bd_6f02_psr_aclk_0.xdc] for cell 'design_1_i/axi_smc/inst/clk_map/psr_aclk/U0'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_board.xdc] for cell 'design_1_i/clk_wiz_0/inst'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_board.xdc] for cell 'design_1_i/clk_wiz_0/inst'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc] for cell 'design_1_i/clk_wiz_0/inst'
+INFO: [Timing 38-35] Done setting XDC timing constraints. [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc:57]
+INFO: [Timing 38-2] Deriving generated clocks [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc:57]
+get_clocks: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1501.582 ; gain = 596.359
+WARNING: [Vivado 12-2489] -input_jitter contains time 0.166660 which will be rounded to 0.167 to ensure it is an integer multiple of 1 picosecond [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc:57]
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xdc] for cell 'design_1_i/clk_wiz_0/inst'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1_board.xdc] for cell 'design_1_i/rst_sample_60M/U0'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1_board.xdc] for cell 'design_1_i/rst_sample_60M/U0'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1.xdc] for cell 'design_1_i/rst_sample_60M/U0'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_1/design_1_proc_sys_reset_0_1.xdc] for cell 'design_1_i/rst_sample_60M/U0'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ila_bpsk_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_1_i/ila_bpsk_0/inst'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ila_bpsk_0_0/ila_v6_2/constraints/ila_impl.xdc] for cell 'design_1_i/ila_bpsk_0/inst'
+Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ila_bpsk_0_0/ila_v6_2/constraints/ila.xdc] for cell 'design_1_i/ila_bpsk_0/inst'
+Finished Parsing XDC File [f:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ila_bpsk_0_0/ila_v6_2/constraints/ila.xdc] for cell 'design_1_i/ila_bpsk_0/inst'
+Parsing XDC File [F:/Vivado/ad9226_60m_io.xdc]
+Finished Parsing XDC File [F:/Vivado/ad9226_60m_io.xdc]
+Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_ar_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_aw_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_b_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_r_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+Finished Sourcing Tcl File [D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/tcl/xpm_memory_xdc.tcl] for cell 'design_1_i/axi_smc/inst/s00_nodes/s00_w_node/inst/inst_mi_handler/gen_normal_area.inst_fifo_node_payld/gen_xpm_memory_fifo.inst_fifo/gen_mem_rep[0].inst_xpm_memory'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Generating merged BMM file for the design top 'design_1_wrapper'...
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1592.906 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 362 instances were transformed.
+  CFGLUT5 => CFGLUT5 (SRLC32E, SRL16E): 276 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 86 instances
+
+open_run: Time (s): cpu = 00:00:16 ; elapsed = 00:00:29 . Memory (MB): peak = 1592.906 ; gain = 1171.969
+# set data_ports [get_ports -quiet {ad_data_in_0[*]}]
+# set otr_ports [get_ports -quiet ad_otr_in_0]
+# set old_data_ports [get_ports -quiet {adc_db_0[*]}]
+# set old_otr_ports [get_ports -quiet adc_otr_0]
+# puts "RESULT data_port_count=[llength $data_ports]"
+RESULT data_port_count=12
+# puts "RESULT otr_port_count=[llength $otr_ports]"
+RESULT otr_port_count=1
+# puts "RESULT old_data_port_count=[llength $old_data_ports]"
+RESULT old_data_port_count=0
+# puts "RESULT old_otr_port_count=[llength $old_otr_ports]"
+RESULT old_otr_port_count=0
+# foreach port [lsort -dictionary $data_ports] {
+#     puts "RESULT port=$port pin=[get_property PACKAGE_PIN $port] iostandard=[get_property IOSTANDARD $port]"
+# }
+RESULT port=ad_data_in_0[0] pin=Y6 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[1] pin=W6 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[2] pin=V6 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[3] pin=U10 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[4] pin=T9 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[5] pin=U9 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[6] pin=U8 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[7] pin=W8 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[8] pin=V8 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[9] pin=V7 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[10] pin=U7 iostandard=LVCMOS33
+RESULT port=ad_data_in_0[11] pin=U5 iostandard=LVCMOS33
+# puts "RESULT port=$otr_ports pin=[get_property PACKAGE_PIN $otr_ports] iostandard=[get_property IOSTANDARD $otr_ports]"
+RESULT port=ad_otr_in_0 pin=T5 iostandard=LVCMOS33
+# puts "RESULT adc_clk_fwd_count=[llength [get_clocks -quiet adc_clk_fwd]]"
+RESULT adc_clk_fwd_count=1
+# if {[llength $data_ports] != 12} { error "Expected 12 ADC data ports" }
+# if {[llength $otr_ports] != 1} { error "Expected one ADC OTR port" }
+# if {[llength $old_data_ports] != 0 || [llength $old_otr_ports] != 0} {
+#     error "Obsolete ADC port names unexpectedly exist"
+# }
+# if {[llength [get_clocks -quiet adc_clk_fwd]] != 1} {
+#     error "Forwarded ADC clock constraint was not created"
+# }
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 25 18:25:32 2026...

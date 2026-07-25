@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 18:04:21 2026
+# Process ID: 58208
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -mode batch -source F:\Vivado\2023\main\FPGA--main\run_costas_pipeline_impl.tcl -log F:\Vivado\2023_pl_new\2023_step2_by_ygw\run_costas_pipeline_impl.log -journal F:\Vivado\2023_pl_new\2023_step2_by_ygw\run_costas_pipeline_impl.jou
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/run_costas_pipeline_impl.log
+# Journal file: F:\Vivado\2023_pl_new\2023_step2_by_ygw\run_costas_pipeline_impl.jou
+#-----------------------------------------------------------
+source {F:\Vivado\2023\main\FPGA--main\run_costas_pipeline_impl.tcl}

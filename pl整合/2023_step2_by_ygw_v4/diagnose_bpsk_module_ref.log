@@ -1,0 +1,50 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 18:12:13 2026
+# Process ID: 66584
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -mode batch -source F:\Vivado\2023\main\FPGA--main\diagnose_bpsk_module_ref.tcl -log F:\Vivado\2023_pl_new\2023_step2_by_ygw\diagnose_bpsk_module_ref.log -journal F:\Vivado\2023_pl_new\2023_step2_by_ygw\diagnose_bpsk_module_ref.jou
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/diagnose_bpsk_module_ref.log
+# Journal file: F:\Vivado\2023_pl_new\2023_step2_by_ygw\diagnose_bpsk_module_ref.jou
+#-----------------------------------------------------------
+source {F:\Vivado\2023\main\FPGA--main\diagnose_bpsk_module_ref.tcl}
+# open_project {F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinks/Vivado/2018.3/data/ip'.
+# update_compile_order -fileset sources_1
+# puts "RTL_FILES=[get_files -all -filter {NAME =~ *demod_pool_core_bpsk.v}]"
+RTL_FILES=F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core_bpsk.v
+# puts "MODULES=[get_filesets -quiet demod_pool_core_bpsk]"
+MODULES=
+# open_bd_design {F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/design_1.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:axi_bram_ctrl:4.1 - axi_bram_ctrl_0
+Adding cell -- xilinx.com:ip:blk_mem_gen:8.4 - blk_mem_gen_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_60M
+Adding cell -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_0
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_1
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding cell -- xilinx.com:ip:util_vector_logic:2.0 - util_vector_logic_0
+Adding cell -- xilinx.com:ip:util_vector_logic:2.0 - util_vector_logic_1
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_sample_60M
+Adding cell -- xilinx.com:module_ref:feature_bram_writer:1.0 - feature_bram_writer_0
+Adding cell -- xilinx.com:module_ref:ddc_stage1_pl2_top:1.0 - ddc_stage1_pl2_top_0
+Adding cell -- xilinx.com:module_ref:ad9226_stage1_driver:1.0 - ad9226_stage1_driver_0
+Adding cell -- xilinx.com:module_ref:demod_pool_core_bpsk:1.0 - demod_pool_core_bpsk_0
+Adding cell -- xilinx.com:ip:ila:6.2 - ila_bpsk_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_bpsk_0: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+Successfully read diagram <design_1> from BD file <F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/design_1.bd>
+# puts "BD_CELL=[get_bd_cells -quiet demod_pool_core_bpsk_0]"
+BD_CELL=/demod_pool_core_bpsk_0
+# puts "BD_VLNV=[get_property -quiet VLNV [get_bd_cells -quiet demod_pool_core_bpsk_0]]"
+BD_VLNV=xilinx.com:module_ref:demod_pool_core_bpsk:1.0
+# puts "BD_REF=[get_property -quiet CONFIG.Component_Name [get_bd_cells -quiet demod_pool_core_bpsk_0]]"
+BD_REF=design_1_demod_pool_core_bpsk_0_0
+# close_project
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 25 18:12:25 2026...
