@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 16:22:47 2026
+# Process ID: 31704
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent23896 F:\Vivado\2023_pl_new\2023_step2_by_ygw\2023_step2_by_ygw.xpr
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/vivado.log
+# Journal file: F:/Vivado/2023_pl_new/2023_step2_by_ygw\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.xpr
+open_bd_design {F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/design_1.bd}
+update_compile_order -fileset sources_1
+delete_bd_objs [get_bd_nets processing_system7_0_FCLK_CLK0]
+connect_bd_net [get_bd_pins demod_pool_core_bpsk_0/aclk] [get_bd_pins clk_wiz_0/clk_out2]
+delete_bd_objs [get_bd_nets rst_ps7_0_100M_peripheral_aresetn]
+connect_bd_net [get_bd_pins demod_pool_core_bpsk_0/aresetn] [get_bd_pins rst_sample_60M/peripheral_aresetn]
+connect_bd_net [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins clk_wiz_0/clk_in1]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (60 MHz)" }  [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config {Clk "/processing_system7_0/FCLK_CLK0 (60 MHz)" }  [get_bd_pins axi_bram_ctrl_0/s_axi_aclk]
+endgroup
+save_bd_design
+close_bd_design [get_bd_designs design_1]

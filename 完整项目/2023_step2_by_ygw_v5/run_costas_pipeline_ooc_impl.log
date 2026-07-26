@@ -1,0 +1,28 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jul 25 18:10:20 2026
+# Process ID: 66796
+# Current directory: F:/Vivado/2023_pl_new/2023_step2_by_ygw
+# Command line: vivado.exe -mode batch -source F:\Vivado\2023\main\FPGA--main\run_costas_pipeline_ooc_impl_v2.tcl -log F:\Vivado\2023_pl_new\2023_step2_by_ygw\run_costas_pipeline_ooc_impl.log -journal F:\Vivado\2023_pl_new\2023_step2_by_ygw\run_costas_pipeline_ooc_impl.jou
+# Log file: F:/Vivado/2023_pl_new/2023_step2_by_ygw/run_costas_pipeline_ooc_impl.log
+# Journal file: F:\Vivado\2023_pl_new\2023_step2_by_ygw\run_costas_pipeline_ooc_impl.jou
+#-----------------------------------------------------------
+source {F:\Vivado\2023\main\FPGA--main\run_costas_pipeline_ooc_impl_v2.tcl}
+# set project_dir {F:/Vivado/2023_pl_new/2023_step2_by_ygw}
+# set project_file [file join $project_dir 2023_step2_by_ygw.xpr]
+# set ooc_run design_1_demod_pool_core_bpsk_0_0_synth_1
+# set report_file [file join $project_dir timing_after_costas_pipeline.rpt]
+# set paths_file [file join $project_dir failing_paths_after_costas_pipeline.rpt]
+# open_project $project_file
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinks/Vivado/2018.3/data/ip'.
+# reset_run $ooc_run
+# launch_runs $ooc_run -jobs 8
+ERROR: [filemgmt 56-189] Failed to resolve reference. Nothing was found in the project to match the name 'demod_pool_core_bpsk'.
+ERROR: [Runs 36-346] File 'F:/Vivado/2023_pl_new/2023_step2_by_ygw/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/design_1_demod_pool_core_bpsk_0_0.xci' needed for run contains invalid reference(s).
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 25 18:10:28 2026...

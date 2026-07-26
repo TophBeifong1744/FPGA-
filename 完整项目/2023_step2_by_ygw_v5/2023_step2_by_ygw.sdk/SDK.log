@@ -1,0 +1,6 @@
+15:42:09 INFO  : Registering command handlers for SDK TCF services
+15:42:09 INFO  : Launching XSCT server: xsct.bat -interactive F:\College\verilog_digital_system\Xilinx\2023_step2_by_ygw_v5\2023_step2_by_ygw.sdk\temp_xsdb_launch_script.tcl
+15:42:11 INFO  : XSCT server has started successfully.
+15:42:11 INFO  : Successfully done setting XSCT server connection channel  
+15:42:11 INFO  : Successfully done setting SDK workspace  
+15:42:11 INFO  : Processing command line option -hwspec F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.sdk/design_1_wrapper.hdf.

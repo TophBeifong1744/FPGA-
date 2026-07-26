@@ -1,0 +1,52 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Jul 26 11:27:00 2026
+# Process ID: 135244
+# Current directory: F:/Vivado/2023_step2_by_ygw_v4
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent133812 F:\Vivado\2023_step2_by_ygw_v4\2023_step2_by_ygw.xpr
+# Log file: F:/Vivado/2023_step2_by_ygw_v4/vivado.log
+# Journal file: F:/Vivado/2023_step2_by_ygw_v4\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project F:/Vivado/2023_step2_by_ygw_v4/2023_step2_by_ygw.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xlinks/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 964.641 ; gain = 285.664
+update_compile_order -fileset sources_1
+open_bd_design {F:/Vivado/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/design_1.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:ip:axi_bram_ctrl:4.1 - axi_bram_ctrl_0
+Adding cell -- xilinx.com:ip:blk_mem_gen:8.4 - blk_mem_gen_0
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_60M
+Adding cell -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_0
+Adding cell -- xilinx.com:ip:xlconstant:1.1 - xlconstant_1
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding cell -- xilinx.com:ip:util_vector_logic:2.0 - util_vector_logic_0
+Adding cell -- xilinx.com:ip:util_vector_logic:2.0 - util_vector_logic_1
+Adding cell -- xilinx.com:ip:proc_sys_reset:5.0 - rst_sample_60M
+Adding cell -- xilinx.com:module_ref:feature_bram_writer:1.0 - feature_bram_writer_0
+Adding cell -- xilinx.com:module_ref:ddc_stage1_pl2_top:1.0 - ddc_stage1_pl2_top_0
+Adding cell -- xilinx.com:ip:ila:6.2 - ila_bpsk_0
+INFO: [xilinx.com:ip:ila:6.2-6] /ila_bpsk_0: Xilinx recommends using the System ILA IP in IP Integrator. The System ILA IP is functionally equivalent to an ILA and offers additional benefits in debugging interfaces both within IP Integrator and the Hardware Manager. Consult the Programming and Debug User Guide UG908 for further details.
+Adding cell -- xilinx.com:module_ref:dac904_driver:1.0 - dac904_driver_0
+Adding cell -- xilinx.com:module_ref:ad9226_stage1_driver:1.0 - ad9226_stage1_driver_0
+Adding cell -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_mux
+Adding cell -- xilinx.com:module_ref:smart_mux_stream:1.0 - smart_mux_stream_0
+Adding cell -- xilinx.com:ip:axi_vdma:6.3 - axi_vdma_0
+Adding cell -- xilinx.com:ip:smartconnect:1.0 - axi_smc_vdma_hp0
+Adding cell -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_lcd
+Adding cell -- xilinx.com:ip:v_tc:6.1 - v_tc_0
+Adding cell -- xilinx.com:ip:v_axi4s_vid_out:4.0 - v_axi4s_vid_out_0
+Adding cell -- xilinx.com:module_ref:demod_pool_core_bpsk:1.0 - demod_pool_core_bpsk_0
+Successfully read diagram <design_1> from BD file <F:/Vivado/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/design_1.bd>
+regenerate_bd_layout
+close_bd_design [get_bd_designs design_1]
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 11:29:09 2026...

@@ -1,0 +1,533 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Jul 26 00:44:26 2026
+# Process ID: 32200
+# Current directory: C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_ddc_stage1_pl2_top_0_0_synth_1
+# Command line: vivado.exe -log design_1_ddc_stage1_pl2_top_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_ddc_stage1_pl2_top_0_0.tcl
+# Log file: C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_ddc_stage1_pl2_top_0_0_synth_1/design_1_ddc_stage1_pl2_top_0_0.vds
+# Journal file: C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_ddc_stage1_pl2_top_0_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source design_1_ddc_stage1_pl2_top_0_0.tcl -notrace
+Command: synth_design -top design_1_ddc_stage1_pl2_top_0_0 -part xc7z020clg400-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 8168 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 476.594 ; gain = 106.887
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'design_1_ddc_stage1_pl2_top_0_0' [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ddc_stage1_pl2_top_0_0/synth/design_1_ddc_stage1_pl2_top_0_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'ddc_stage1_pl2_top' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_pl2_top.v:30]
+	Parameter SCALE_SHIFT bound to: 11 - type: integer 
+	Parameter FIFO_ADDR_W bound to: 4 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_pl2_top.v:57]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_pl2_top.v:58]
+INFO: [Synth 8-5534] Detected attribute (* mark_debug = "true" *) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_pl2_top.v:59]
+INFO: [Synth 8-6157] synthesizing module 'ddc_stage1_top' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'dds_2mhz_wrapper' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/dds_2mhz_wrapper.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'dds_2mhz_wrapper' (1#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/dds_2mhz_wrapper.v:23]
+INFO: [Synth 8-6157] synthesizing module 'iq_mixer' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/iq_mixer.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'iq_mixer' (2#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/iq_mixer.v:24]
+INFO: [Synth 8-6157] synthesizing module 'cic_decimator_iq_30' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/cic_decimator_iq_30.v:38]
+	Parameter INPUT_WIDTH bound to: 30 - type: integer 
+	Parameter ACC_WIDTH bound to: 45 - type: integer 
+	Parameter DECIMATION bound to: 30 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cic_decimator_iq_30' (3#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/cic_decimator_iq_30.v:38]
+INFO: [Synth 8-6157] synthesizing module 'fir_decimator_iq_2' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/fir_decimator_iq_2.v:37]
+	Parameter TAPS bound to: 25 - type: integer 
+	Parameter COEFF_SHIFT bound to: 17 - type: integer 
+	Parameter CIC_GAIN_SHIFT bound to: 15 - type: integer 
+INFO: [Synth 8-5534] Detected attribute (* use_dsp = "yes" *) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/fir_decimator_iq_2.v:131]
+INFO: [Synth 8-5534] Detected attribute (* use_dsp = "yes" *) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/fir_decimator_iq_2.v:133]
+INFO: [Synth 8-6155] done synthesizing module 'fir_decimator_iq_2' (4#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/fir_decimator_iq_2.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'ddc_stage1_top' (5#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'stage1_to_pl2_adapter' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/stage1_to_pl2_adapter.v:26]
+	Parameter SCALE_SHIFT bound to: 11 - type: integer 
+	Parameter FIFO_ADDR_W bound to: 4 - type: integer 
+	Parameter FIFO_DEPTH bound to: 16 - type: integer 
+	Parameter HALF_LSB bound to: 33'b000000000000000000000010000000000 
+INFO: [Synth 8-6155] done synthesizing module 'stage1_to_pl2_adapter' (6#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/stage1_to_pl2_adapter.v:26]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'u_ddc_stage1'. This will prevent further optimization [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_pl2_top.v:65]
+INFO: [Synth 8-6155] done synthesizing module 'ddc_stage1_pl2_top' (7#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/ddc_stage1_pl2_top.v:30]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_ddc_stage1_pl2_top_0_0' (8#1) [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_ddc_stage1_pl2_top_0_0/synth/design_1_ddc_stage1_pl2_top_0_0.v:58]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 532.398 ; gain = 162.691
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 532.398 ; gain = 162.691
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 532.398 ; gain = 162.691
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg400-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 887.867 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 887.867 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 891.359 ; gain = 3.492
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 891.359 ; gain = 521.652
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 891.359 ; gain = 521.652
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 891.359 ; gain = 521.652
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "comb1_delay_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mac_busy" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/stage1_to_pl2_adapter.v:133]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 891.359 ; gain = 521.652
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     55 Bit       Adders := 2     
+	   3 Input     45 Bit       Adders := 2     
+	   4 Input     45 Bit       Adders := 2     
+	   5 Input     45 Bit       Adders := 2     
+	   2 Input     33 Bit       Adders := 6     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 3     
++---Registers : 
+	               55 Bit    Registers := 2     
+	               45 Bit    Registers := 8     
+	               32 Bit    Registers := 2     
+	               30 Bit    Registers := 50    
+	               16 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
++---Multipliers : 
+	                16x30  Multipliers := 2     
++---RAMs : 
+	              512 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     55 Bit        Muxes := 10    
+	   2 Input     33 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 6     
+	   2 Input     16 Bit        Muxes := 4     
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 6     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 17    
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module dds_2mhz_wrapper 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               16 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 1     
+Module iq_mixer 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module cic_decimator_iq_30 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     45 Bit       Adders := 2     
+	   4 Input     45 Bit       Adders := 2     
+	   5 Input     45 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               45 Bit    Registers := 8     
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      6 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module fir_decimator_iq_2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     55 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               55 Bit    Registers := 2     
+	               32 Bit    Registers := 2     
+	               30 Bit    Registers := 50    
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
++---Multipliers : 
+	                16x30  Multipliers := 2     
++---Muxes : 
+	   2 Input     55 Bit        Muxes := 10    
+	   2 Input     32 Bit        Muxes := 6     
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 14    
+Module stage1_to_pl2_adapter 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     33 Bit       Adders := 6     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 3     
++---Registers : 
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
++---RAMs : 
+	              512 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     33 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 4     
+	   4 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "comb1_delay_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_valid" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "mac_busy" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "out_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/fir_decimator_iq_2.v:141]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/fir_decimator_iq_2.v:143]
+DSP Report: Generating DSP mac_product_i, operation Mode is: A*B.
+DSP Report: operator mac_product_i is absorbed into DSP mac_product_i.
+DSP Report: operator mac_product_i is absorbed into DSP mac_product_i.
+DSP Report: Generating DSP mac_product_i, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mac_product_i is absorbed into DSP mac_product_i.
+DSP Report: operator mac_product_i is absorbed into DSP mac_product_i.
+DSP Report: Generating DSP mac_product_q, operation Mode is: A*B.
+DSP Report: operator mac_product_q is absorbed into DSP mac_product_q.
+DSP Report: operator mac_product_q is absorbed into DSP mac_product_q.
+DSP Report: Generating DSP mac_product_q, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mac_product_q is absorbed into DSP mac_product_q.
+DSP Report: operator mac_product_q is absorbed into DSP mac_product_q.
+DSP Report: Generating DSP u_iq_mixer/mix_i_reg, operation Mode is: (A2*B)'.
+DSP Report: register u_dds_2mhz_wrapper/lo_cos_reg is absorbed into DSP u_iq_mixer/mix_i_reg.
+DSP Report: register u_iq_mixer/mix_i_reg is absorbed into DSP u_iq_mixer/mix_i_reg.
+DSP Report: operator u_iq_mixer/mix_i0 is absorbed into DSP u_iq_mixer/mix_i_reg.
+DSP Report: Generating DSP u_iq_mixer/mix_q_reg, operation Mode is: (A2*B)'.
+DSP Report: register u_dds_2mhz_wrapper/lo_neg_sin_reg is absorbed into DSP u_iq_mixer/mix_q_reg.
+DSP Report: register u_iq_mixer/mix_q_reg is absorbed into DSP u_iq_mixer/mix_q_reg.
+DSP Report: operator u_iq_mixer/mix_q0 is absorbed into DSP u_iq_mixer/mix_q_reg.
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[14]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[13]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[12]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[11]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[10]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[9]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[8]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[7]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[6]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[5]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[4]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[3]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[2]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[1]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_i[0]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[14]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[13]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[12]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[11]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[10]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[9]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[8]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[7]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[6]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[5]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[4]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[3]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[2]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[1]
+WARNING: [Synth 8-3331] design fir_decimator_iq_2 has unconnected port in_q[0]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 891.359 ; gain = 521.652
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++-------------------+-------------------------------+---------------+----------------+
+|Module Name        | RTL Object                    | Depth x Width | Implemented As | 
++-------------------+-------------------------------+---------------+----------------+
+|dds_2mhz_wrapper   | lo_cos                        | 32x16         | LUT            | 
+|dds_2mhz_wrapper   | lo_neg_sin                    | 32x16         | LUT            | 
+|fir_decimator_iq_2 | fir_coeff                     | 32x16         | LUT            | 
+|fir_decimator_iq_2 | fir_coeff                     | 32x16         | LUT            | 
+|ddc_stage1_top     | u_dds_2mhz_wrapper/lo_cos     | 32x16         | LUT            | 
+|ddc_stage1_top     | u_dds_2mhz_wrapper/lo_neg_sin | 32x16         | LUT            | 
++-------------------+-------------------------------+---------------+----------------+
+
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++--------------------------------+-------------------------------------------+-----------+----------------------+--------------+
+|Module Name                     | RTL Object                                | Inference | Size (Depth x Width) | Primitives   | 
++--------------------------------+-------------------------------------------+-----------+----------------------+--------------+
+|design_1_ddc_stage1_pl2_top_0_0 | inst/u_stage1_to_pl2_adapter/fifo_mem_reg | Implied   | 16 x 32              | RAM32M x 6   | 
++--------------------------------+-------------------------------------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping  Report (see note below)
++-------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name        | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++-------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fir_decimator_iq_2 | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_decimator_iq_2 | (PCIN>>17)+A*B | 16     | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_decimator_iq_2 | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|fir_decimator_iq_2 | (PCIN>>17)+A*B | 16     | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|ddc_stage1_top     | (A2*B)'        | 16     | 14     | -      | -      | 30     | 1    | 0    | -    | -    | -     | 1    | 0    | 
+|ddc_stage1_top     | (A2*B)'        | 16     | 14     | -      | -      | 30     | 1    | 0    | -    | -    | -     | 1    | 0    | 
++-------------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 939.789 ; gain = 570.082
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 943.746 ; gain = 574.039
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping  Report
++--------------------------------+-------------------------------------------+-----------+----------------------+--------------+
+|Module Name                     | RTL Object                                | Inference | Size (Depth x Width) | Primitives   | 
++--------------------------------+-------------------------------------------+-----------+----------------------+--------------+
+|design_1_ddc_stage1_pl2_top_0_0 | inst/u_stage1_to_pl2_adapter/fifo_mem_reg | Implied   | 16 x 32              | RAM32M x 6   | 
++--------------------------------+-------------------------------------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'inst/u_stage1_to_pl2_adapter/read_ptr_reg_rep[3]' (FDRE) to 'inst/u_stage1_to_pl2_adapter/read_ptr_reg[3]'
+INFO: [Synth 8-3886] merging instance 'inst/u_stage1_to_pl2_adapter/read_ptr_reg_rep[2]' (FDRE) to 'inst/u_stage1_to_pl2_adapter/read_ptr_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/u_stage1_to_pl2_adapter/read_ptr_reg_rep[0]' (FDRE) to 'inst/u_stage1_to_pl2_adapter/read_ptr_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/u_stage1_to_pl2_adapter/read_ptr_reg_rep[1]' (FDRE) to 'inst/u_stage1_to_pl2_adapter/read_ptr_reg[1]'
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |   240|
+|2     |DSP48E1   |     4|
+|3     |DSP48E1_2 |     2|
+|4     |LUT1      |   156|
+|5     |LUT2      |   544|
+|6     |LUT3      |   326|
+|7     |LUT4      |    98|
+|8     |LUT5      |   406|
+|9     |LUT6      |   557|
+|10    |MUXF7     |   120|
+|11    |MUXF8     |    60|
+|12    |RAM32M    |     6|
+|13    |FDRE      |  2317|
++------+----------+------+
+
+Report Instance Areas: 
++------+----------------------------+----------------------+------+
+|      |Instance                    |Module                |Cells |
++------+----------------------------+----------------------+------+
+|1     |top                         |                      |  4836|
+|2     |  inst                      |ddc_stage1_pl2_top    |  4836|
+|3     |    u_ddc_stage1            |ddc_stage1_top        |  4505|
+|4     |      u_cic_decimator_iq_30 |cic_decimator_iq_30   |  1616|
+|5     |      u_dds_2mhz_wrapper    |dds_2mhz_wrapper      |    44|
+|6     |      u_fir_decimator_iq_2  |fir_decimator_iq_2    |  2647|
+|7     |      u_iq_mixer            |iq_mixer              |   116|
+|8     |    u_stage1_to_pl2_adapter |stage1_to_pl2_adapter |   331|
++------+----------------------------+----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 30 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 980.004 ; gain = 251.336
+Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 980.004 ; gain = 610.297
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 432 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 980.004 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 6 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 6 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+48 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 980.004 ; gain = 623.770
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 980.004 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_ddc_stage1_pl2_top_0_0_synth_1/design_1_ddc_stage1_pl2_top_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1174] Renamed 7 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 980.004 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_ddc_stage1_pl2_top_0_0_synth_1/design_1_ddc_stage1_pl2_top_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_ddc_stage1_pl2_top_0_0_utilization_synth.rpt -pb design_1_ddc_stage1_pl2_top_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 00:45:17 2026...
