@@ -1,7 +1,7 @@
 /*
  * dsp_algorithms.h
  *
- *  Created on: 2026Äê6ÔÂ18ÈÕ
+ *  Created on: 2026å¹´6æœˆ18æ—¥
  *      Author: Administrator
  */
 
@@ -9,27 +9,39 @@
 #define SRC_DSP_ALGORITHMS_H_
 
 #define BUFFER_SIZE 2048
-#define SAMPLE_RATE 1000000.0
-#define PI 3.14159265358979323846
-#define RATE_6K  6000.0
-#define RATE_8K  8000.0
-#define RATE_10K 10000.0
+#define SAMPLE_RATE 1000000.0f
+#define PI 3.14159265358979323846f
+#define RATE_6K  6000.0f
+#define RATE_8K  8000.0f
+#define RATE_10K 10000.0f
 
-// [ºËĞÄĞŞ¸Ä 1] ¶¨ÒåÒ»¸öÈ«¾Ö²ÎÊı½á¹¹Ìå£¬ÓÃÀ´³äµ±¡°Ëã·¨¡±ºÍ¡°ÆÁÄ»¡±Ö®¼äµÄÇÅÁº
+/*
+ * The default assumes the PL discriminator emits cycles/sample.  If it emits
+ * radians/sample, override this macro with SAMPLE_RATE / (2 * PI).
+ */
+#ifndef DISCRIMINATOR_HZ_PER_UNIT
+#define DISCRIMINATOR_HZ_PER_UNIT SAMPLE_RATE
+#endif
+
+#ifndef FREQ_SMOOTHING_TAPS
+#define FREQ_SMOOTHING_TAPS 64.0f
+#endif
+
+// [æ ¸å¿ƒä¿®æ”¹ 1] å®šä¹‰ä¸€ä¸ªå…¨å±€å‚æ•°ç»“æ„ä½“ï¼Œç”¨æ¥å……å½“â€œç®—æ³•â€å’Œâ€œå±å¹•â€ä¹‹é—´çš„æ¡¥æ¢
 typedef struct {
-    float Rc;        // ÂëËÙÂÊ (ASK/FSK/PSK)
-    float F;         // µ÷ÖÆÆµÂÊ (AM/FM)
-    float ma;        // µ÷·ùÏµÊı (AM)
-    float delta_f;   // ÆµÆ« (FM/2FSK)
-    float mf;        // µ÷ÆµÏµÊı (FM)
-    float h;         // ÒÆÆµ¼ü¿ØÏµÊı (2FSK)
+    float Rc;        // ç é€Ÿç‡ (ASK/FSK/PSK)
+    float F;         // è°ƒåˆ¶é¢‘ç‡ (AM/FM)
+    float ma;        // è°ƒå¹…ç³»æ•° (AM)
+    float delta_f;   // é¢‘å (FM/2FSK)
+    float mf;        // è°ƒé¢‘ç³»æ•° (FM)
+    float h;         // ç§»é¢‘é”®æ§ç³»æ•° (2FSK)
 } SignalParams;
 
 void remove_dc(float *data, int len);
 float goertzel_mag(float *data, int len, float target_freq, float sample_rate);
 float detect_modulation_freq(float *data, int len);
 
-// [ºËĞÄĞŞ¸Ä 2] ËùÓĞ²ÎÊı¼ÆËãº¯Êı£¬Ôö¼ÓÒ»¸ö SignalParams Ö¸Õë£¬ÓÃÓÚÏòÍâÊä³öÊı¾İ
+// [æ ¸å¿ƒä¿®æ”¹ 2] æ‰€æœ‰å‚æ•°è®¡ç®—å‡½æ•°ï¼Œå¢åŠ ä¸€ä¸ª SignalParams æŒ‡é’ˆï¼Œç”¨äºå‘å¤–è¾“å‡ºæ•°æ®
 void calculate_am_params(float *data, int len, SignalParams *params);
 void calculate_fm_params(float *data, int len, SignalParams *params);
 float calculate_Rc(float *data, int len);

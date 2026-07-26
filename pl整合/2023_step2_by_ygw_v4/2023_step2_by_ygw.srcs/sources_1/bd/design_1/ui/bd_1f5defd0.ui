@@ -38,73 +38,73 @@ preplace inst clk_wiz_0 -pg 1 -lvl 8 -y 790 -defaultsOSRD
 preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -y 630 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 6 -y 1000 -defaultsOSRD
 preplace netloc axi_vdma_0_M_AXI_MM2S 1 4 1 1420
-preplace netloc ad_data_in_0_1 1 0 10 NJ 530 NJ 530 NJ 530 860J 520 1380J 530 NJ 530 NJ 530 NJ 530 NJ 530 3150J
+preplace netloc ad_data_in_0_1 1 0 10 NJ 530 NJ 530 NJ 530 860J 520 1380J 530 NJ 530 NJ 530 NJ 530 NJ 530 3170J
 preplace netloc util_vector_logic_0_Res 1 7 1 NJ
 preplace netloc processing_system7_0_FIXED_IO 1 6 9 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ
-preplace netloc demod_pool_core_bpsk_0_bpsk_bit_valid 1 12 2 4420 450 NJ
-preplace netloc demod_pool_core_bpsk_0_feature_valid 1 12 1 4410
+preplace netloc demod_pool_core_bpsk_0_bpsk_bit_valid 1 12 2 4490 450 NJ
+preplace netloc demod_pool_core_bpsk_0_feature_valid 1 12 1 4480
 preplace netloc axi_smc_M00_AXI 1 3 1 860
 preplace netloc axi_vdma_0_M_AXIS_MM2S 1 4 2 1350 1070 1760J
-preplace netloc ad9226_stage1_driver_0_ad_clk 1 10 5 3470J 540 3820J 770 NJ 770 NJ 770 NJ
-preplace netloc demod_pool_core_bpsk_0_mag_out 1 12 1 4460
+preplace netloc ad9226_stage1_driver_0_ad_clk 1 10 5 3500J 540 3870J 770 NJ 770 NJ 770 NJ
+preplace netloc demod_pool_core_bpsk_0_mag_out 1 12 1 4530
 preplace netloc v_tc_0_vtiming_out 1 5 1 1740
-preplace netloc smart_mux_stream_0_audio_valid 1 13 1 4850
+preplace netloc smart_mux_stream_0_audio_valid 1 13 1 4930
 preplace netloc rst_ps7_0_60M_peripheral_aresetn 1 2 2 NJ 950 890
 preplace netloc processing_system7_0_DDR 1 6 9 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ
 preplace netloc axi_smc_1_M00_AXI 1 5 1 N
-preplace netloc demod_pool_core_bpsk_0_mean_freq_num 1 3 10 930 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 4330
-preplace netloc demod_pool_core_bpsk_0_dphi_out 1 12 1 4450
-preplace netloc ddc_stage1_pl2_top_0_m_i 1 11 1 3870
+preplace netloc demod_pool_core_bpsk_0_mean_freq_num 1 3 10 930 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 4400
+preplace netloc demod_pool_core_bpsk_0_dphi_out 1 12 1 4520
+preplace netloc ddc_stage1_pl2_top_0_m_i 1 11 1 3920
 preplace netloc feature_bram_writer_0_bram_en 1 4 1 1440
-preplace netloc demod_pool_core_bpsk_0_bpsk_symbol_strobe 1 12 2 N 420 4850J
-preplace netloc demod_pool_core_bpsk_0_bpsk_rate_code 1 12 2 4470 470 NJ
-preplace netloc demod_pool_core_bpsk_0_var_freq_num 1 3 10 880 550 1350J 560 1770J 470 NJ 470 NJ 470 NJ 470 NJ 470 NJ 470 3890J 610 4330
-preplace netloc xlconstant_1_dout 1 1 14 210 810 550J 900 NJ 900 1440J 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ 520 3850J 640 NJ 640 4830 630 5170
-preplace netloc feature_bram_writer_0_hist_mag_rd_addr 1 4 8 1460 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 3930J
+preplace netloc demod_pool_core_bpsk_0_bpsk_symbol_strobe 1 12 2 N 420 4930J
+preplace netloc demod_pool_core_bpsk_0_bpsk_rate_code 1 12 2 4540 470 NJ
+preplace netloc demod_pool_core_bpsk_0_var_freq_num 1 3 10 880 550 1350J 560 1770J 470 NJ 470 NJ 470 NJ 470 NJ 470 NJ 470 3940J 610 4400
+preplace netloc xlconstant_1_dout 1 1 14 210 810 550J 900 NJ 900 1440J 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ 520 3900J 640 NJ 640 4910 630 5250
+preplace netloc feature_bram_writer_0_hist_mag_rd_addr 1 4 8 1460 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 3980J
 preplace netloc ad9226_stage1_driver_0_adc_valid 1 10 1 N
-preplace netloc ad_otr_in_0_1 1 0 10 NJ 550 NJ 550 NJ 550 870J 530 1370J 540 NJ 540 NJ 540 NJ 540 NJ 540 3130J
-preplace netloc demod_pool_core_bpsk_0_hist_mag_rd_data 1 3 10 910 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 4350
+preplace netloc ad_otr_in_0_1 1 0 10 NJ 550 NJ 550 NJ 550 870J 530 1370J 540 NJ 540 NJ 540 NJ 540 NJ 540 3150J
+preplace netloc demod_pool_core_bpsk_0_hist_mag_rd_data 1 3 10 910 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 4420
 preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 8 200 800 560J 880 NJ 880 NJ 880 NJ 880 2250 650 NJ 650 NJ
-preplace netloc demod_pool_core_bpsk_0_bpsk_timing_locked 1 12 2 4480 490 4870J
+preplace netloc demod_pool_core_bpsk_0_bpsk_timing_locked 1 12 2 4550 490 4950J
 preplace netloc ad9226_stage1_driver_0_adc_data 1 10 1 N
 preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 1 1400
-preplace netloc demod_pool_core_bpsk_0_hist_freq_rd_data 1 3 10 860 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 4390
+preplace netloc demod_pool_core_bpsk_0_hist_freq_rd_data 1 3 10 860 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 4460
 preplace netloc feature_bram_writer_0_bram_addr 1 4 1 1460
-preplace netloc axi_gpio_mux_gpio_io_o 1 4 9 1390J 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 4480
-preplace netloc clk_wiz_lcd_clk_out1 1 4 11 1380 1260 1750 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 4850 1000 NJ
+preplace netloc axi_gpio_mux_gpio_io_o 1 4 9 1390J 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 4550
+preplace netloc clk_wiz_lcd_clk_out1 1 4 11 1380 1260 1750 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 4930 1000 NJ
 preplace netloc feature_bram_writer_0_bram_we 1 4 1 1370
-preplace netloc ddc_stage1_pl2_top_0_m_q 1 11 1 3830
-preplace netloc ddc_stage1_pl2_top_0_m_valid 1 11 1 3910
-preplace netloc demod_pool_core_bpsk_0_s_ready 1 10 3 3500 550 3840J 630 4400
+preplace netloc ddc_stage1_pl2_top_0_m_q 1 11 1 3880
+preplace netloc ddc_stage1_pl2_top_0_m_valid 1 11 1 3960
+preplace netloc demod_pool_core_bpsk_0_s_ready 1 10 3 3530 550 3890J 630 4470
 preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 2 3 570 890 NJ 890 1380J
-preplace netloc Net 1 1 12 190 790 580 870 880 910 1450 910 1770 900 2270 870 2570 870 2770J 840 NJ 840 NJ 840 NJ 840 NJ
-preplace netloc smart_mux_stream_0_audio_out 1 13 1 4820
+preplace netloc Net 1 1 12 190 790 580 870 880 910 1450 910 1770 900 2270 870 2570 870 2780J 840 NJ 840 NJ 840 NJ 840 NJ
+preplace netloc smart_mux_stream_0_audio_out 1 13 1 4900
 preplace netloc axi_smc_M01_AXI 1 3 1 870
-preplace netloc clk_wiz_0_locked 1 8 2 2780 570 3120
-preplace netloc feature_bram_writer_0_hist_freq_rd_addr 1 4 8 1450 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 3920J
+preplace netloc clk_wiz_0_locked 1 8 2 2790 570 3140
+preplace netloc feature_bram_writer_0_hist_freq_rd_addr 1 4 8 1450 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 3970J
 preplace netloc util_vector_logic_1_Res 1 4 1 1380J
-preplace netloc demod_pool_core_bpsk_0_bpsk_nrz_out 1 12 2 4480 440 4840J
+preplace netloc demod_pool_core_bpsk_0_bpsk_nrz_out 1 12 2 4550 440 4920J
 preplace netloc v_axi4s_vid_out_0_vid_active_video 1 6 9 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ
 preplace netloc v_axi4s_vid_out_0_vid_data 1 6 9 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ
-preplace netloc demod_pool_core_bpsk_0_var_mag_num 1 3 10 890 510 1420J 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 3860J 620 4370
-preplace netloc demod_pool_core_bpsk_0_bpsk_bit_data 1 12 2 4430 430 4850J
-preplace netloc rst_sample_60M_peripheral_aresetn 1 3 11 920 380 1430J 510 NJ 510 NJ 510 NJ 510 NJ 510 3140 580 3480 310 3830 60 4470 160 4870
-preplace netloc demod_pool_core_bpsk_0_mean_mag_num 1 3 10 940 500 1410J 490 1750J 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 3900J 590 4340
+preplace netloc demod_pool_core_bpsk_0_var_mag_num 1 3 10 890 510 1420J 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 3910J 620 4440
+preplace netloc demod_pool_core_bpsk_0_bpsk_bit_data 1 12 2 4500 430 4930J
+preplace netloc rst_sample_60M_peripheral_aresetn 1 3 11 920 380 1430J 510 NJ 510 NJ 510 NJ 510 NJ 510 3160 580 3510 310 3880 60 4540 160 4950
+preplace netloc demod_pool_core_bpsk_0_mean_mag_num 1 3 10 940 500 1410J 490 1750J 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 3950J 590 4410
 preplace netloc axi_smc_M02_AXI 1 3 1 860
 preplace netloc v_axi4s_vid_out_0_vtg_ce 1 4 3 1450 1250 1780J 1180 2240
 preplace netloc v_axi4s_vid_out_0_vid_hsync 1 6 9 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ
 preplace netloc v_axi4s_vid_out_0_vid_vsync 1 6 9 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ
-preplace netloc demod_pool_core_bpsk_0_psk_spike_count 1 3 10 900 870 NJ 870 NJ 870 2260J 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 4360
-preplace netloc clk_wiz_0_clk_out1 1 8 2 2760J 560 3160
-preplace netloc demod_pool_core_bpsk_0_psk_flag 1 3 10 950 540 1360J 550 1780J 490 NJ 490 NJ 490 NJ 490 NJ 490 NJ 490 3880J 600 4320
-preplace netloc clk_wiz_0_clk_out2 1 3 11 880 10 1380 220 NJ 220 NJ 220 NJ 220 2750 550 3170 550 3490 530 3940 580 4440 460 4860
+preplace netloc demod_pool_core_bpsk_0_psk_spike_count 1 3 10 900 870 NJ 870 NJ 870 2260J 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 4430
+preplace netloc clk_wiz_0_clk_out1 1 8 2 2770J 560 3180
+preplace netloc demod_pool_core_bpsk_0_psk_flag 1 3 10 950 540 1360J 550 1780J 490 NJ 490 NJ 490 NJ 490 NJ 490 NJ 490 3930J 600 4390
+preplace netloc clk_wiz_0_clk_out2 1 3 11 880 10 1380 220 NJ 220 NJ 220 NJ 220 2760 550 3190 550 3520 530 3990 580 4510 460 4940
 preplace netloc processing_system7_0_M_AXI_GP0 1 2 5 580 60 NJ 60 NJ 60 NJ 60 2240
-preplace netloc demod_pool_core_bpsk_0_bpsk_carrier_locked 1 12 2 N 480 4820J
-preplace netloc demod_pool_core_bpsk_0_bpsk_sample_valid 1 12 2 4410 550 NJ
-preplace netloc xlconstant_0_dout 1 1 8 180 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 2770
+preplace netloc demod_pool_core_bpsk_0_bpsk_carrier_locked 1 12 2 N 480 4900J
+preplace netloc demod_pool_core_bpsk_0_bpsk_sample_valid 1 12 2 4480 550 NJ
+preplace netloc xlconstant_0_dout 1 1 8 180 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 2780
 preplace netloc feature_bram_writer_0_bram_wdata 1 4 1 1430
-preplace netloc demod_pool_core_bpsk_0_frame_done 1 3 10 890 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 4380
-levelinfo -pg 1 0 100 380 720 1160 1600 2010 2420 2660 2950 3320 3660 4130 4650 5020 5190 -top 0 -bot 1510
+preplace netloc demod_pool_core_bpsk_0_frame_done 1 3 10 890 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 4450
+levelinfo -pg 1 0 100 380 720 1160 1600 2010 2420 2670 2970 3350 3710 4200 4730 5100 5270 -top 0 -bot 1510
 "
 }
 {

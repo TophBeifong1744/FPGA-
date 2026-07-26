@@ -1,186 +1,233 @@
-/*
- * dsp_algorithms.c
- *
- *  Created on: 2026年6月18日
- *      Author: Administrator
- */
-
 #include "dsp_algorithms.h"
-#include <math.h>
-#include "xil_printf.h"
 
-void remove_dc(float *data, int len) {
-    float sum = 0.0;
-    for (int i = 0; i < len; i++) sum += data[i];
-    float mean = sum / len;
-    for (int i = 0; i < len; i++) data[i] -= mean;
+#include <math.h>
+
+#define RATE_CANDIDATE_COUNT 3
+#define MOD_FREQ_CANDIDATE_COUNT 5
+#define MIN_VALID_SYMBOL_INTERVALS 2
+#define RATE_CONFIDENCE_MARGIN 0.015f
+
+static float data_mean(const float *data, int len) {
+    float sum = 0.0f;
+    for (int i = 0; i < len; ++i) sum += data[i];
+    return sum / (float)len;
 }
 
-float goertzel_mag(float *data, int len, float target_freq, float sample_rate) {
-    int k = (int)(0.5 + ((len * target_freq) / sample_rate));
-    float omega = (2.0 * PI * k) / len;
-    float cosine = cos(omega);
-    float coeff = 2.0 * cosine;
+static float goertzel_mag_centered(
+    const float *data,
+    int len,
+    float target_freq,
+    float sample_rate,
+    float mean
+) {
+    float omega = 2.0f * PI * target_freq / sample_rate;
+    float coeff = 2.0f * cosf(omega);
+    float q0 = 0.0f;
+    float q1 = 0.0f;
+    float q2 = 0.0f;
 
-    float q0 = 0, q1 = 0, q2 = 0;
-    for (int i = 0; i < len; i++) {
-        q0 = coeff * q1 - q2 + data[i];
+    for (int i = 0; i < len; ++i) {
+        q0 = coeff * q1 - q2 + (data[i] - mean);
         q2 = q1;
         q1 = q0;
     }
-    return (q1 * q1) + (q2 * q2) - (q1 * q2 * coeff);
+    return q1 * q1 + q2 * q2 - q1 * q2 * coeff;
+}
+
+void remove_dc(float *data, int len) {
+    if (data == 0 || len <= 0) return;
+    float mean = data_mean(data, len);
+    for (int i = 0; i < len; ++i) data[i] -= mean;
+}
+
+float goertzel_mag(float *data, int len, float target_freq, float sample_rate) {
+    if (data == 0 || len <= 0 || sample_rate <= 0.0f) return 0.0f;
+    return goertzel_mag_centered(data, len, target_freq, sample_rate, 0.0f);
 }
 
 float detect_modulation_freq(float *data, int len) {
-    float target_freqs[5] = {1000.0, 2000.0, 3000.0, 4000.0, 5000.0};
-    float max_energy = 0;
-    float best_freq = 0;
+    static const float target_freqs[MOD_FREQ_CANDIDATE_COUNT] = {
+        1000.0f, 2000.0f, 3000.0f, 4000.0f, 5000.0f
+    };
 
-    float temp_buffer[BUFFER_SIZE];
-    for(int i = 0; i < len; i++) temp_buffer[i] = data[i];
-    remove_dc(temp_buffer, len);
+    if (data == 0 || len <= 0) return 0.0f;
 
-    for (int i = 0; i < 5; i++) {
-        float energy = goertzel_mag(temp_buffer, len, target_freqs[i], SAMPLE_RATE);
-        if (energy > max_energy) { max_energy = energy; best_freq = target_freqs[i]; }
+    float mean = data_mean(data, len);
+    float max_energy = -1.0f;
+    float best_freq = 0.0f;
+
+    for (int i = 0; i < MOD_FREQ_CANDIDATE_COUNT; ++i) {
+        float energy = goertzel_mag_centered(
+            data, len, target_freqs[i], SAMPLE_RATE, mean
+        );
+        if (energy > max_energy) {
+            max_energy = energy;
+            best_freq = target_freqs[i];
+        }
     }
     return best_freq;
 }
 
-// ==========================================================
-// [修改] 将结果存入 params 结构体
-// ==========================================================
 void calculate_am_params(float *data, int len, SignalParams *params) {
-    float max_val = -9999.0, min_val = 9999.0;
-    for (int i = 0; i < len; i++) {
+    if (data == 0 || params == 0 || len <= 0) return;
+
+    float max_val = data[0];
+    float min_val = data[0];
+    for (int i = 1; i < len; ++i) {
         if (data[i] > max_val) max_val = data[i];
         if (data[i] < min_val) min_val = data[i];
     }
-    float v_pp = max_val - min_val;
-    float v_mean = (max_val + min_val) / 2.0;
-    float calculated_ma = (v_pp / 2.0) / v_mean;
-    float calculated_f = detect_modulation_freq(data, len);
 
-    // 存入结构体供屏幕使用
-    if(params) {
-        params->ma = calculated_ma;
-        params->F = calculated_f;
-    }
+    float denominator = max_val + min_val;
+    params->ma = (fabsf(denominator) > 1.0e-12f)
+        ? (max_val - min_val) / denominator
+        : 0.0f;
+    params->F = detect_modulation_freq(data, len);
 }
 
 void calculate_fm_params(float *data, int len, SignalParams *params) {
-    float temp_buffer[BUFFER_SIZE];
-    for(int i = 0; i < len; i++) temp_buffer[i] = data[i];
-    remove_dc(temp_buffer, len);
+    if (data == 0 || params == 0 || len <= 0) return;
 
-    float max_delta_f = 0.0;
-    for (int i = 0; i < len; i++) {
-        float abs_val = fabs(temp_buffer[i]);
-        if (abs_val > max_delta_f) max_delta_f = abs_val;
+    float mean = data_mean(data, len);
+    float modulation_freq = detect_modulation_freq(data, len);
+    if (modulation_freq <= 0.0f) {
+        params->F = 0.0f;
+        params->delta_f = 0.0f;
+        params->mf = 0.0f;
+        return;
     }
 
-    float calculated_f = detect_modulation_freq(temp_buffer, len);
-    float calculated_mf = max_delta_f / calculated_f;
-
-    // 存入结构体
-    if(params) {
-        params->delta_f = max_delta_f;
-        params->F = calculated_f;
-        params->mf = calculated_mf;
+    float sum_cos = 0.0f;
+    float sum_sin = 0.0f;
+    float omega = 2.0f * PI * modulation_freq / SAMPLE_RATE;
+    for (int i = 0; i < len; ++i) {
+        float centered = data[i] - mean;
+        sum_cos += centered * cosf(omega * (float)i);
+        sum_sin += centered * sinf(omega * (float)i);
     }
+
+    float amplitude = (2.0f / (float)len) *
+        sqrtf(sum_cos * sum_cos + sum_sin * sum_sin);
+
+    float filter_omega = PI * modulation_freq / SAMPLE_RATE;
+    float denominator = FREQ_SMOOTHING_TAPS * sinf(filter_omega);
+    if (fabsf(denominator) > 1.0e-6f) {
+        float attenuation =
+            sinf(FREQ_SMOOTHING_TAPS * filter_omega) / denominator;
+        if (fabsf(attenuation) > 0.1f) amplitude /= fabsf(attenuation);
+    }
+
+    params->F = modulation_freq;
+    params->delta_f = amplitude * DISCRIMINATOR_HZ_PER_UNIT;
+    params->mf = params->delta_f / modulation_freq;
 }
 
 float calculate_Rc(float *data, int len) {
-    float sum = 0;
-    for(int i = 0; i < len; i++) sum += data[i];
-    float threshold = sum / len;
+    static const float rates[RATE_CANDIDATE_COUNT] = {
+        RATE_6K, RATE_8K, RATE_10K
+    };
 
-    float exp_6k  = SAMPLE_RATE / RATE_6K;
-    float exp_8k  = SAMPLE_RATE / RATE_8K;
-    float exp_10k = SAMPLE_RATE / RATE_10K;
+    if (data == 0 || len <= 1) return 0.0f;
 
-    float error_6k = 0, error_8k = 0, error_10k = 0;
-    int valid_edges = 0;
+    float mean = data_mean(data, len);
+    float min_val = data[0];
+    float max_val = data[0];
+    for (int i = 1; i < len; ++i) {
+        if (data[i] < min_val) min_val = data[i];
+        if (data[i] > max_val) max_val = data[i];
+    }
 
-    int current_points = 0;
-    int last_state = (data[0] > threshold) ? 1 : 0;
+    float hysteresis = 0.05f * (max_val - min_val);
+    float lower = mean - hysteresis;
+    float upper = mean + hysteresis;
+    int state = (data[0] > mean) ? 1 : 0;
+    int last_edge = -1;
+    int valid_intervals = 0;
+    float errors[RATE_CANDIDATE_COUNT] = {0.0f, 0.0f, 0.0f};
 
-    for(int i = 1; i < len; i++) {
-        int current_state = (data[i] > threshold) ? 1 : 0;
-        if(current_state == last_state) {
-            current_points++;
-        } else {
-            if(current_points > 15) {
-                valid_edges++;
-                float n_6k  = round(current_points / exp_6k);
-                float n_8k  = round(current_points / exp_8k);
-                float n_10k = round(current_points / exp_10k);
+    for (int i = 1; i < len; ++i) {
+        int next_state = state;
+        if (state == 0 && data[i] > upper) next_state = 1;
+        if (state == 1 && data[i] < lower) next_state = 0;
+        if (next_state == state) continue;
 
-                if(n_6k < 1) n_6k = 1;
-                if(n_8k < 1) n_8k = 1;
-                if(n_10k < 1) n_10k = 1;
+        state = next_state;
+        if (last_edge < 0) {
+            last_edge = i;
+            continue;
+        }
 
-                error_6k  += fabs(current_points - n_6k  * exp_6k);
-                error_8k  += fabs(current_points - n_8k  * exp_8k);
-                error_10k += fabs(current_points - n_10k * exp_10k);
-            }
-            current_points = 1;
-            last_state = current_state;
+        float interval = (float)(i - last_edge);
+        if (interval < 0.6f * (SAMPLE_RATE / RATE_10K)) continue;
+        last_edge = i;
+        valid_intervals++;
+
+        for (int r = 0; r < RATE_CANDIDATE_COUNT; ++r) {
+            float symbol_samples = SAMPLE_RATE / rates[r];
+            float symbols = roundf(interval / symbol_samples);
+            if (symbols < 1.0f) symbols = 1.0f;
+            errors[r] += fabsf(interval - symbols * symbol_samples)
+                / symbol_samples;
         }
     }
 
-    if(valid_edges == 0) return 0.0;
+    if (valid_intervals < MIN_VALID_SYMBOL_INTERVALS) return 0.0f;
 
-    if(error_6k < error_8k && error_6k < error_10k) return RATE_6K;
-    if(error_8k < error_6k && error_8k < error_10k) return RATE_8K;
-    return RATE_10K;
+    int best = 0;
+    int second = 1;
+    for (int r = 0; r < RATE_CANDIDATE_COUNT; ++r) {
+        errors[r] /= (float)valid_intervals;
+        if (errors[r] < errors[best]) best = r;
+    }
+    second = (best == 0) ? 1 : 0;
+    for (int r = 0; r < RATE_CANDIDATE_COUNT; ++r) {
+        if (r != best && errors[r] < errors[second]) second = r;
+    }
+
+    if (errors[second] - errors[best] < RATE_CONFIDENCE_MARGIN) return 0.0f;
+    return rates[best];
 }
 
 void calculate_2ask_params(float *data, int len, SignalParams *params) {
-    float calculated_Rc = calculate_Rc(data, len);
-    if(params) params->Rc = calculated_Rc;
+    if (params == 0) return;
+    params->Rc = calculate_Rc(data, len);
 }
 
 void calculate_2fsk_params(float *data, int len, SignalParams *params) {
-    float calculated_Rc = calculate_Rc(data, len);
+    if (data == 0 || params == 0 || len <= 0) return;
 
-    float sum = 0;
-    for(int i = 0; i < len; i++) sum += data[i];
-    float threshold = sum / len;
+    float center0 = data[0];
+    float center1 = data[0];
+    for (int i = 1; i < len; ++i) {
+        if (data[i] < center0) center0 = data[i];
+        if (data[i] > center1) center1 = data[i];
+    }
 
-    float high_sum = 0, low_sum = 0;
-    int high_count = 0, low_count = 0;
+    for (int iteration = 0; iteration < 6; ++iteration) {
+        float sum0 = 0.0f;
+        float sum1 = 0.0f;
+        int count0 = 0;
+        int count1 = 0;
 
-    for(int i = 0; i < len; i++) {
-        if(data[i] > threshold) {
-            high_sum += data[i];
-            high_count++;
-        } else {
-            low_sum += data[i];
-            low_count++;
+        for (int i = 0; i < len; ++i) {
+            if (fabsf(data[i] - center0) <= fabsf(data[i] - center1)) {
+                sum0 += data[i];
+                count0++;
+            } else {
+                sum1 += data[i];
+                count1++;
+            }
         }
+        if (count0 > 0) center0 = sum0 / (float)count0;
+        if (count1 > 0) center1 = sum1 / (float)count1;
     }
 
-    float f1 = (high_count > 0) ? (high_sum / high_count) : 0;
-    float f2 = (low_count > 0) ? (low_sum / low_count) : 0;
-    float delta_f = fabs(f1 - f2);
-
-    float h = 0;
-    if (calculated_Rc > 0) h = delta_f / calculated_Rc;
-
-    // 存入结构体
-    if(params) {
-        params->Rc = calculated_Rc;
-        params->delta_f = delta_f;
-        params->h = h;
-    }
+    params->Rc = calculate_Rc(data, len);
+    params->delta_f = fabsf(center1 - center0) * DISCRIMINATOR_HZ_PER_UNIT;
+    params->h = (params->Rc > 0.0f) ? params->delta_f / params->Rc : 0.0f;
 }
 
 void calculate_2psk_params(float *data, int len, SignalParams *params) {
-    float calculated_Rc = calculate_Rc(data, len);
-    if(params) params->Rc = calculated_Rc;
+    if (params == 0) return;
+    params->Rc = calculate_Rc(data, len);
 }
-
-
-
-

@@ -2,52 +2,111 @@
 #include "xil_printf.h"
 #include "hw_interface.h"
 #include "dsp_algorithms.h"
-#include "ui_display.h" // 引入我们新建的 UI 层
+#include "ui_display.h"
+#include "sleep.h"
 
-void cleanup_platform(void);
+#define REQUIRED_STABLE_FRAMES 3
+#define MUX_SETTLE_US       1000U
+#define MAIN_LOOP_DELAY_US 10000U
 
-int main() {
+static int signal_to_mux_channel(SignalType signal) {
+    switch (signal) {
+        case SIGNAL_AM:   return 1;
+        case SIGNAL_FM:
+        case SIGNAL_CW:   return 2;
+        case SIGNAL_2ASK: return 4;
+        case SIGNAL_2PSK: return 5;
+        case SIGNAL_2FSK: return 6;
+        default:          return 0;
+    }
+}
+
+static void calculate_signal_params(SignalType signal, SignalParams *params) {
+    switch (signal) {
+        case SIGNAL_AM:
+            calculate_am_params(real_buffer, BUFFER_SIZE, params);
+            break;
+        case SIGNAL_FM:
+            calculate_fm_params(real_buffer, BUFFER_SIZE, params);
+            break;
+        case SIGNAL_2ASK:
+            calculate_2ask_params(real_buffer, BUFFER_SIZE, params);
+            break;
+        case SIGNAL_2FSK:
+            calculate_2fsk_params(real_buffer, BUFFER_SIZE, params);
+            break;
+        case SIGNAL_2PSK:
+            calculate_2psk_params(real_buffer, BUFFER_SIZE, params);
+            break;
+        default:
+            break;
+    }
+}
+
+int main(void) {
     init_platform();
-    UI_Init(); // 屏幕初始化
+
+    xil_printf("==========================\r\n");
+    xil_printf("Zynq CPU is Alive!\r\n");
+    xil_printf("==========================\r\n");
+
+    UI_Init();
+    if (init_hardware() != 0) {
+        xil_printf("Hardware Init Failed!\r\n");
+        cleanup_platform();
+        return -1;
+    }
+
+    xil_printf("Hardware Ready! Waiting for Signals...\r\n");
 
     int display_tick = 0;
-
-    // 专门用来存放后台算出来的最新参数，供给前台刷屏使用
+    int stable_count = 0;
     SignalParams current_params = {0};
+    SignalType candidate_signal = SIGNAL_UNKNOWN;
     SignalType current_signal = SIGNAL_UNKNOWN;
 
-    while(1) {
-        // =========================================
-        // [后端] 高频极速计算层 (例如每秒跑 100 次)
-        // =========================================
+    while (1) {
+        if (read_hardware_features()) {
+            SignalType measured_signal = recognize_signal_type();
 
-        // 核心测试点：你可以随意切换这里送入的数据
-        update_mock_hardware_registers(SIGNAL_2FSK);
-        generate_mock_2fsk(6000.0, 4500.0);
+            if (measured_signal == candidate_signal) {
+                if (stable_count < REQUIRED_STABLE_FRAMES) stable_count++;
+            } else {
+                candidate_signal = measured_signal;
+                stable_count = 1;
+            }
 
-        current_signal = recognize_signal_type();
+            if (stable_count >= REQUIRED_STABLE_FRAMES) {
+                if (current_signal != candidate_signal) {
+                    current_signal = candidate_signal;
+                    current_params = (SignalParams){0};
 
-        switch(current_signal) {
-            // 注意看：现在多传了一个 &current_params 进去
-            case SIGNAL_AM:   calculate_am_params(mock_buffer, 2048, &current_params);   break;
-            case SIGNAL_FM:   calculate_fm_params(mock_buffer, 2048, &current_params);   break;
-            case SIGNAL_2ASK: calculate_2ask_params(mock_buffer, 2048, &current_params); break;
-            case SIGNAL_2FSK: calculate_2fsk_params(mock_buffer, 2048, &current_params); break;
-            case SIGNAL_2PSK: calculate_2psk_params(mock_buffer, 2048, &current_params); break;
-            default: break; // CW 无需计算参数
+                    int mux_channel = signal_to_mux_channel(current_signal);
+                    if (mux_channel != 0) {
+                        set_mux_channel(mux_channel);
+                        usleep(MUX_SETTLE_US);
+                    }
+                }
+
+                if (current_signal != SIGNAL_UNKNOWN &&
+                    current_signal != SIGNAL_CW) {
+                    int dma_status = capture_waveform();
+                    if (dma_status == 0) {
+                        calculate_signal_params(current_signal, &current_params);
+                    } else {
+                        xil_printf("DMA capture failed: %d\r\n", dma_status);
+                    }
+                }
+            }
         }
 
-        // =========================================
-        // [前端] 低频 UI 刷新层 (降频刷新，防止卡顿)
-        // =========================================
         display_tick++;
-        if (display_tick >= 50) {
-            // 后台跑 50 次算法，前台才把最新的 current_params 刷到屏幕上 1 次
+        if (display_tick >= 10) {
             UI_UpdateDashboard(current_signal, &current_params);
             display_tick = 0;
         }
 
-        for(volatile int i = 0; i < 1000000; i++); // 模拟主频延时
+        usleep(MAIN_LOOP_DELAY_US);
     }
 
     cleanup_platform();

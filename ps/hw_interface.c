@@ -1,149 +1,142 @@
-/*
- * hw_interface.c
- *
- *  Created on: 2026Äê6ÔÂ18ÈÕ
- *      Author: Administrator
- */
-
 #include "hw_interface.h"
-#include <math.h>
+#include "xparameters.h"
+#include "xil_io.h"
+#include "xaxidma.h"
+#include "xil_cache.h"
+#include "histogram_classifier.h"
+#include <stdint.h>
 
-float mock_buffer[2048]; // ¹²ÏíÊı¾İ»º´æÇø
-float mock_var_mag = 0.0, mock_var_freq = 0.0;
-// ¶¥²¿µÄÌØÕ÷±êÖ¾Î»
-float mock_hist_mag_bimodal = 0;
-float mock_hist_freq_bimodal = 0;
-int mock_2psk_flag=0;
+// ========================================================
+// ç¡¬ä»¶åŸºåœ°å€ (ä¸ä½  Vivado Address Editor å®Œç¾å¯¹åº”)
+// ========================================================
+#define BRAM_BASEADDR 0x40000000
+#define GPIO_BASEADDR 0x41200000
 
-// Ä£ÄâÉú³É´øÖ±Á÷Æ«ÖÃµÄĞÅºÅ (Ä£Äâ FPGA µÄ DAC Ô­Ê¼Êä³ö)
-void generate_mock_am(float target_ma, float f_mod) {
-    float Ac = 1.5; // Ö±Á÷ÔØ²¨»ù×¼
-    for (int i = 0; i < 2048; i++) {
-        float t = (float)i / 1000000.0;
-        mock_buffer[i] = Ac * (1.0 + target_ma * sin(2.0 * 3.14159 * f_mod * t));
-    }
+#define MAG_VARIANCE_THRESHOLD    2000000.0f
+#define FREQ_VARIANCE_THRESHOLD 300000000.0f
+#define DMA_POLL_TIMEOUT       10000000U
+
+XAxiDma AxiDma; // DMA å®ä¾‹
+float real_buffer[2048]; // çœŸå®çš„æ³¢å½¢æ¥æ”¶æ•°ç»„
+
+// [æ–°å¢] ä¸“é—¨ç»™ DMA ç”¨çš„ç‰©ç†æ¥æ”¶æ•°ç»„ï¼Œå­˜æ”¾çº¯æ­£çš„ 32 ä½æ•´æ•°
+int32_t dma_raw_buffer[2048];
+
+float real_var_mag = 0.0;
+float real_var_freq = 0.0;
+int   real_hist_mag_bimodal = 0;
+int   real_hist_freq_bimodal = 0;
+int   real_2psk_flag = 0;
+
+// 1. åˆå§‹åŒ– DMA ç¡¬ä»¶
+int init_hardware(void) {
+    XAxiDma_Config *CfgPtr;
+    int Status;
+
+    // æŸ¥æ‰¾ DMA é…ç½®
+    CfgPtr = XAxiDma_LookupConfig(XPAR_AXIDMA_0_DEVICE_ID);
+    if (!CfgPtr) return -1;
+
+    // åˆå§‹åŒ– DMA
+    Status = XAxiDma_CfgInitialize(&AxiDma, CfgPtr);
+    if (Status != XST_SUCCESS) return -1;
+    if (XAxiDma_HasSg(&AxiDma)) return -1;
+
+    // ç¦ç”¨ä¸­æ–­ (æˆ‘ä»¬é‡‡ç”¨é«˜æ•ˆçš„è½®è¯¢æ¨¡å¼)
+    XAxiDma_IntrDisable(&AxiDma, XAXIDMA_IRQ_ALL_MASK, XAXIDMA_DEVICE_TO_DMA);
+    return 0;
 }
 
-// Ä£ÄâÉú³É FM ¼øÆµÆ÷Êä³ö²¨ĞÎ (´ú±íË²Ê±ÆµÂÊµÄ±ä»¯)
-void generate_mock_fm(float target_delta_f_max, float f_mod) {
-    for (int i = 0; i < 2048; i++) {
-        float t = (float)i / 1000000.0;
-        // FM ¼øÆµºóÊÇÒ»¸öÕıÏÒ²¨£¬·åÖµÎª×î´óÆµÆ«£¬¿ÉÄÜ´øÓĞÎ¢Ğ¡Ö±Á÷µ×Ôë(Èç200Hz)
-        mock_buffer[i] = 200.0 + target_delta_f_max * sin(2.0 * 3.14159 * f_mod * t);
-    }
+// 2. æ§åˆ¶ Smart MUX åˆ‡æ¢é€šé“ (ä¸‹å‘ç»™ GPIO)
+void set_mux_channel(int channel) {
+    Xil_Out32(GPIO_BASEADDR, channel);
 }
 
-// Ä£ÄâÉú³É¼«¶È±äÌ¬µÄ 2ASK ²¨ĞÎ (Ã»ÓĞµ¥±ÈÌØÌø±ä£¡)
-void generate_mock_2ask(float target_Rc) {
-    float points_per_symbol = 1000000.0 / target_Rc;
-    // ±äÌ¬²âÊÔÂëÁ÷£ºÈ«¶¼ÊÇ³ÉË«³É¶Ô³öÏÖµÄÁ¬0Á¬1£¬Ã»ÓĞ¹Â¶ÀµÄ 0 »ò 1
-    int pattern[] = {1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0};
-    int pattern_len = 16;
+// 3. è§¦å‘ DMA æ¥æ”¶å¹¶è½¬æ¢æ•°æ®æ ¼å¼
+int capture_waveform(void) {
+    Xil_DCacheInvalidateRange((UINTPTR)dma_raw_buffer, 2048 * sizeof(int32_t));
 
-    for (int i = 0; i < 2048; i++) {
-        int bit_index = (int)(i / points_per_symbol);
-        int current_bit = pattern[bit_index % pattern_len];
-        mock_buffer[i] = current_bit ? 2.0 : 0.2;
+    int status = XAxiDma_SimpleTransfer(
+        &AxiDma,
+        (UINTPTR)dma_raw_buffer,
+        2048 * sizeof(int32_t),
+        XAXIDMA_DEVICE_TO_DMA
+    );
+    if (status != XST_SUCCESS) return -1;
+
+    uint32_t timeout = DMA_POLL_TIMEOUT;
+    while (XAxiDma_Busy(&AxiDma, XAXIDMA_DEVICE_TO_DMA)) {
+        if (--timeout == 0) return -2;
     }
+
+    Xil_DCacheInvalidateRange((UINTPTR)dma_raw_buffer, 2048 * sizeof(int32_t));
+
+    // ã€æ–°å¢æ ¸å¿ƒæ­¥éª¤ã€‘å°†çº¯æ•´æ•°è½¬æ¢ä¸ºæµ®ç‚¹æ•°ï¼Œå¹¶æŒ‰ç…§æ–‡æ¡£è¦æ±‚é™¤ä»¥ 2^22 (4194304.0) æ¢å¤çœŸå®ç‰©ç†é‡
+    for(int i = 0; i < 2048; i++) {
+        real_buffer[i] = (float)dma_raw_buffer[i] / 4194304.0;
+    }
+    return 0;
 }
 
-// Ä£ÄâÉú³É 2FSK ¼øÆµÊä³ö²¨ĞÎ
-void generate_mock_2fsk(float target_Rc, float delta_f) {
-    float points_per_symbol = 1000000.0 / target_Rc;
-    int pattern[] = {1, 0, 1, 1, 0, 0, 1, 0};
-    int pattern_len = 8;
+// 4. ä» BRAM è¯»å–åº•å±‚å®æ—¶è®¡ç®—å¥½çš„ç‰¹å¾ (åŠ å…¥æ–‡æ¡£æ¨èçš„é˜²æ’•è£‚æœºåˆ¶)
+int read_hardware_features(void) {
+    static uint32_t last_sequence = 0;
 
-    // ¼ÙÉè»ù×¼ÖĞĞÄÆµÂÊÊÇ 10000Hz
-    float base_freq = 10000.0;
-    float f1 = base_freq + delta_f / 2.0;
-    float f2 = base_freq - delta_f / 2.0;
+    // [æ–°å¢] å…ˆè¯»å–èµ·å§‹å¸§åºå· (Word 0 å¯¹åº” 0x00)
+    uint32_t seq_before = Xil_In32(BRAM_BASEADDR + 0x00);
 
-    for (int i = 0; i < 2048; i++) {
-        int bit_index = (int)(i / points_per_symbol);
-        int current_bit = pattern[bit_index % pattern_len];
-        // Ä£Äâ¼øÆµºóµÄÊä³ö£º¸ßµÍµçÆ½´ú±íÁËÕæÊµµÄÎïÀíÆµÂÊÖµ
-        mock_buffer[i] = current_bit ? f1 : f2;
+    // å¦‚æœåºå·æ˜¯ 0ï¼Œè¯´æ˜ FPGA åº•å±‚ç”šè‡³è¿˜æ²¡ç®—å®Œç¬¬ä¸€å¸§ï¼Œç›´æ¥é€€å‡º
+    if (seq_before == 0 || seq_before == last_sequence) return 0;
+
+    uint32_t var_mag_low  = Xil_In32(BRAM_BASEADDR + 0x04);
+    uint32_t var_mag_high = Xil_In32(BRAM_BASEADDR + 0x08);
+    uint32_t var_freq_low  = Xil_In32(BRAM_BASEADDR + 0x0C);
+    uint32_t var_freq_high = Xil_In32(BRAM_BASEADDR + 0x10);
+    uint32_t word7 = Xil_In32(BRAM_BASEADDR + 0x1C);
+
+    uint32_t hist_mag[HISTOGRAM_BIN_COUNT];
+    uint32_t hist_freq[HISTOGRAM_BIN_COUNT];
+    for(int i = 0; i < HISTOGRAM_BIN_COUNT; i++) {
+        hist_mag[i]  = Xil_In32(BRAM_BASEADDR + 0x20 + i*4);
+        hist_freq[i] = Xil_In32(BRAM_BASEADDR + 0x60 + i*4);
     }
+
+    // [æ–°å¢] è¯»å®Œæ‰€æœ‰æ•°æ®åï¼Œå†æ¬¡è¯»å–å¸§åºå·
+    uint32_t seq_after = Xil_In32(BRAM_BASEADDR + 0x00);
+
+    // å¦‚æœä¸¤æ¬¡åºå·ä¸ä¸€æ ·ï¼Œè¯´æ˜ä½ åœ¨è¯»çš„è¿‡ç¨‹ä¸­ FPGA æ°å¥½åˆ·æ–°äº†æ•°æ®ï¼Œè¿™æ¬¡è¯»åˆ°çš„æ•°æ®æ˜¯é”™ä½çš„ï¼Œç›´æ¥ä¸¢å¼ƒ
+    if (seq_before != seq_after) {
+        return 0;
+    }
+
+    // ==== åªæœ‰å½“æ•°æ®å®Œæ•´æ— è¯¯æ—¶ï¼Œæ‰è¿›è¡Œèµ‹å€¼å’Œæ¢ç®— ====
+
+        // Variance is non-negative by definition and is transferred unsigned.
+        uint64_t var_mag_64   = ((uint64_t)var_mag_high << 32) | var_mag_low;
+        real_var_mag = (float)(var_mag_64 >> 20);
+
+        uint64_t var_freq_64   = ((uint64_t)var_freq_high << 32) | var_freq_low;
+        real_var_freq = (float)(var_freq_64 >> 20);
+
+        // 3. æå– 2PSK ä¸“å±æ ‡å¿—ä½
+        real_2psk_flag = (word7 >> 31) & 0x01;
+        real_hist_mag_bimodal  = histogram_is_two_level(hist_mag);
+        real_hist_freq_bimodal = histogram_is_two_level(hist_freq);
+
+        last_sequence = seq_after;
+        return 1;
 }
 
-// Ä£ÄâÉú³É 2PSK ÏàÎ»½âµ÷Êä³ö²¨ĞÎ
-void generate_mock_2psk(float target_Rc) {
-    float points_per_symbol = 1000000.0 / target_Rc;
-    // Ëæ»úµÄÏàÎ»·­×ªĞòÁĞ
-    int pattern[] = {1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1};
-    int pattern_len = 16;
-
-    for (int i = 0; i < 2048; i++) {
-        int bit_index = (int)(i / points_per_symbol);
-        int current_bit = pattern[bit_index % pattern_len];
-        // Ä£Äâ½âµ÷ºóµÄÏàÎ»µçÆ½ (¸ßµçÆ½´ú±íÏàÎ» 0£¬µÍµçÆ½´ú±íÏàÎ» 180)
-        mock_buffer[i] = current_bit ? 2.0 : 0.2;
-    }
-}
-
-// Ä£Äâ¶ÁÈ¡ FPGA ÄÚ²¿µÄÌØÕ÷¼Ä´æÆ÷
-void update_mock_hardware_registers(SignalType target_signal) {
-    if (target_signal == SIGNAL_AM) {
-        // ¸æËß´óÄÔ£ºÏÖÔÚÓĞ´ó·ù¶ÈµÄ°üÂçÆğ·ü£¬µ«ÆµÂÊÃ»Ìø±ä
-        mock_var_mag = 500.0;
-        mock_var_freq = 2.0;
-    }
-    else if (target_signal == SIGNAL_FM) {
-            // FM ÌØÕ÷£º·ù¶È»ù±¾Ã»Æğ·ü(´¿ÔØ²¨°üÂç)£¬µ«ÆµÂÊ±ä»¯¼«´ó(·½²î´ó)
-            mock_var_mag = 2.0;
-            mock_var_freq = 15000.0;
-        }
-    else if (target_signal == SIGNAL_CW) {
-            // [ĞÂÔö] CW ĞÅºÅÌØÕ÷£º·ù¶ÈÃ»ÓĞÆğ·ü(·½²î¼«Ğ¡)£¬ÆµÂÊÒ²Ã»ÓĞÆğ·ü(·½²î¼«Ğ¡)
-            mock_var_mag = 1.0;
-            mock_var_freq = 1.0;
-            //mock_2psk_flag = 0;
-        }
-    else if (target_signal == SIGNAL_2ASK) {
-        mock_var_mag = 500.0;
-        mock_var_freq = 2.0;
-        // ¹Ø¼ü·ÖË®Áë£ºÖ±·½Í¼³ÊÏÖ¼«ÆäÃ÷ÏÔµÄÀëÉ¢Ë«·å (¸ßµÍÁ½µµµçÆ½)
-        mock_hist_mag_bimodal = 1;
-        mock_2psk_flag = 0;
-    }
-    else if (target_signal == SIGNAL_2FSK) {
-            // 2FSK ÌØÕ÷£º·ù¶ÈÆ½ÎÈ(·½²îĞ¡)£¬µ«ÆµÂÊ¾çÁÒÌø±ä(·½²î´ó)
-            mock_var_mag = 2.0;
-            mock_var_freq = 500.0;
-            // ¹Ø¼ü·ÖË®Áë£ºÆµÂÊÖ±·½Í¼³ÊÏÖ¼«ÆäÃ÷ÏÔµÄÀëÉ¢Ë«·å (¸ßµÍÁ½¸öÆµÂÊÌ¨½×)
-            mock_hist_freq_bimodal = 1;
-            mock_2psk_flag = 0;
-        }
-    else if (target_signal == SIGNAL_2PSK) {
-            // 2PSK ÌØÕ÷£ºµ×²ãÓ²¼ş×¥µ½ÁËÏàÎ»Í»±ä¼â·å£¡
-            mock_2psk_flag = 1;
-
-            // ÆäËû·½²îÎŞËùÎ½ÁË£¬´óÄÔ¿´µ½ mock_2psk_flag == 1 »áÖ±½Ó×î¸ßÓÅÏÈ¼¶ÅĞ¶¨
-            mock_var_mag = 2.0;
-            mock_var_freq = 2.0;
-        }
-}
-
-// ¾ö²ßÊ÷ÖÕ¼«°æ£º¼ÓÈëÖ±·½Í¼ÅĞ¾öÍøÂç
 SignalType recognize_signal_type(void) {
-    float VAR_THRESHOLD = 50.0;
+    if (real_2psk_flag == 1) return SIGNAL_2PSK;
 
-    if (mock_2psk_flag == 1) return SIGNAL_2PSK;
-
-    // ·ù¶Èµ÷ÖÆ´óÀà
-    if (mock_var_mag > VAR_THRESHOLD && mock_var_freq < VAR_THRESHOLD) {
-        if (mock_hist_mag_bimodal == 1) return SIGNAL_2ASK;
-        else return SIGNAL_AM;
+    if (real_var_mag > MAG_VARIANCE_THRESHOLD) {
+        return real_hist_mag_bimodal ? SIGNAL_2ASK : SIGNAL_AM;
     }
 
-    // ÆµÂÊµ÷ÖÆ´óÀà
-    if (mock_var_freq > VAR_THRESHOLD && mock_var_mag < VAR_THRESHOLD) {
-        if (mock_hist_freq_bimodal == 1) return SIGNAL_2FSK;
-        else return SIGNAL_FM;
+    if (real_var_freq > FREQ_VARIANCE_THRESHOLD) {
+        return real_hist_freq_bimodal ? SIGNAL_2FSK : SIGNAL_FM;
     }
 
-    if (mock_var_mag < VAR_THRESHOLD && mock_var_freq < VAR_THRESHOLD) {
-        return SIGNAL_CW;
-    }
-    return SIGNAL_UNKNOWN;
+    return SIGNAL_CW;
 }

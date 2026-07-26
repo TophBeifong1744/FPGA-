@@ -258,6 +258,7 @@ proc create_root_design { parentCell } {
    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
    CONFIG.NUM_OUT_CLKS {2} \
    CONFIG.PRIM_IN_FREQ {60.000} \
+   CONFIG.PRIM_SOURCE {Global_buffer} \
  ] $clk_wiz_0
 
   # Create instance: clk_wiz_lcd, and set properties
@@ -273,6 +274,7 @@ proc create_root_design { parentCell } {
    CONFIG.MMCM_CLKOUT0_DIVIDE_F {25.000} \
    CONFIG.MMCM_DIVCLK_DIVIDE {1} \
    CONFIG.PRIM_IN_FREQ {60} \
+   CONFIG.PRIM_SOURCE {Global_buffer} \
    CONFIG.USE_LOCKED {false} \
    CONFIG.USE_RESET {false} \
  ] $clk_wiz_lcd

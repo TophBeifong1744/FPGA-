@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Sun Jul 26 00:45:07 2026
-// Host        : Toph running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim {c:/Users/Toph
-//               Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_sim_netlist.v}
+// Date        : Sun Jul 26 12:45:21 2026
+// Host        : Y9000P running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode funcsim
+//               F:/Vivado/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_sim_netlist.v
 // Design      : design_1_clk_wiz_1_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,7 +19,7 @@ module design_1_clk_wiz_1_0
   output clk_out1;
   input clk_in1;
 
-  (* IBUF_LOW_PWR *) wire clk_in1;
+  wire clk_in1;
   wire clk_out1;
 
   design_1_clk_wiz_1_0_design_1_clk_wiz_1_0_clk_wiz inst
@@ -63,12 +63,7 @@ module design_1_clk_wiz_1_0_design_1_clk_wiz_1_0_clk_wiz
        (.I(clkfbout_design_1_clk_wiz_1_0),
         .O(clkfbout_buf_design_1_clk_wiz_1_0));
   (* BOX_TYPE = "PRIMITIVE" *) 
-  (* CAPACITANCE = "DONT_CARE" *) 
-  (* IBUF_DELAY_VALUE = "0" *) 
-  (* IFD_DELAY_VALUE = "AUTO" *) 
-  IBUF #(
-    .IOSTANDARD("DEFAULT")) 
-    clkin1_ibufg
+  BUFG clkin1_bufg
        (.I(clk_in1),
         .O(clk_in1_design_1_clk_wiz_1_0));
   (* BOX_TYPE = "PRIMITIVE" *) 
@@ -112,7 +107,7 @@ module design_1_clk_wiz_1_0_design_1_clk_wiz_1_0_clk_wiz
     .CLKOUT6_DUTY_CYCLE(0.500000),
     .CLKOUT6_PHASE(0.000000),
     .CLKOUT6_USE_FINE_PS("FALSE"),
-    .COMPENSATION("ZHOLD"),
+    .COMPENSATION("BUF_IN"),
     .DIVCLK_DIVIDE(1),
     .IS_CLKINSEL_INVERTED(1'b0),
     .IS_PSEN_INVERTED(1'b0),

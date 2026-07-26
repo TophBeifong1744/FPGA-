@@ -76,7 +76,7 @@ module design_1_clk_wiz_1_0_clk_wiz
   //------------------------------------
 wire clk_in1_design_1_clk_wiz_1_0;
 wire clk_in2_design_1_clk_wiz_1_0;
-  IBUF clkin1_ibufg
+  BUFG clkin1_bufg
    (.O (clk_in1_design_1_clk_wiz_1_0),
     .I (clk_in1));
 

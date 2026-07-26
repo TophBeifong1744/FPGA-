@@ -495,6 +495,9 @@
           },
           "PRIM_IN_FREQ": {
             "value": "60.000"
+          },
+          "PRIM_SOURCE": {
+            "value": "Global_buffer"
           }
         }
       },
@@ -1193,6 +1196,9 @@
           "PRIM_IN_FREQ": {
             "value": "60"
           },
+          "PRIM_SOURCE": {
+            "value": "Global_buffer"
+          },
           "USE_LOCKED": {
             "value": "false"
           },
@@ -1414,34 +1420,10 @@
       }
     },
     "interface_nets": {
-      "axi_smc_M00_AXI": {
+      "axi_vdma_0_M_AXI_MM2S": {
         "interface_ports": [
-          "axi_smc/M00_AXI",
-          "axi_bram_ctrl_0/S_AXI"
-        ]
-      },
-      "processing_system7_0_FIXED_IO": {
-        "interface_ports": [
-          "FIXED_IO",
-          "processing_system7_0/FIXED_IO"
-        ]
-      },
-      "processing_system7_0_M_AXI_GP0": {
-        "interface_ports": [
-          "processing_system7_0/M_AXI_GP0",
-          "axi_smc/S00_AXI"
-        ]
-      },
-      "axi_bram_ctrl_0_BRAM_PORTA": {
-        "interface_ports": [
-          "blk_mem_gen_0/BRAM_PORTA",
-          "axi_bram_ctrl_0/BRAM_PORTA"
-        ]
-      },
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
+          "axi_vdma_0/M_AXI_MM2S",
+          "axi_smc_vdma_hp0/S00_AXI"
         ]
       },
       "axi_smc_M01_AXI": {
@@ -1456,16 +1438,10 @@
           "axi_vdma_0/S_AXI_LITE"
         ]
       },
-      "axi_vdma_0_M_AXI_MM2S": {
+      "v_tc_0_vtiming_out": {
         "interface_ports": [
-          "axi_vdma_0/M_AXI_MM2S",
-          "axi_smc_vdma_hp0/S00_AXI"
-        ]
-      },
-      "axi_smc_1_M00_AXI": {
-        "interface_ports": [
-          "axi_smc_vdma_hp0/M00_AXI",
-          "processing_system7_0/S_AXI_HP0"
+          "v_tc_0/vtiming_out",
+          "v_axi4s_vid_out_0/vtiming_in"
         ]
       },
       "axi_vdma_0_M_AXIS_MM2S": {
@@ -1474,10 +1450,40 @@
           "v_axi4s_vid_out_0/video_in"
         ]
       },
-      "v_tc_0_vtiming_out": {
+      "axi_smc_1_M00_AXI": {
         "interface_ports": [
-          "v_tc_0/vtiming_out",
-          "v_axi4s_vid_out_0/vtiming_in"
+          "axi_smc_vdma_hp0/M00_AXI",
+          "processing_system7_0/S_AXI_HP0"
+        ]
+      },
+      "processing_system7_0_FIXED_IO": {
+        "interface_ports": [
+          "FIXED_IO",
+          "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "processing_system7_0_DDR": {
+        "interface_ports": [
+          "DDR",
+          "processing_system7_0/DDR"
+        ]
+      },
+      "processing_system7_0_M_AXI_GP0": {
+        "interface_ports": [
+          "processing_system7_0/M_AXI_GP0",
+          "axi_smc/S00_AXI"
+        ]
+      },
+      "axi_bram_ctrl_0_BRAM_PORTA": {
+        "interface_ports": [
+          "blk_mem_gen_0/BRAM_PORTA",
+          "axi_bram_ctrl_0/BRAM_PORTA"
+        ]
+      },
+      "axi_smc_M00_AXI": {
+        "interface_ports": [
+          "axi_smc/M00_AXI",
+          "axi_bram_ctrl_0/S_AXI"
         ]
       }
     },

@@ -1,7 +1,7 @@
 /*
  * ui_display.h
  *
- *  Created on: 2026Äê6ÔÂ22ÈÕ
+ *  Created on: 2026å¹´6æœˆ22æ—¥
  *      Author: Administrator
  */
 
@@ -11,10 +11,10 @@
 #include "hw_interface.h"
 #include "dsp_algorithms.h"
 
-// UI ³õÊ¼»¯
+// UI åˆå§‹åŒ–
 void UI_Init(void);
 
-// ºËĞÄÆÁÄ»Ë¢ĞÂº¯Êı£º´«Èëµ±Ç°ĞÅºÅÀàĞÍ£¬ÒÔ¼°ËãºÃµÄÊı¾İ½á¹¹Ìå
+// æ ¸å¿ƒå±å¹•åˆ·æ–°å‡½æ•°ï¼šä¼ å…¥å½“å‰ä¿¡å·ç±»å‹ï¼Œä»¥åŠç®—å¥½çš„æ•°æ®ç»“æ„ä½“
 void UI_UpdateDashboard(SignalType type, SignalParams *params);
 
 #endif /* SRC_UI_DISPLAY_H_ */

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1785002712">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-2" LaunchTime="1785041545">
   <File Type="PA-TCL" Name="design_1_wrapper.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="design_1_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="design_1_wrapper_reports.tcl"/>
@@ -269,4 +269,5 @@
   <BlockFileSet Type="BlockSrcs" Name="design_1_v_tc_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_v_axi4s_vid_out_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_demod_pool_core_bpsk_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_clk_wiz_0_0"/>
 </GenRun>
