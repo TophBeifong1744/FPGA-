@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun Jul 26 00:50:57 2026
+| Date         : Mon Jul 27 03:46:32 2026
 | Host         : Toph running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_axi_smc_1_utilization_synth.rpt -pb design_1_axi_smc_1_utilization_synth.pb
 | Design       : design_1_axi_smc_1
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 6324 |     0 |     53200 | 11.89 |
-|   LUT as Logic             | 4497 |     0 |     53200 |  8.45 |
-|   LUT as Memory            | 1827 |     0 |     17400 | 10.50 |
-|     LUT as Distributed RAM | 1362 |     0 |           |       |
-|     LUT as Shift Register  |  465 |     0 |           |       |
-| Slice Registers            | 7423 |     0 |    106400 |  6.98 |
-|   Register as Flip Flop    | 7423 |     0 |    106400 |  6.98 |
+| Slice LUTs*                | 7590 |     0 |     53200 | 14.27 |
+|   LUT as Logic             | 5272 |     0 |     53200 |  9.91 |
+|   LUT as Memory            | 2318 |     0 |     17400 | 13.32 |
+|     LUT as Distributed RAM | 1764 |     0 |           |       |
+|     LUT as Shift Register  |  554 |     0 |           |       |
+| Slice Registers            | 8798 |     0 |    106400 |  8.27 |
+|   Register as Flip Flop    | 8798 |     0 |    106400 |  8.27 |
 |   Register as Latch        |    0 |     0 |    106400 |  0.00 |
-| F7 Muxes                   |    2 |     0 |     26600 | <0.01 |
+| F7 Muxes                   |    3 |     0 |     26600 |  0.01 |
 | F8 Muxes                   |    0 |     0 |     13300 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 315   |          Yes |         Set |            - |
-| 7108  |          Yes |       Reset |            - |
+| 381   |          Yes |         Set |            - |
+| 8417  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,20 +148,20 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     | 7108 |        Flop & Latch |
-| RAMD32   | 2032 |  Distributed Memory |
-| LUT6     | 1668 |                 LUT |
-| LUT3     | 1246 |                 LUT |
-| LUT4     |  974 |                 LUT |
-| LUT5     |  951 |                 LUT |
-| RAMS32   |  670 |  Distributed Memory |
-| LUT2     |  516 |                 LUT |
-| FDSE     |  315 |        Flop & Latch |
-| SRL16E   |  282 |  Distributed Memory |
-| LUT1     |  282 |                 LUT |
-| SRLC32E  |  183 |  Distributed Memory |
-| CARRY4   |   44 |          CarryLogic |
-| MUXF7    |    2 |               MuxFx |
+| FDRE     | 8417 |        Flop & Latch |
+| RAMD32   | 2632 |  Distributed Memory |
+| LUT6     | 1961 |                 LUT |
+| LUT3     | 1402 |                 LUT |
+| LUT4     | 1190 |                 LUT |
+| LUT5     | 1043 |                 LUT |
+| RAMS32   |  868 |  Distributed Memory |
+| LUT2     |  655 |                 LUT |
+| FDSE     |  381 |        Flop & Latch |
+| SRL16E   |  370 |  Distributed Memory |
+| LUT1     |  354 |                 LUT |
+| SRLC32E  |  184 |  Distributed Memory |
+| CARRY4   |   56 |          CarryLogic |
+| MUXF7    |    3 |               MuxFx |
 +----------+------+---------------------+
 
 

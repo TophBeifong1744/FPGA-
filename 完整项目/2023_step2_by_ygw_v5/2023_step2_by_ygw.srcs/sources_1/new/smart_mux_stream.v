@@ -2,7 +2,7 @@
 `default_nettype none
 
 //------------------------------------------------------------------------------
-// Demodulated-waveform selector for DAC904 output and optional AXI-Stream use.
+// Demodulated-waveform selector for DAC904 output and AXI-Stream DMA capture.
 //
 // mux_ctrl[2:0]:
 //   0: mute
@@ -14,14 +14,31 @@
 //   6: 2FSK
 //   7: mute/reserved
 //
-// mux_ctrl is written by an AXI GPIO in the PS clock domain. Only its low
-// three bits are used. They pass through a two-stage synchronizer and must be
-// observed unchanged for two consecutive aclk cycles before mux_sel changes.
+// mux_ctrl[8]:
+//   0: clear/disable the AXI-Stream capture path
+//   1: enable a new AXI-Stream capture
 //
-// data_valid is aligned with mag_out/dphi_out.
-// bpsk_sample_valid is aligned with bpsk_nrz_out.
+// Recommended PS sequence:
+//   1. Write mux_ctrl = mode (capture disabled).
+//   2. Wait for the selected demodulator/filter path to settle.
+//   3. Start the AXI DMA S2MM transfer.
+//   4. Write mux_ctrl = mode | (1 << 8).
+//   5. After DMA completion, write mux_ctrl = mode.
+//
+// The AXI-Stream output contains the 64-sample moving-average result as a
+// sign-extended 32-bit word. TLAST accompanies every 2048th queued sample.
+//
+// A small elastic FIFO makes TVALID/TDATA/TLAST stable under backpressure.
+// The upstream feature stream has no ready input, so an infinitely long stall
+// cannot be lossless. If the FIFO fills, the presented AXI item remains stable,
+// the capture stops without generating TLAST, and axis_overflow_sticky is
+// asserted. The DMA then times out instead of returning a silently discontinuous
+// waveform. With the current 1 MSPS feature-valid rate and a DMA receiver, the
+// default 16-word FIFO provides substantial normal backpressure margin.
 //------------------------------------------------------------------------------
-module smart_mux_stream (
+module smart_mux_stream #(
+    parameter integer AXIS_FIFO_DEPTH = 16
+) (
     input  wire                      aclk,
     input  wire                      aresetn,
 
@@ -45,23 +62,30 @@ module smart_mux_stream (
 );
 
     //--------------------------------------------------------------------------
-    // 1. Synchronize the PS-controlled mode into the aclk domain.
+    // 1. Synchronize the PS-controlled mode and capture enable.
     //--------------------------------------------------------------------------
     (* ASYNC_REG = "TRUE" *) reg [2:0] mux_meta;
     (* ASYNC_REG = "TRUE" *) reg [2:0] mux_sync;
     reg [2:0] mux_sync_d;
     reg [2:0] mux_sel;
 
+    (* ASYNC_REG = "TRUE" *) reg capture_enable_meta;
+    (* ASYNC_REG = "TRUE" *) reg capture_enable_sync;
+
     always @(posedge aclk) begin
         if (!aresetn) begin
-            mux_meta   <= 3'd0;
-            mux_sync   <= 3'd0;
-            mux_sync_d <= 3'd0;
-            mux_sel    <= 3'd0;
+            mux_meta            <= 3'd0;
+            mux_sync            <= 3'd0;
+            mux_sync_d          <= 3'd0;
+            mux_sel             <= 3'd0;
+            capture_enable_meta <= 1'b0;
+            capture_enable_sync <= 1'b0;
         end else begin
-            mux_meta   <= mux_ctrl[2:0];
-            mux_sync   <= mux_meta;
-            mux_sync_d <= mux_sync;
+            mux_meta            <= mux_ctrl[2:0];
+            mux_sync            <= mux_meta;
+            mux_sync_d          <= mux_sync;
+            capture_enable_meta <= mux_ctrl[8];
+            capture_enable_sync <= capture_enable_meta;
 
             // Reject a transient mixed code while several GPIO bits change.
             if (mux_sync == mux_sync_d)
@@ -147,8 +171,8 @@ module smart_mux_stream (
     wire signed [31:0] fm_scaled_audio;
     wire signed [15:0] fm_audio_out;
 
-    assign lpf_data_32    = {{8{lpf_data[23]}}, lpf_data};
-    assign iir_diff       = lpf_data_32 - dac_iir;
+    assign lpf_data_32     = {{8{lpf_data[23]}}, lpf_data};
+    assign iir_diff        = lpf_data_32 - dac_iir;
     assign fm_scaled_audio = dac_iir >>> 2;
 
     always @(posedge aclk) begin
@@ -164,12 +188,7 @@ module smart_mux_stream (
                                            fm_scaled_audio[15:0];
 
     //--------------------------------------------------------------------------
-    // 6. DAC output routing.
-    //
-    // The 2PSK waveform has its own valid signal. Using data_valid here would
-    // make the DAC sample a BPSK value on unrelated feature-valid cycles.
-    // Mute/reserved modes continuously present signed zero so the DAC904 driver
-    // updates to its midscale code instead of holding the previous waveform.
+    // 6. DAC output routing. This path is independent of DMA capture_enable.
     //--------------------------------------------------------------------------
     reg signed [15:0] audio_data_mux;
     reg               audio_valid_mux;
@@ -202,29 +221,104 @@ module smart_mux_stream (
     assign audio_valid = audio_valid_mux;
 
     //--------------------------------------------------------------------------
-    // 7. Optional AXI-Stream monitor output.
-    //
-    // For the current DAC-only connection, tie m_axis_tready high. This legacy
-    // monitor path does not implement an output skid buffer for backpressure.
+    // 7. Backpressure-safe AXI-Stream elastic FIFO.
     //--------------------------------------------------------------------------
-    assign m_axis_tdata  = {{8{lpf_data[23]}}, lpf_data};
-    assign m_axis_tvalid = valid_reg;
+    localparam integer AXIS_PTR_WIDTH =
+        (AXIS_FIFO_DEPTH <= 2) ? 1 : $clog2(AXIS_FIFO_DEPTH);
+    localparam integer AXIS_COUNT_WIDTH =
+        $clog2(AXIS_FIFO_DEPTH + 1);
 
-    reg [11:0] transfer_cnt;
+    reg [31:0] axis_data_fifo [0:AXIS_FIFO_DEPTH-1];
+    reg        axis_last_fifo [0:AXIS_FIFO_DEPTH-1];
+    reg [AXIS_PTR_WIDTH-1:0] axis_write_pointer;
+    reg [AXIS_PTR_WIDTH-1:0] axis_read_pointer;
+
+    (* mark_debug = "true" *)
+    reg [AXIS_COUNT_WIDTH-1:0] axis_fifo_level;
+    (* mark_debug = "true" *)
+    reg axis_overflow_sticky;
+
+    reg [11:0] frame_sample_count;
+    reg        frame_accepting_samples;
+
+    wire axis_fifo_empty = (axis_fifo_level == 0);
+    wire axis_fifo_full  = (axis_fifo_level == AXIS_FIFO_DEPTH);
+
+    assign m_axis_tvalid = !axis_fifo_empty;
+    assign m_axis_tdata  = axis_data_fifo[axis_read_pointer];
+    assign m_axis_tlast  = axis_last_fifo[axis_read_pointer];
+
+    wire axis_pop = m_axis_tvalid && m_axis_tready;
+    wire axis_push_request =
+        capture_enable_sync && frame_accepting_samples && valid_reg;
+    wire axis_push = axis_push_request && (!axis_fifo_full || axis_pop);
+
+    function [AXIS_PTR_WIDTH-1:0] axis_next_pointer;
+        input [AXIS_PTR_WIDTH-1:0] pointer;
+        begin
+            if (pointer == AXIS_FIFO_DEPTH - 1)
+                axis_next_pointer = {AXIS_PTR_WIDTH{1'b0}};
+            else
+                axis_next_pointer = pointer + 1'b1;
+        end
+    endfunction
 
     always @(posedge aclk) begin
         if (!aresetn) begin
-            transfer_cnt <= 12'd0;
-        end else if (m_axis_tvalid && m_axis_tready) begin
-            if (transfer_cnt == 12'd2047)
-                transfer_cnt <= 12'd0;
-            else
-                transfer_cnt <= transfer_cnt + 1'b1;
+            axis_overflow_sticky <= 1'b0;
+        end else if (axis_push_request && axis_fifo_full && !axis_pop) begin
+            // Preserve the current AXI item; drop the newest input sample.
+            axis_overflow_sticky <= 1'b1;
         end
     end
 
-    assign m_axis_tlast = m_axis_tvalid &&
-                          (transfer_cnt == 12'd2047);
+    always @(posedge aclk) begin
+        if (!aresetn || !capture_enable_sync) begin
+            axis_write_pointer <= {AXIS_PTR_WIDTH{1'b0}};
+            axis_read_pointer  <= {AXIS_PTR_WIDTH{1'b0}};
+            axis_fifo_level    <= {AXIS_COUNT_WIDTH{1'b0}};
+            frame_sample_count <= 12'd0;
+            frame_accepting_samples <= 1'b1;
+        end else begin
+            case ({axis_push, axis_pop})
+                2'b10:
+                    axis_fifo_level <= axis_fifo_level + 1'b1;
+                2'b01:
+                    axis_fifo_level <= axis_fifo_level - 1'b1;
+                default:
+                    axis_fifo_level <= axis_fifo_level;
+            endcase
+
+            if (axis_push) begin
+                axis_data_fifo[axis_write_pointer] <=
+                    {{8{lpf_data[23]}}, lpf_data};
+                axis_last_fifo[axis_write_pointer] <=
+                    (frame_sample_count == 12'd2047);
+                axis_write_pointer <=
+                    axis_next_pointer(axis_write_pointer);
+
+                if (frame_sample_count == 12'd2047) begin
+                    frame_sample_count <= 12'd0;
+                    // Do not queue any part of the next DMA frame while PS is
+                    // polling completion and has not yet cleared bit 8.
+                    frame_accepting_samples <= 1'b0;
+                end else begin
+                    frame_sample_count <= frame_sample_count + 1'b1;
+                end
+            end
+
+            if (axis_pop) begin
+                axis_read_pointer <=
+                    axis_next_pointer(axis_read_pointer);
+            end
+
+            if (axis_push_request && axis_fifo_full && !axis_pop) begin
+                // Fail closed: do not silently create a time-discontinuous
+                // waveform. The missing TLAST makes the PS DMA timeout.
+                frame_accepting_samples <= 1'b0;
+            end
+        end
+    end
 
 endmodule
 

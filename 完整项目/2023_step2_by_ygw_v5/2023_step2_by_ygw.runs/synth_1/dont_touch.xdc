@@ -57,9 +57,6 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_demod_
 # IP: ip/cordic_translate_0/cordic_translate_0.xci
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==cordic_translate_0 || ORIG_REF_NAME==cordic_translate_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_ila_bpsk_0_0/design_1_ila_bpsk_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_ila_bpsk_0_0 || ORIG_REF_NAME==design_1_ila_bpsk_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_dac904_driver_0_0/design_1_dac904_driver_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_dac904_driver_0_0 || ORIG_REF_NAME==design_1_dac904_driver_0_0} -quiet] -quiet
 
@@ -83,5 +80,14 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_v_tc_0
 
 # IP: bd/design_1/ip/design_1_v_axi4s_vid_out_0_0/design_1_v_axi4s_vid_out_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_v_axi4s_vid_out_0_0 || ORIG_REF_NAME==design_1_v_axi4s_vid_out_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axi_dma_0_0/design_1_axi_dma_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axi_dma_0_0 || ORIG_REF_NAME==design_1_axi_dma_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_smartconnect_0_0/design_1_smartconnect_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_smartconnect_0_0 || ORIG_REF_NAME==design_1_smartconnect_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_axis_clock_converter_0_0/design_1_axis_clock_converter_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_axis_clock_converter_0_0 || ORIG_REF_NAME==design_1_axis_clock_converter_0_0} -quiet] -quiet
 
 # XDC: bd/design_1/design_1_ooc.xdc

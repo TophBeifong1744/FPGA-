@@ -95,7 +95,9 @@ output wire m_axis_tlast;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *)
 input wire m_axis_tready;
 
-  smart_mux_stream inst (
+  smart_mux_stream #(
+    .AXIS_FIFO_DEPTH(16)
+  ) inst (
     .aclk(aclk),
     .aresetn(aresetn),
     .mux_ctrl(mux_ctrl),

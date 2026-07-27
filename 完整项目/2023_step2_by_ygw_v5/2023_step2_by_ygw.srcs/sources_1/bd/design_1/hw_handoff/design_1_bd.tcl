@@ -193,6 +193,15 @@ proc create_root_design { parentCell } {
    CONFIG.SINGLE_PORT_BRAM {1} \
  ] $axi_bram_ctrl_0
 
+  # Create instance: axi_dma_0, and set properties
+  set axi_dma_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_dma:7.1 axi_dma_0 ]
+  set_property -dict [ list \
+   CONFIG.c_include_mm2s {0} \
+   CONFIG.c_include_s2mm {1} \
+   CONFIG.c_include_sg {0} \
+   CONFIG.c_sg_include_stscntrl_strm {0} \
+ ] $axi_dma_0
+
   # Create instance: axi_gpio_mux, and set properties
   set axi_gpio_mux [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_mux ]
   set_property -dict [ list \
@@ -202,7 +211,7 @@ proc create_root_design { parentCell } {
   # Create instance: axi_smc, and set properties
   set axi_smc [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 axi_smc ]
   set_property -dict [ list \
-   CONFIG.NUM_MI {3} \
+   CONFIG.NUM_MI {4} \
    CONFIG.NUM_SI {1} \
  ] $axi_smc
 
@@ -222,6 +231,13 @@ proc create_root_design { parentCell } {
    CONFIG.c_num_fstores {1} \
    CONFIG.c_s2mm_genlock_mode {0} \
  ] $axi_vdma_0
+
+  # Create instance: axis_clock_converter_0, and set properties
+  set axis_clock_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_clock_converter:1.1 axis_clock_converter_0 ]
+  set_property -dict [ list \
+   CONFIG.HAS_TLAST {1} \
+   CONFIG.TDATA_NUM_BYTES {4} \
+ ] $axis_clock_converter_0
 
   # Create instance: blk_mem_gen_0, and set properties
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
@@ -327,27 +343,6 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  set_property -dict [ list \
-   CONFIG.CLK_DOMAIN {/clk_wiz_0_clk_out1} \
- ] [get_bd_pins /feature_bram_writer_0/aclk]
-
-  # Create instance: ila_bpsk_0, and set properties
-  set ila_bpsk_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:ila:6.2 ila_bpsk_0 ]
-  set_property -dict [ list \
-   CONFIG.C_ADV_TRIGGER {false} \
-   CONFIG.C_DATA_DEPTH {8192} \
-   CONFIG.C_INPUT_PIPE_STAGES {0} \
-   CONFIG.C_NUM_OF_PROBES {8} \
-   CONFIG.C_PROBE0_WIDTH {1} \
-   CONFIG.C_PROBE1_WIDTH {1} \
-   CONFIG.C_PROBE2_WIDTH {2} \
-   CONFIG.C_PROBE3_WIDTH {1} \
-   CONFIG.C_PROBE4_WIDTH {1} \
-   CONFIG.C_PROBE5_WIDTH {1} \
-   CONFIG.C_PROBE6_WIDTH {16} \
-   CONFIG.C_PROBE7_WIDTH {1} \
- ] $ila_bpsk_0
-
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
   set_property -dict [ list \
@@ -411,6 +406,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_I2C_PERIPHERAL_FREQMHZ {25} \
    CONFIG.PCW_IOPLL_CTRL_FBDIV {54} \
    CONFIG.PCW_IO_IO_PLL_FREQMHZ {1800.000} \
+   CONFIG.PCW_IRQ_F2P_INTR {1} \
    CONFIG.PCW_MIO_14_DIRECTION {in} \
    CONFIG.PCW_MIO_14_IOTYPE {LVCMOS 3.3V} \
    CONFIG.PCW_MIO_14_PULLUP {enabled} \
@@ -449,7 +445,9 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_UIPARAM_DDR_T_RC {48.91} \
    CONFIG.PCW_UIPARAM_DDR_T_RCD {7} \
    CONFIG.PCW_UIPARAM_DDR_T_RP {7} \
+   CONFIG.PCW_USE_FABRIC_INTERRUPT {1} \
    CONFIG.PCW_USE_S_AXI_HP0 {1} \
+   CONFIG.PCW_USE_S_AXI_HP1 {1} \
  ] $processing_system7_0
 
   # Create instance: rst_ps7_0_60M, and set properties
@@ -469,6 +467,12 @@ proc create_root_design { parentCell } {
      return 1
    }
   
+  # Create instance: smartconnect_0, and set properties
+  set smartconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:smartconnect:1.0 smartconnect_0 ]
+  set_property -dict [ list \
+   CONFIG.NUM_SI {1} \
+ ] $smartconnect_0
+
   # Create instance: util_vector_logic_0, and set properties
   set util_vector_logic_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:util_vector_logic:2.0 util_vector_logic_0 ]
   set_property -dict [ list \
@@ -522,40 +526,45 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+  connect_bd_intf_net -intf_net axi_dma_0_M_AXI_S2MM [get_bd_intf_pins axi_dma_0/M_AXI_S2MM] [get_bd_intf_pins smartconnect_0/S00_AXI]
   connect_bd_intf_net -intf_net axi_smc_1_M00_AXI [get_bd_intf_pins axi_smc_vdma_hp0/M00_AXI] [get_bd_intf_pins processing_system7_0/S_AXI_HP0]
   connect_bd_intf_net -intf_net axi_smc_M00_AXI [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins axi_smc/M00_AXI]
   connect_bd_intf_net -intf_net axi_smc_M01_AXI [get_bd_intf_pins axi_gpio_mux/S_AXI] [get_bd_intf_pins axi_smc/M01_AXI]
   connect_bd_intf_net -intf_net axi_smc_M02_AXI [get_bd_intf_pins axi_smc/M02_AXI] [get_bd_intf_pins axi_vdma_0/S_AXI_LITE]
+  connect_bd_intf_net -intf_net axi_smc_M03_AXI [get_bd_intf_pins axi_dma_0/S_AXI_LITE] [get_bd_intf_pins axi_smc/M03_AXI]
   connect_bd_intf_net -intf_net axi_vdma_0_M_AXIS_MM2S [get_bd_intf_pins axi_vdma_0/M_AXIS_MM2S] [get_bd_intf_pins v_axi4s_vid_out_0/video_in]
   connect_bd_intf_net -intf_net axi_vdma_0_M_AXI_MM2S [get_bd_intf_pins axi_smc_vdma_hp0/S00_AXI] [get_bd_intf_pins axi_vdma_0/M_AXI_MM2S]
+  connect_bd_intf_net -intf_net axis_clock_converter_0_M_AXIS [get_bd_intf_pins axi_dma_0/S_AXIS_S2MM] [get_bd_intf_pins axis_clock_converter_0/M_AXIS]
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins axi_smc/S00_AXI] [get_bd_intf_pins processing_system7_0/M_AXI_GP0]
+  connect_bd_intf_net -intf_net smart_mux_stream_0_m_axis [get_bd_intf_pins axis_clock_converter_0/S_AXIS] [get_bd_intf_pins smart_mux_stream_0/m_axis]
+  connect_bd_intf_net -intf_net smartconnect_0_M00_AXI [get_bd_intf_pins processing_system7_0/S_AXI_HP1] [get_bd_intf_pins smartconnect_0/M00_AXI]
   connect_bd_intf_net -intf_net v_tc_0_vtiming_out [get_bd_intf_pins v_axi4s_vid_out_0/vtiming_in] [get_bd_intf_pins v_tc_0/vtiming_out]
 
   # Create port connections
-  connect_bd_net -net Net [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_gpio_mux/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins axi_smc_vdma_hp0/aclk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clk_wiz_lcd/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins rst_ps7_0_60M/slowest_sync_clk] [get_bd_pins v_axi4s_vid_out_0/aclk]
+  connect_bd_net -net Net [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_dma_0/m_axi_s2mm_aclk] [get_bd_pins axi_dma_0/s_axi_lite_aclk] [get_bd_pins axi_gpio_mux/s_axi_aclk] [get_bd_pins axi_smc/aclk] [get_bd_pins axi_smc_vdma_hp0/aclk] [get_bd_pins axi_vdma_0/m_axi_mm2s_aclk] [get_bd_pins axi_vdma_0/m_axis_mm2s_aclk] [get_bd_pins axi_vdma_0/s_axi_lite_aclk] [get_bd_pins axis_clock_converter_0/m_axis_aclk] [get_bd_pins clk_wiz_0/clk_in1] [get_bd_pins clk_wiz_lcd/clk_in1] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP0_ACLK] [get_bd_pins processing_system7_0/S_AXI_HP1_ACLK] [get_bd_pins rst_ps7_0_60M/slowest_sync_clk] [get_bd_pins smartconnect_0/aclk] [get_bd_pins v_axi4s_vid_out_0/aclk]
   connect_bd_net -net ad9226_stage1_driver_0_ad_clk [get_bd_ports ad_clk_0] [get_bd_pins ad9226_stage1_driver_0/ad_clk]
   connect_bd_net -net ad9226_stage1_driver_0_adc_data [get_bd_pins ad9226_stage1_driver_0/adc_data] [get_bd_pins ddc_stage1_pl2_top_0/adc_data]
   connect_bd_net -net ad9226_stage1_driver_0_adc_valid [get_bd_pins ad9226_stage1_driver_0/adc_valid] [get_bd_pins ddc_stage1_pl2_top_0/adc_valid]
   connect_bd_net -net ad_data_in_0_1 [get_bd_ports adc_db_0] [get_bd_pins ad9226_stage1_driver_0/ad_data_in]
   connect_bd_net -net ad_otr_in_0_1 [get_bd_ports adc_otr_0] [get_bd_pins ad9226_stage1_driver_0/ad_otr_in]
+  connect_bd_net -net axi_dma_0_s2mm_introut [get_bd_pins axi_dma_0/s2mm_introut] [get_bd_pins processing_system7_0/IRQ_F2P]
   connect_bd_net -net axi_gpio_mux_gpio_io_o [get_bd_pins axi_gpio_mux/gpio_io_o] [get_bd_pins smart_mux_stream_0/mux_ctrl]
   connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins ad9226_stage1_driver_0/clk_60m_adc] [get_bd_pins clk_wiz_0/clk_out1]
-  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins ad9226_stage1_driver_0/clk_60m_sample] [get_bd_pins blk_mem_gen_0/clkb] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins dac904_driver_0/aclk] [get_bd_pins ddc_stage1_pl2_top_0/aclk] [get_bd_pins demod_pool_core_bpsk_0/aclk] [get_bd_pins feature_bram_writer_0/aclk] [get_bd_pins ila_bpsk_0/clk] [get_bd_pins rst_sample_60M/slowest_sync_clk] [get_bd_pins smart_mux_stream_0/aclk]
+  connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins ad9226_stage1_driver_0/clk_60m_sample] [get_bd_pins axis_clock_converter_0/s_axis_aclk] [get_bd_pins blk_mem_gen_0/clkb] [get_bd_pins clk_wiz_0/clk_out2] [get_bd_pins dac904_driver_0/aclk] [get_bd_pins ddc_stage1_pl2_top_0/aclk] [get_bd_pins demod_pool_core_bpsk_0/aclk] [get_bd_pins feature_bram_writer_0/aclk] [get_bd_pins rst_sample_60M/slowest_sync_clk] [get_bd_pins smart_mux_stream_0/aclk]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins ad9226_stage1_driver_0/clk_locked] [get_bd_pins clk_wiz_0/locked] [get_bd_pins rst_sample_60M/dcm_locked]
   connect_bd_net -net clk_wiz_lcd_clk_out1 [get_bd_ports lcd_clk] [get_bd_pins clk_wiz_lcd/clk_out1] [get_bd_pins v_axi4s_vid_out_0/vid_io_out_clk] [get_bd_pins v_tc_0/clk]
   connect_bd_net -net ddc_stage1_pl2_top_0_m_i [get_bd_pins ddc_stage1_pl2_top_0/m_i] [get_bd_pins demod_pool_core_bpsk_0/s_i]
   connect_bd_net -net ddc_stage1_pl2_top_0_m_q [get_bd_pins ddc_stage1_pl2_top_0/m_q] [get_bd_pins demod_pool_core_bpsk_0/s_q]
   connect_bd_net -net ddc_stage1_pl2_top_0_m_valid [get_bd_pins ddc_stage1_pl2_top_0/m_valid] [get_bd_pins demod_pool_core_bpsk_0/s_valid]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_bit_data [get_bd_pins demod_pool_core_bpsk_0/bpsk_bit_data] [get_bd_pins ila_bpsk_0/probe3]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_bit_valid [get_bd_pins demod_pool_core_bpsk_0/bpsk_bit_valid] [get_bd_pins ila_bpsk_0/probe4]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_carrier_locked [get_bd_pins demod_pool_core_bpsk_0/bpsk_carrier_locked] [get_bd_pins ila_bpsk_0/probe0]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_nrz_out [get_bd_pins demod_pool_core_bpsk_0/bpsk_nrz_out] [get_bd_pins ila_bpsk_0/probe6] [get_bd_pins smart_mux_stream_0/bpsk_nrz_out]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_rate_code [get_bd_pins demod_pool_core_bpsk_0/bpsk_rate_code] [get_bd_pins ila_bpsk_0/probe2]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_sample_valid [get_bd_pins demod_pool_core_bpsk_0/bpsk_sample_valid] [get_bd_pins ila_bpsk_0/probe7] [get_bd_pins smart_mux_stream_0/bpsk_sample_valid]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_symbol_strobe [get_bd_pins demod_pool_core_bpsk_0/bpsk_symbol_strobe] [get_bd_pins ila_bpsk_0/probe5]
-  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_timing_locked [get_bd_pins demod_pool_core_bpsk_0/bpsk_timing_locked] [get_bd_pins ila_bpsk_0/probe1]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_bit_data [get_bd_pins demod_pool_core_bpsk_0/bpsk_bit_data] [get_bd_pins feature_bram_writer_0/bpsk_bit_data]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_bit_valid [get_bd_pins demod_pool_core_bpsk_0/bpsk_bit_valid] [get_bd_pins feature_bram_writer_0/bpsk_bit_valid]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_carrier_locked [get_bd_pins demod_pool_core_bpsk_0/bpsk_carrier_locked] [get_bd_pins feature_bram_writer_0/bpsk_carrier_locked]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_nrz_out [get_bd_pins demod_pool_core_bpsk_0/bpsk_nrz_out] [get_bd_pins smart_mux_stream_0/bpsk_nrz_out]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_rate_code [get_bd_pins demod_pool_core_bpsk_0/bpsk_rate_code] [get_bd_pins feature_bram_writer_0/bpsk_rate_code]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_sample_valid [get_bd_pins demod_pool_core_bpsk_0/bpsk_sample_valid] [get_bd_pins smart_mux_stream_0/bpsk_sample_valid]
+  connect_bd_net -net demod_pool_core_bpsk_0_bpsk_timing_locked [get_bd_pins demod_pool_core_bpsk_0/bpsk_timing_locked] [get_bd_pins feature_bram_writer_0/bpsk_timing_locked]
   connect_bd_net -net demod_pool_core_bpsk_0_dphi_out [get_bd_pins demod_pool_core_bpsk_0/dphi_out] [get_bd_pins smart_mux_stream_0/dphi_out]
   connect_bd_net -net demod_pool_core_bpsk_0_feature_valid [get_bd_pins demod_pool_core_bpsk_0/feature_valid] [get_bd_pins smart_mux_stream_0/data_valid]
   connect_bd_net -net demod_pool_core_bpsk_0_frame_done [get_bd_pins demod_pool_core_bpsk_0/frame_done] [get_bd_pins feature_bram_writer_0/frame_done]
@@ -577,8 +586,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net feature_bram_writer_0_hist_mag_rd_addr [get_bd_pins demod_pool_core_bpsk_0/hist_mag_rd_addr] [get_bd_pins feature_bram_writer_0/hist_mag_rd_addr]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_60M/ext_reset_in] [get_bd_pins rst_sample_60M/ext_reset_in] [get_bd_pins util_vector_logic_0/Op1]
   connect_bd_net -net rst_ps7_0_100M_interconnect_aresetn [get_bd_pins axi_smc/aresetn] [get_bd_pins axi_smc_vdma_hp0/aresetn] [get_bd_pins rst_ps7_0_60M/interconnect_aresetn]
-  connect_bd_net -net rst_ps7_0_60M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_gpio_mux/s_axi_aresetn] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins rst_ps7_0_60M/peripheral_aresetn]
-  connect_bd_net -net rst_sample_60M_peripheral_aresetn [get_bd_pins ad9226_stage1_driver_0/resetn] [get_bd_pins dac904_driver_0/aresetn] [get_bd_pins ddc_stage1_pl2_top_0/aresetn] [get_bd_pins demod_pool_core_bpsk_0/aresetn] [get_bd_pins feature_bram_writer_0/aresetn] [get_bd_pins rst_sample_60M/peripheral_aresetn] [get_bd_pins smart_mux_stream_0/aresetn] [get_bd_pins util_vector_logic_1/Op1]
+  connect_bd_net -net rst_ps7_0_60M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_dma_0/axi_resetn] [get_bd_pins axi_gpio_mux/s_axi_aresetn] [get_bd_pins axi_vdma_0/axi_resetn] [get_bd_pins axis_clock_converter_0/m_axis_aresetn] [get_bd_pins rst_ps7_0_60M/peripheral_aresetn]
+  connect_bd_net -net rst_sample_60M_peripheral_aresetn [get_bd_pins ad9226_stage1_driver_0/resetn] [get_bd_pins axis_clock_converter_0/s_axis_aresetn] [get_bd_pins dac904_driver_0/aresetn] [get_bd_pins ddc_stage1_pl2_top_0/aresetn] [get_bd_pins demod_pool_core_bpsk_0/aresetn] [get_bd_pins feature_bram_writer_0/aresetn] [get_bd_pins rst_sample_60M/peripheral_aresetn] [get_bd_pins smart_mux_stream_0/aresetn] [get_bd_pins util_vector_logic_1/Op1]
   connect_bd_net -net smart_mux_stream_0_audio_out [get_bd_pins dac904_driver_0/sample_in] [get_bd_pins smart_mux_stream_0/audio_out]
   connect_bd_net -net smart_mux_stream_0_audio_valid [get_bd_pins dac904_driver_0/sample_valid] [get_bd_pins smart_mux_stream_0/audio_valid]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins clk_wiz_0/reset] [get_bd_pins util_vector_logic_0/Res]
@@ -589,11 +598,13 @@ proc create_root_design { parentCell } {
   connect_bd_net -net v_axi4s_vid_out_0_vid_vsync [get_bd_ports lcd_vs] [get_bd_pins v_axi4s_vid_out_0/vid_vsync]
   connect_bd_net -net v_axi4s_vid_out_0_vtg_ce [get_bd_pins v_axi4s_vid_out_0/vtg_ce] [get_bd_pins v_tc_0/gen_clken]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins rst_ps7_0_60M/mb_debug_sys_rst] [get_bd_pins rst_sample_60M/aux_reset_in] [get_bd_pins rst_sample_60M/mb_debug_sys_rst] [get_bd_pins xlconstant_0/dout]
-  connect_bd_net -net xlconstant_1_dout [get_bd_ports lcd_bl] [get_bd_pins rst_ps7_0_60M/aux_reset_in] [get_bd_pins rst_ps7_0_60M/dcm_locked] [get_bd_pins smart_mux_stream_0/m_axis_tready] [get_bd_pins xlconstant_1/dout]
+  connect_bd_net -net xlconstant_1_dout [get_bd_ports lcd_bl] [get_bd_pins rst_ps7_0_60M/aux_reset_in] [get_bd_pins rst_ps7_0_60M/dcm_locked] [get_bd_pins xlconstant_1/dout]
 
   # Create address segments
+  create_bd_addr_seg -range 0x40000000 -offset 0x00000000 [get_bd_addr_spaces axi_dma_0/Data_S2MM] [get_bd_addr_segs processing_system7_0/S_AXI_HP1/HP1_DDR_LOWOCM] SEG_processing_system7_0_HP1_DDR_LOWOCM
   create_bd_addr_seg -range 0x40000000 -offset 0x00000000 [get_bd_addr_spaces axi_vdma_0/Data_MM2S] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] SEG_processing_system7_0_HP0_DDR_LOWOCM
   create_bd_addr_seg -range 0x00002000 -offset 0x40000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00010000 -offset 0x40400000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_dma_0/S_AXI_LITE/Reg] SEG_axi_dma_0_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x41200000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_gpio_mux/S_AXI/Reg] SEG_axi_gpio_mux_Reg
   create_bd_addr_seg -range 0x00010000 -offset 0x43000000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_vdma_0/S_AXI_LITE/Reg] SEG_axi_vdma_0_Reg
 

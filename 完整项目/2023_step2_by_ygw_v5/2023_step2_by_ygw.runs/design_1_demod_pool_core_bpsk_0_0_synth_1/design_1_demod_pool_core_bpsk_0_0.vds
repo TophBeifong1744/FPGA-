@@ -2,12 +2,12 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun Jul 26 02:05:13 2026
-# Process ID: 32916
-# Current directory: C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1
+# Start of session at: Mon Jul 27 03:41:23 2026
+# Process ID: 6816
+# Current directory: F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1
 # Command line: vivado.exe -log design_1_demod_pool_core_bpsk_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_demod_pool_core_bpsk_0_0.tcl
-# Log file: C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/design_1_demod_pool_core_bpsk_0_0.vds
-# Journal file: C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1\vivado.jou
+# Log file: F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/design_1_demod_pool_core_bpsk_0_0.vds
+# Journal file: F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1\vivado.jou
 #-----------------------------------------------------------
 source design_1_demod_pool_core_bpsk_0_0.tcl -notrace
 Command: synth_design -top design_1_demod_pool_core_bpsk_0_0 -part xc7z020clg400-2 -mode out_of_context
@@ -15,18 +15,18 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 53136 
+INFO: Helper process launched with PID 45068 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 478.473 ; gain = 98.914
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 478.293 ; gain = 98.688
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'design_1_demod_pool_core_bpsk_0_0' [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/synth/design_1_demod_pool_core_bpsk_0_0.v:58]
-INFO: [Synth 8-6157] synthesizing module 'demod_pool_core_bpsk' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core_bpsk.v:5]
+INFO: [Synth 8-6157] synthesizing module 'design_1_demod_pool_core_bpsk_0_0' [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/synth/design_1_demod_pool_core_bpsk_0_0.v:58]
+INFO: [Synth 8-6157] synthesizing module 'demod_pool_core_bpsk' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core_bpsk.v:5]
 	Parameter LGN bound to: 13 - type: integer 
 	Parameter MAG_GATE bound to: 24'b000000110011001100110011 
-INFO: [Synth 8-6157] synthesizing module 'demod_pool_core' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core.v:9]
+INFO: [Synth 8-6157] synthesizing module 'demod_pool_core' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core.v:9]
 	Parameter LGN bound to: 13 - type: integer 
 	Parameter MAG_GATE bound to: 24'b000000110011001100110011 
-INFO: [Synth 8-638] synthesizing module 'cordic_translate_0' [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/synth/cordic_translate_0.vhd:72]
+INFO: [Synth 8-638] synthesizing module 'cordic_translate_0' [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/synth/cordic_translate_0.vhd:72]
 	Parameter C_ARCHITECTURE bound to: 2 - type: integer 
 	Parameter C_CORDIC_FUNCTION bound to: 1 - type: integer 
 	Parameter C_COARSE_ROTATE bound to: 1 - type: integer 
@@ -57,59 +57,59 @@ INFO: [Synth 8-638] synthesizing module 'cordic_translate_0' [c:/Users/Toph Beif
 	Parameter C_S_AXIS_CARTESIAN_TUSER_WIDTH bound to: 1 - type: integer 
 	Parameter C_M_AXIS_DOUT_TDATA_WIDTH bound to: 48 - type: integer 
 	Parameter C_M_AXIS_DOUT_TUSER_WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-3491] module 'cordic_v6_0_14' declared at 'c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/hdl/cordic_v6_0_vh_rfs.vhd:10135' bound to instance 'U0' of component 'cordic_v6_0_14' [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/synth/cordic_translate_0.vhd:151]
-INFO: [Synth 8-256] done synthesizing module 'cordic_translate_0' (30#1) [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/synth/cordic_translate_0.vhd:72]
-INFO: [Synth 8-6157] synthesizing module 'phase_diff_wrap' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v:5]
+INFO: [Synth 8-3491] module 'cordic_v6_0_14' declared at 'f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/hdl/cordic_v6_0_vh_rfs.vhd:10135' bound to instance 'U0' of component 'cordic_v6_0_14' [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/synth/cordic_translate_0.vhd:151]
+INFO: [Synth 8-256] done synthesizing module 'cordic_translate_0' (30#1) [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/ip/cordic_translate_0/synth/cordic_translate_0.vhd:72]
+INFO: [Synth 8-6157] synthesizing module 'phase_diff_wrap' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v:5]
 	Parameter PHASE_W bound to: 24 - type: integer 
 	Parameter FRAC_W bound to: 21 - type: integer 
 	Parameter PI_RAW bound to: 25'sb0001000000000000000000000 
 	Parameter TWO_PI_RAW bound to: 25'sb0010000000000000000000000 
-INFO: [Synth 8-6155] done synthesizing module 'phase_diff_wrap' (31#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v:5]
-INFO: [Synth 8-6157] synthesizing module 'running_stats16' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'phase_diff_wrap' (31#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/phase_diff_wrap.v:5]
+INFO: [Synth 8-6157] synthesizing module 'running_stats16' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:5]
 	Parameter LGN bound to: 13 - type: integer 
 	Parameter N bound to: 8192 - type: integer 
-INFO: [Synth 8-5534] Detected attribute (* use_dsp = "yes" *) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:53]
-INFO: [Synth 8-6155] done synthesizing module 'running_stats16' (32#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:5]
-INFO: [Synth 8-6157] synthesizing module 'hist16_snapshot' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v:4]
+INFO: [Synth 8-5534] Detected attribute (* use_dsp = "yes" *) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:53]
+INFO: [Synth 8-6155] done synthesizing module 'running_stats16' (32#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:5]
+INFO: [Synth 8-6157] synthesizing module 'hist16_snapshot' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v:4]
 	Parameter LGN bound to: 13 - type: integer 
 	Parameter N bound to: 8192 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'hist16_snapshot' (33#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v:4]
-INFO: [Synth 8-6157] synthesizing module 'psk_spike_detector' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'hist16_snapshot' (33#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/hist16_snapshot.v:4]
+INFO: [Synth 8-6157] synthesizing module 'psk_spike_detector' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v:5]
 	Parameter PHASE_W bound to: 24 - type: integer 
 	Parameter LGN bound to: 13 - type: integer 
 	Parameter SPIKE_TH bound to: 943718 - type: integer 
 	Parameter MIN_SPIKES bound to: 4 - type: integer 
 	Parameter N bound to: 8192 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'psk_spike_detector' (34#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'demod_pool_core' (35#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core.v:9]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_rx_chain' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rx_chain.v:5]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_costas_loop' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'psk_spike_detector' (34#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/psk_spike_detector.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'demod_pool_core' (35#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core.v:9]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_rx_chain' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rx_chain.v:5]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_costas_loop' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:8]
 	Parameter KP_LSHIFT bound to: 5 - type: integer 
 	Parameter KI_RSHIFT bound to: 3 - type: integer 
 	Parameter LP_RSHIFT bound to: 3 - type: integer 
 	Parameter FREQ_LIMIT bound to: 419430 - type: integer 
 	Parameter MAG_GATE bound to: 16'b0000001100110011 
-INFO: [Synth 8-6157] synthesizing module 'bpsk_nco_lut' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:82]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_quarter_sine' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_quarter_sine' (36#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_nco_lut' (37#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:82]
-WARNING: [Synth 8-6014] Unused sequential element pipeline_overrun_sticky_reg was removed.  [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:189]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_costas_loop' (38#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:8]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_rate_detector' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_nco_lut' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:82]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_quarter_sine' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_quarter_sine' (36#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_nco_lut' (37#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_nco_lut.v:82]
+WARNING: [Synth 8-6014] Unused sequential element pipeline_overrun_sticky_reg was removed.  [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:189]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_costas_loop' (38#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:8]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_rate_detector' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:21]
 	Parameter WORK_IDLE bound to: 3'b000 
 	Parameter WORK_PREPARE bound to: 3'b001 
 	Parameter WORK_SCAN bound to: 3'b010 
 	Parameter WORK_SCORE bound to: 3'b011 
 	Parameter WORK_CLASSIFY bound to: 3'b100 
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_rate_detector' (39#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:21]
-INFO: [Synth 8-6157] synthesizing module 'bpsk_timing_recovery' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_rate_detector' (39#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:21]
+INFO: [Synth 8-6157] synthesizing module 'bpsk_timing_recovery' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:7]
 	Parameter NRZ_LEVEL bound to: 16'sb0010000000000000 
-INFO: [Synth 8-4471] merging register 'bit_valid_reg' into 'symbol_strobe_reg' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:48]
-WARNING: [Synth 8-6014] Unused sequential element bit_valid_reg was removed.  [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:48]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_timing_recovery' (40#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:7]
-INFO: [Synth 8-6155] done synthesizing module 'bpsk_rx_chain' (41#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rx_chain.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'demod_pool_core_bpsk' (42#1) [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core_bpsk.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'design_1_demod_pool_core_bpsk_0_0' (43#1) [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/synth/design_1_demod_pool_core_bpsk_0_0.v:58]
+INFO: [Synth 8-4471] merging register 'bit_valid_reg' into 'symbol_strobe_reg' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:48]
+WARNING: [Synth 8-6014] Unused sequential element bit_valid_reg was removed.  [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:48]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_timing_recovery' (40#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_timing_recovery.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'bpsk_rx_chain' (41#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rx_chain.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'demod_pool_core_bpsk' (42#1) [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/demod_pool_core_bpsk.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'design_1_demod_pool_core_bpsk_0_0' (43#1) [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/synth/design_1_demod_pool_core_bpsk_0_0.v:58]
 WARNING: [Synth 8-3331] design bpsk_rate_detector has unconnected port i_recovered[14]
 WARNING: [Synth 8-3331] design bpsk_rate_detector has unconnected port i_recovered[13]
 WARNING: [Synth 8-3331] design bpsk_rate_detector has unconnected port i_recovered[12]
@@ -212,7 +212,7 @@ WARNING: [Synth 8-3331] design c_reg_fd_v12_0_5_viv__parameterized2 has unconnec
 WARNING: [Synth 8-3331] design c_reg_fd_v12_0_5_viv__parameterized2 has unconnected port ACLR
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 665.992 ; gain = 286.434
+Finished RTL Elaboration : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 666.406 ; gain = 286.801
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -225,10 +225,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 665.992 ; gain = 286.434
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 666.406 ; gain = 286.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 665.992 ; gain = 286.434
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 666.406 ; gain = 286.801
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 4315 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -237,35 +237,35 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/design_1_demod_pool_core_bpsk_0_0_ooc.xdc] for cell 'inst'
-Finished Parsing XDC File [c:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/design_1_demod_pool_core_bpsk_0_0_ooc.xdc] for cell 'inst'
-Parsing XDC File [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/dont_touch.xdc]
+Parsing XDC File [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/design_1_demod_pool_core_bpsk_0_0_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [f:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/design_1_demod_pool_core_bpsk_0_0_ooc.xdc] for cell 'inst'
+Parsing XDC File [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 938.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 939.090 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 944.559 ; gain = 0.000
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.114 . Memory (MB): peak = 946.129 ; gain = 7.211
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 944.773 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 946.340 ; gain = 7.250
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 946.129 ; gain = 566.570
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 946.340 ; gain = 566.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 946.129 ; gain = 566.570
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 946.340 ; gain = 566.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for inst. (constraint file  {C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/dont_touch.xdc}, line 12).
+Applied set_property DONT_TOUCH = true for inst. (constraint file  F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/dont_touch.xdc, line 12).
 Applied set_property DONT_TOUCH = true for inst/u_feature_core/u_cordic_translate. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 946.129 ; gain = 566.570
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 946.340 ; gain = 566.734
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "sum" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "sumsq" won't be mapped to RAM because it is too sparse
@@ -287,14 +287,14 @@ INFO: [Synth 8-5544] ROM "live_reg[14]" won't be mapped to Block RAM because add
 INFO: [Synth 8-5544] ROM "live_reg[15]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "snap" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "live_spikes" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:55]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:55]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:55]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:55]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:55]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_rate_detector.v:55]
 INFO: [Synth 8-5544] ROM "work_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "candidate_index" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "active_rate" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 946.129 ; gain = 566.570
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 946.340 ; gain = 566.734
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -329,16 +329,16 @@ Start Cross Boundary and Area Optimization
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-5546] ROM "sumsq" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "sum" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:61]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/running_stats16.v:61]
 INFO: [Synth 8-5546] ROM "sumsq" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "sum" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "snap" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "snap" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "live_spikes" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-4471] merging register 'cosine_pipe_reg[15:0]' into 'cosine_pipe_reg[15:0]' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:165]
-INFO: [Synth 8-4471] merging register 'sine_pipe_reg[15:0]' into 'sine_pipe_reg[15:0]' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:164]
-INFO: [Synth 8-4471] merging register 'sample_q_pipe_reg[15:0]' into 'sample_q_pipe_reg[15:0]' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:163]
-INFO: [Synth 8-4471] merging register 'sample_i_pipe_reg[15:0]' into 'sample_i_pipe_reg[15:0]' [C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:162]
+INFO: [Synth 8-4471] merging register 'cosine_pipe_reg[15:0]' into 'cosine_pipe_reg[15:0]' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:165]
+INFO: [Synth 8-4471] merging register 'sine_pipe_reg[15:0]' into 'sine_pipe_reg[15:0]' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:164]
+INFO: [Synth 8-4471] merging register 'sample_q_pipe_reg[15:0]' into 'sample_q_pipe_reg[15:0]' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:163]
+INFO: [Synth 8-4471] merging register 'sample_i_pipe_reg[15:0]' into 'sample_i_pipe_reg[15:0]' [F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/sources_1/imports/rtl/bpsk_costas_loop.v:162]
 INFO: [Synth 8-5544] ROM "candidate_index" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "work_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
@@ -551,7 +551,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/u_fe
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/u_feature_core/u_cordic_translate/U0/i_synth/\i_synth/gen_cordic.output_stage/gen_scaling.gen_x_out.scale/multiplier /\gCCM.iCCM/emb_mult_ccm.dsp_ccm.dsp48_array/use_prim.iBdelx[1].iBdely[1].need_delay_line.Bdelay/dN.std_srl.shift_reg_reg[0][10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/u_feature_core/u_cordic_translate/U0/i_synth/\i_synth/gen_cordic.output_stage/gen_scaling.gen_x_out.scale/multiplier /\gCCM.iCCM/emb_mult_ccm.dsp_ccm.dsp48_array/use_prim.iBdelx[1].iBdely[1].need_delay_line.Bdelay/dN.std_srl.shift_reg_reg[0][10] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 946.129 ; gain = 566.570
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:55 . Memory (MB): peak = 946.340 ; gain = 566.734
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -563,13 +563,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:44 . Memory (MB): peak = 1012.148 ; gain = 632.590
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:01 . Memory (MB): peak = 1011.992 ; gain = 632.387
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 1084.004 ; gain = 704.445
+Finished Timing Optimization : Time (s): cpu = 00:01:01 ; elapsed = 00:01:04 . Memory (MB): peak = 1085.551 ; gain = 705.945
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -581,7 +581,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Technology Mapping : Time (s): cpu = 00:01:05 ; elapsed = 00:01:08 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -605,7 +605,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:01:09 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -618,7 +618,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:01:09 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -630,25 +630,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -691,17 +691,17 @@ Report Cell Usage:
 |25    |FDSE       |    23|
 +------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 1089.715 ; gain = 710.109
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 556 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:46 . Memory (MB): peak = 1088.207 ; gain = 428.512
-Synthesis Optimization Complete : Time (s): cpu = 00:00:48 ; elapsed = 00:00:51 . Memory (MB): peak = 1088.207 ; gain = 708.648
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:01:03 . Memory (MB): peak = 1089.715 ; gain = 430.176
+Synthesis Optimization Complete : Time (s): cpu = 00:01:06 ; elapsed = 00:01:10 . Memory (MB): peak = 1089.715 ; gain = 710.109
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 4946 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1088.207 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1094.078 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 576 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 576 instances
@@ -709,15 +709,15 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 194 Infos, 202 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:51 ; elapsed = 00:00:55 . Memory (MB): peak = 1088.207 ; gain = 720.164
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1088.207 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:10 ; elapsed = 00:01:14 . Memory (MB): peak = 1094.078 ; gain = 725.973
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1094.078 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/design_1_demod_pool_core_bpsk_0_0.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/design_1_demod_pool_core_bpsk_0_0.dcp' has been generated.
 INFO: [Coretcl 2-1174] Renamed 586 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1088.207 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1094.078 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Toph Beifong/Desktop/2023_step2_by_ygw_v4/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/design_1_demod_pool_core_bpsk_0_0.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.runs/design_1_demod_pool_core_bpsk_0_0_synth_1/design_1_demod_pool_core_bpsk_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_demod_pool_core_bpsk_0_0_utilization_synth.rpt -pb design_1_demod_pool_core_bpsk_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 02:06:20 2026...
+INFO: [Common 17-206] Exiting Vivado at Mon Jul 27 03:42:56 2026...

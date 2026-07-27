@@ -1,21 +1,21 @@
 -makelib ies_lib/xilinx_vip -sv \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/axi_vip_axi4pc.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/xil_common_vip_pkg.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/axi_vip_pkg.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/axi4stream_vip_if.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/axi_vip_if.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/clk_vip_if.sv" \
-  "D:/xlinks/Vivado/2018.3/data/xilinx_vip/hdl/rst_vip_if.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/axi4stream_vip_axi4streampc.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/axi_vip_axi4pc.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/xil_common_vip_pkg.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/axi4stream_vip_pkg.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/axi_vip_pkg.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/axi4stream_vip_if.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/axi_vip_if.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/clk_vip_if.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/xilinx_vip/hdl/rst_vip_if.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib -sv \
-  "D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
-  "D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-  "D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+  "F:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 -endlib
 -makelib ies_lib/xpm \
-  "D:/xlinks/Vivado/2018.3/data/ip/xpm/xpm_VCOMP.vhd" \
+  "F:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_feature_bram_writer_0_0/sim/design_1_feature_bram_writer_0_0.v" \
@@ -55,9 +55,6 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_rst_ps7_0_100M_1/sim/design_1_rst_ps7_0_100M_1.vhd" \
--endlib
--makelib ies_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/sim/bd_6f02.v" \
 -endlib
 -makelib ies_lib/xlconstant_v1_1_5 \
   "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/4649/hdl/xlconstant_v1_1_vl_rfs.v" \
@@ -143,8 +140,16 @@
   "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_34/sim/bd_6f02_m02wn_0.sv" \
   "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_35/sim/bd_6f02_m02bn_0.sv" \
   "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_36/sim/bd_6f02_m02e_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_37/sim/bd_6f02_m03s2a_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_38/sim/bd_6f02_m03arn_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_39/sim/bd_6f02_m03rn_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_40/sim/bd_6f02_m03awn_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_41/sim/bd_6f02_m03wn_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_42/sim/bd_6f02_m03bn_0.sv" \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/ip/ip_43/sim/bd_6f02_m03e_0.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_smc_1/bd_0/sim/bd_6f02.v" \
   "../../../bd/design_1/ip/design_1_axi_smc_1/sim/design_1_axi_smc_1.v" \
   "../../../bd/design_1/ip/design_1_xlconstant_0_0/sim/design_1_xlconstant_0_0.v" \
   "../../../bd/design_1/ip/design_1_xlconstant_1_0/sim/design_1_xlconstant_1_0.v" \
@@ -165,7 +170,6 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_demod_pool_core_bpsk_0_0/sim/design_1_demod_pool_core_bpsk_0_0.v" \
-  "../../../bd/design_1/ip/design_1_ila_bpsk_0_0/sim/design_1_ila_bpsk_0_0.v" \
   "../../../bd/design_1/ip/design_1_dac904_driver_0_0/sim/design_1_dac904_driver_0_0.v" \
   "../../../bd/design_1/ip/design_1_smart_mux_stream_0_0/sim/design_1_smart_mux_stream_0_0.v" \
 -endlib
@@ -215,7 +219,6 @@
   "../../../bd/design_1/ip/design_1_axi_vdma_0_0/sim/design_1_axi_vdma_0_0.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../bd/design_1/ip/design_1_axi_smc_1_1/bd_0/sim/bd_68b9.v" \
   "../../../bd/design_1/ip/design_1_axi_smc_1_1/bd_0/ip/ip_0/sim/bd_68b9_one_0.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
@@ -232,6 +235,7 @@
   "../../../bd/design_1/ip/design_1_axi_smc_1_1/bd_0/ip/ip_9/sim/bd_68b9_m00e_0.sv" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_smc_1_1/bd_0/sim/bd_68b9.v" \
   "../../../bd/design_1/ip/design_1_axi_smc_1_1/sim/design_1_axi_smc_1_1.v" \
   "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0_clk_wiz.v" \
   "../../../bd/design_1/ip/design_1_clk_wiz_1_0/design_1_clk_wiz_1_0.v" \
@@ -250,6 +254,45 @@
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/design_1/ip/design_1_v_axi4s_vid_out_0_0/sim/design_1_v_axi4s_vid_out_0_0.v" \
+-endlib
+-makelib ies_lib/axi_sg_v4_1_11 \
+  "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/efa7/hdl/axi_sg_v4_1_rfs.vhd" \
+-endlib
+-makelib ies_lib/axi_dma_v7_1_19 \
+  "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/09b0/hdl/axi_dma_v7_1_vh_rfs.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axi_dma_0_0/sim/design_1_axi_dma_0_0.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_0/sim/bd_48ac_one_0.v" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_1/sim/bd_48ac_psr_aclk_0.vhd" \
+-endlib
+-makelib ies_lib/xil_defaultlib -sv \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_2/sim/bd_48ac_s00mmu_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_3/sim/bd_48ac_s00tr_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_4/sim/bd_48ac_s00sic_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_5/sim/bd_48ac_s00a2s_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_6/sim/bd_48ac_sawn_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_7/sim/bd_48ac_swn_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_8/sim/bd_48ac_sbn_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_9/sim/bd_48ac_m00s2a_0.sv" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/ip/ip_10/sim/bd_48ac_m00e_0.sv" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/bd_0/sim/bd_48ac.v" \
+  "../../../bd/design_1/ip/design_1_smartconnect_0_0/sim/design_1_smartconnect_0_0.v" \
+-endlib
+-makelib ies_lib/axis_infrastructure_v1_1_0 \
+  "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/8713/hdl/axis_infrastructure_v1_1_vl_rfs.v" \
+-endlib
+-makelib ies_lib/axis_clock_converter_v1_1_19 \
+  "../../../../2023_step2_by_ygw.srcs/sources_1/bd/design_1/ipshared/b823/hdl/axis_clock_converter_v1_1_vl_rfs.v" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/design_1/ip/design_1_axis_clock_converter_0_0/sim/design_1_axis_clock_converter_0_0.v" \
   "../../../bd/design_1/sim/design_1.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \

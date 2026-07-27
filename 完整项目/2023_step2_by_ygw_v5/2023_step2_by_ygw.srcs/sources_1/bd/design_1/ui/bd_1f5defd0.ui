@@ -2,115 +2,122 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
 #  -string -flagsOSRD
-preplace port lcd_vs -pg 1 -y 1320 -defaultsOSRD
-preplace port lcd_hs -pg 1 -y 1300 -defaultsOSRD
-preplace port DDR -pg 1 -y 960 -defaultsOSRD
-preplace port ad_clk_0 -pg 1 -y 770 -defaultsOSRD
-preplace port adc_otr_0 -pg 1 -y 550 -defaultsOSRD
-preplace port lcd_de -pg 1 -y 1260 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 980 -defaultsOSRD
-preplace port lcd_clk -pg 1 -y 1000 -defaultsOSRD
-preplace portBus adc_db_0 -pg 1 -y 530 -defaultsOSRD
-preplace portBus lcd_bl -pg 1 -y 630 -defaultsOSRD
-preplace portBus lcd_rgb -pg 1 -y 1280 -defaultsOSRD
-preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 6 -y 1340 -defaultsOSRD
-preplace inst demod_pool_core_bpsk_0 -pg 1 -lvl 12 -y 320 -defaultsOSRD
-preplace inst v_tc_0 -pg 1 -lvl 5 -y 1160 -defaultsOSRD
-preplace inst axi_vdma_0 -pg 1 -lvl 4 -y 1020 -defaultsOSRD
-preplace inst ddc_stage1_pl2_top_0 -pg 1 -lvl 11 -y 660 -defaultsOSRD
-preplace inst clk_wiz_lcd -pg 1 -lvl 13 -y 840 -defaultsOSRD
-preplace inst feature_bram_writer_0 -pg 1 -lvl 4 -y 220 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 1 -y 700 -defaultsOSRD
-preplace inst dac904_driver_0 -pg 1 -lvl 14 -y 260 -defaultsOSRD
-preplace inst xlconstant_1 -pg 1 -lvl 14 -y 690 -defaultsOSRD
-preplace inst axi_smc -pg 1 -lvl 3 -y 790 -defaultsOSRD
-preplace inst rst_ps7_0_60M -pg 1 -lvl 2 -y 910 -defaultsOSRD
-preplace inst ila_bpsk_0 -pg 1 -lvl 14 -y 480 -defaultsOSRD
-preplace inst rst_sample_60M -pg 1 -lvl 9 -y 670 -defaultsOSRD
-preplace inst smart_mux_stream_0 -pg 1 -lvl 13 -y 290 -defaultsOSRD
-preplace inst util_vector_logic_0 -pg 1 -lvl 7 -y 780 -defaultsOSRD
-preplace inst axi_gpio_mux -pg 1 -lvl 4 -y 790 -defaultsOSRD
-preplace inst ad9226_stage1_driver_0 -pg 1 -lvl 10 -y 700 -defaultsOSRD
-preplace inst util_vector_logic_1 -pg 1 -lvl 4 -y 440 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 5 -y 350 -defaultsOSRD
-preplace inst axi_smc_vdma_hp0 -pg 1 -lvl 5 -y 990 -defaultsOSRD
-preplace inst clk_wiz_0 -pg 1 -lvl 8 -y 790 -defaultsOSRD
-preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -y 630 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 6 -y 1000 -defaultsOSRD
-preplace netloc axi_vdma_0_M_AXI_MM2S 1 4 1 1420
-preplace netloc ad_data_in_0_1 1 0 10 NJ 530 NJ 530 NJ 530 860J 520 1380J 530 NJ 530 NJ 530 NJ 530 NJ 530 3170J
-preplace netloc util_vector_logic_0_Res 1 7 1 NJ
-preplace netloc processing_system7_0_FIXED_IO 1 6 9 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ 980 NJ
-preplace netloc demod_pool_core_bpsk_0_bpsk_bit_valid 1 12 2 4490 450 NJ
-preplace netloc demod_pool_core_bpsk_0_feature_valid 1 12 1 4480
-preplace netloc axi_smc_M00_AXI 1 3 1 860
-preplace netloc axi_vdma_0_M_AXIS_MM2S 1 4 2 1350 1070 1760J
-preplace netloc ad9226_stage1_driver_0_ad_clk 1 10 5 3500J 540 3870J 770 NJ 770 NJ 770 NJ
-preplace netloc demod_pool_core_bpsk_0_mag_out 1 12 1 4530
-preplace netloc v_tc_0_vtiming_out 1 5 1 1740
-preplace netloc smart_mux_stream_0_audio_valid 1 13 1 4930
-preplace netloc rst_ps7_0_60M_peripheral_aresetn 1 2 2 NJ 950 890
-preplace netloc processing_system7_0_DDR 1 6 9 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ 960 NJ
-preplace netloc axi_smc_1_M00_AXI 1 5 1 N
-preplace netloc demod_pool_core_bpsk_0_mean_freq_num 1 3 10 930 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 NJ 50 4400
-preplace netloc demod_pool_core_bpsk_0_dphi_out 1 12 1 4520
-preplace netloc ddc_stage1_pl2_top_0_m_i 1 11 1 3920
-preplace netloc feature_bram_writer_0_bram_en 1 4 1 1440
-preplace netloc demod_pool_core_bpsk_0_bpsk_symbol_strobe 1 12 2 N 420 4930J
-preplace netloc demod_pool_core_bpsk_0_bpsk_rate_code 1 12 2 4540 470 NJ
-preplace netloc demod_pool_core_bpsk_0_var_freq_num 1 3 10 880 550 1350J 560 1770J 470 NJ 470 NJ 470 NJ 470 NJ 470 NJ 470 3940J 610 4400
-preplace netloc xlconstant_1_dout 1 1 14 210 810 550J 900 NJ 900 1440J 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ 520 NJ 520 3900J 640 NJ 640 4910 630 5250
-preplace netloc feature_bram_writer_0_hist_mag_rd_addr 1 4 8 1460 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 NJ 200 3980J
-preplace netloc ad9226_stage1_driver_0_adc_valid 1 10 1 N
-preplace netloc ad_otr_in_0_1 1 0 10 NJ 550 NJ 550 NJ 550 870J 530 1370J 540 NJ 540 NJ 540 NJ 540 NJ 540 3150J
-preplace netloc demod_pool_core_bpsk_0_hist_mag_rd_data 1 3 10 910 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 NJ 40 4420
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 8 200 800 560J 880 NJ 880 NJ 880 NJ 880 2250 650 NJ 650 NJ
-preplace netloc demod_pool_core_bpsk_0_bpsk_timing_locked 1 12 2 4550 490 4950J
-preplace netloc ad9226_stage1_driver_0_adc_data 1 10 1 N
-preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 1 1400
-preplace netloc demod_pool_core_bpsk_0_hist_freq_rd_data 1 3 10 860 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 NJ 30 4460
-preplace netloc feature_bram_writer_0_bram_addr 1 4 1 1460
-preplace netloc axi_gpio_mux_gpio_io_o 1 4 9 1390J 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 NJ 10 4550
-preplace netloc clk_wiz_lcd_clk_out1 1 4 11 1380 1260 1750 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 NJ 1100 4930 1000 NJ
-preplace netloc feature_bram_writer_0_bram_we 1 4 1 1370
-preplace netloc ddc_stage1_pl2_top_0_m_q 1 11 1 3880
-preplace netloc ddc_stage1_pl2_top_0_m_valid 1 11 1 3960
-preplace netloc demod_pool_core_bpsk_0_s_ready 1 10 3 3530 550 3890J 630 4470
-preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 2 3 570 890 NJ 890 1380J
-preplace netloc Net 1 1 12 190 790 580 870 880 910 1450 910 1770 900 2270 870 2570 870 2780J 840 NJ 840 NJ 840 NJ 840 NJ
-preplace netloc smart_mux_stream_0_audio_out 1 13 1 4900
-preplace netloc axi_smc_M01_AXI 1 3 1 870
-preplace netloc clk_wiz_0_locked 1 8 2 2790 570 3140
-preplace netloc feature_bram_writer_0_hist_freq_rd_addr 1 4 8 1450 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 NJ 210 3970J
-preplace netloc util_vector_logic_1_Res 1 4 1 1380J
-preplace netloc demod_pool_core_bpsk_0_bpsk_nrz_out 1 12 2 4550 440 4920J
-preplace netloc v_axi4s_vid_out_0_vid_active_video 1 6 9 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ 1260 NJ
-preplace netloc v_axi4s_vid_out_0_vid_data 1 6 9 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ 1280 NJ
-preplace netloc demod_pool_core_bpsk_0_var_mag_num 1 3 10 890 510 1420J 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 3910J 620 4440
-preplace netloc demod_pool_core_bpsk_0_bpsk_bit_data 1 12 2 4500 430 4930J
-preplace netloc rst_sample_60M_peripheral_aresetn 1 3 11 920 380 1430J 510 NJ 510 NJ 510 NJ 510 NJ 510 3160 580 3510 310 3880 60 4540 160 4950
-preplace netloc demod_pool_core_bpsk_0_mean_mag_num 1 3 10 940 500 1410J 490 1750J 480 NJ 480 NJ 480 NJ 480 NJ 480 NJ 480 3950J 590 4410
-preplace netloc axi_smc_M02_AXI 1 3 1 860
-preplace netloc v_axi4s_vid_out_0_vtg_ce 1 4 3 1450 1250 1780J 1180 2240
-preplace netloc v_axi4s_vid_out_0_vid_hsync 1 6 9 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ 1300 NJ
-preplace netloc v_axi4s_vid_out_0_vid_vsync 1 6 9 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ
-preplace netloc demod_pool_core_bpsk_0_psk_spike_count 1 3 10 900 870 NJ 870 NJ 870 2260J 880 NJ 880 NJ 880 NJ 880 NJ 880 NJ 880 4430
-preplace netloc clk_wiz_0_clk_out1 1 8 2 2770J 560 3180
-preplace netloc demod_pool_core_bpsk_0_psk_flag 1 3 10 950 540 1360J 550 1780J 490 NJ 490 NJ 490 NJ 490 NJ 490 NJ 490 3930J 600 4390
-preplace netloc clk_wiz_0_clk_out2 1 3 11 880 10 1380 220 NJ 220 NJ 220 NJ 220 2760 550 3190 550 3520 530 3990 580 4510 460 4940
-preplace netloc processing_system7_0_M_AXI_GP0 1 2 5 580 60 NJ 60 NJ 60 NJ 60 2240
-preplace netloc demod_pool_core_bpsk_0_bpsk_carrier_locked 1 12 2 N 480 4900J
-preplace netloc demod_pool_core_bpsk_0_bpsk_sample_valid 1 12 2 4480 550 NJ
-preplace netloc xlconstant_0_dout 1 1 8 180 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 NJ 710 2780
-preplace netloc feature_bram_writer_0_bram_wdata 1 4 1 1430
-preplace netloc demod_pool_core_bpsk_0_frame_done 1 3 10 890 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 NJ 20 4450
-levelinfo -pg 1 0 100 380 720 1160 1600 2010 2420 2670 2970 3350 3710 4200 4730 5100 5270 -top 0 -bot 1510
+preplace port lcd_vs -pg 1 -y 390 -defaultsOSRD
+preplace port lcd_hs -pg 1 -y 370 -defaultsOSRD
+preplace port DDR -pg 1 -y 680 -defaultsOSRD
+preplace port ad_clk_0 -pg 1 -y 1230 -defaultsOSRD
+preplace port adc_otr_0 -pg 1 -y 1130 -defaultsOSRD
+preplace port lcd_de -pg 1 -y 330 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 700 -defaultsOSRD
+preplace port lcd_clk -pg 1 -y 250 -defaultsOSRD
+preplace portBus adc_db_0 -pg 1 -y 1110 -defaultsOSRD
+preplace portBus lcd_bl -pg 1 -y 1440 -defaultsOSRD
+preplace portBus lcd_rgb -pg 1 -y 350 -defaultsOSRD
+preplace inst v_axi4s_vid_out_0 -pg 1 -lvl 11 -y 410 -defaultsOSRD
+preplace inst smartconnect_0 -pg 1 -lvl 10 -y 530 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 9 -y 530 -defaultsOSRD
+preplace inst demod_pool_core_bpsk_0 -pg 1 -lvl 6 -y 280 -defaultsOSRD
+preplace inst v_tc_0 -pg 1 -lvl 10 -y 220 -defaultsOSRD
+preplace inst axi_vdma_0 -pg 1 -lvl 9 -y 340 -defaultsOSRD
+preplace inst ddc_stage1_pl2_top_0 -pg 1 -lvl 5 -y 1110 -defaultsOSRD
+preplace inst feature_bram_writer_0 -pg 1 -lvl 5 -y 740 -defaultsOSRD
+preplace inst clk_wiz_lcd -pg 1 -lvl 10 -y 410 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -y 1350 -defaultsOSRD
+preplace inst dac904_driver_0 -pg 1 -lvl 8 -y 340 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 11 -y 1500 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 8 -y 680 -defaultsOSRD
+preplace inst rst_ps7_0_60M -pg 1 -lvl 7 -y 1340 -defaultsOSRD
+preplace inst rst_sample_60M -pg 1 -lvl 3 -y 1230 -defaultsOSRD
+preplace inst axis_clock_converter_0 -pg 1 -lvl 8 -y 510 -defaultsOSRD
+preplace inst smart_mux_stream_0 -pg 1 -lvl 7 -y 490 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 1200 -defaultsOSRD
+preplace inst axi_gpio_mux -pg 1 -lvl 9 -y 690 -defaultsOSRD
+preplace inst ad9226_stage1_driver_0 -pg 1 -lvl 4 -y 1150 -defaultsOSRD
+preplace inst util_vector_logic_1 -pg 1 -lvl 9 -y 1040 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 10 -y 960 -defaultsOSRD
+preplace inst axi_smc_vdma_hp0 -pg 1 -lvl 10 -y 690 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 2 -y 1210 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 9 -y 880 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 11 -y 720 -defaultsOSRD
+preplace netloc axi_vdma_0_M_AXI_MM2S 1 9 1 3680
+preplace netloc ad_data_in_0_1 1 0 4 NJ 1110 NJ 1110 500J 1100 930J
+preplace netloc axis_clock_converter_0_M_AXIS 1 8 1 N
+preplace netloc util_vector_logic_0_Res 1 1 1 NJ
+preplace netloc processing_system7_0_FIXED_IO 1 11 1 NJ
+preplace netloc demod_pool_core_bpsk_0_bpsk_bit_valid 1 4 3 1320 980 NJ 980 2360
+preplace netloc demod_pool_core_bpsk_0_feature_valid 1 6 1 2480
+preplace netloc axi_smc_M00_AXI 1 8 1 3260
+preplace netloc axi_vdma_0_M_AXIS_MM2S 1 9 2 N 330 NJ
+preplace netloc ad9226_stage1_driver_0_ad_clk 1 4 8 1250J 1230 NJ 1230 NJ 1230 NJ 1230 NJ 1230 NJ 1230 NJ 1230 NJ
+preplace netloc demod_pool_core_bpsk_0_mag_out 1 6 1 2520
+preplace netloc v_tc_0_vtiming_out 1 10 1 4040
+preplace netloc smart_mux_stream_0_audio_valid 1 7 1 2910
+preplace netloc rst_ps7_0_60M_peripheral_aresetn 1 7 2 2920 240 3270
+preplace netloc processing_system7_0_DDR 1 11 1 NJ
+preplace netloc axi_smc_M03_AXI 1 8 1 3240
+preplace netloc axi_smc_1_M00_AXI 1 10 1 N
+preplace netloc demod_pool_core_bpsk_0_mean_freq_num 1 4 3 1280 20 NJ 20 2380
+preplace netloc demod_pool_core_bpsk_0_dphi_out 1 6 1 2490
+preplace netloc ddc_stage1_pl2_top_0_m_i 1 5 1 1750
+preplace netloc feature_bram_writer_0_bram_en 1 5 5 1840 620 2430J 220 NJ 220 NJ 220 3660J
+preplace netloc demod_pool_core_bpsk_0_bpsk_rate_code 1 4 3 1340 950 NJ 950 2300
+preplace netloc demod_pool_core_bpsk_0_var_freq_num 1 4 3 1340 530 1770J 560 2340
+preplace netloc xlconstant_1_dout 1 6 6 2420 1440 NJ 1440 NJ 1440 NJ 1440 NJ 1440 4520
+preplace netloc feature_bram_writer_0_hist_mag_rd_addr 1 5 1 1740
+preplace netloc smartconnect_0_M00_AXI 1 10 1 4020
+preplace netloc ad9226_stage1_driver_0_adc_valid 1 4 1 N
+preplace netloc ad_otr_in_0_1 1 0 4 NJ 1130 NJ 1130 530J 1120 900J
+preplace netloc demod_pool_core_bpsk_0_hist_mag_rd_data 1 4 3 1330 990 NJ 990 2400
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 12 20 1290 NJ 1290 550 1330 NJ 1330 NJ 1330 NJ 1330 2530 1190 NJ 1190 NJ 1190 NJ 1190 NJ 1190 4510
+preplace netloc demod_pool_core_bpsk_0_bpsk_timing_locked 1 4 3 1290 960 NJ 960 2320
+preplace netloc ad9226_stage1_driver_0_adc_data 1 4 1 N
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 9 1 N
+preplace netloc smart_mux_stream_0_m_axis 1 7 1 N
+preplace netloc demod_pool_core_bpsk_0_hist_freq_rd_data 1 4 3 1300 1220 NJ 1220 2410
+preplace netloc feature_bram_writer_0_bram_addr 1 5 5 1870 640 2450J 190 NJ 190 NJ 190 3710J
+preplace netloc axi_gpio_mux_gpio_io_o 1 6 4 2530 180 NJ 180 NJ 180 3640
+preplace netloc clk_wiz_lcd_clk_out1 1 9 3 3720 320 4050 240 4530J
+preplace netloc feature_bram_writer_0_bram_we 1 5 5 1860 630 2460J 230 NJ 230 NJ 230 3650J
+preplace netloc axi_dma_0_M_AXI_S2MM 1 9 1 N
+preplace netloc ddc_stage1_pl2_top_0_m_q 1 5 1 1810
+preplace netloc ddc_stage1_pl2_top_0_m_valid 1 5 1 1850
+preplace netloc demod_pool_core_bpsk_0_s_ready 1 4 3 1340 1000 NJ 1000 2420
+preplace netloc rst_ps7_0_100M_interconnect_aresetn 1 7 3 2930 770 NJ 770 3670
+preplace netloc Net 1 1 11 320 1410 NJ 1410 930J 1320 NJ 1320 NJ 1320 2510 680 2890 200 3280 200 3700 350 4030 590 4510
+preplace netloc smart_mux_stream_0_audio_out 1 7 1 2880
+preplace netloc axi_smc_M01_AXI 1 8 1 N
+preplace netloc clk_wiz_0_locked 1 2 2 540 1130 910J
+preplace netloc feature_bram_writer_0_hist_freq_rd_addr 1 5 1 1760
+preplace netloc util_vector_logic_1_Res 1 9 1 3640J
+preplace netloc demod_pool_core_bpsk_0_bpsk_nrz_out 1 6 1 2470
+preplace netloc v_axi4s_vid_out_0_vid_active_video 1 11 1 NJ
+preplace netloc v_axi4s_vid_out_0_vid_data 1 11 1 NJ
+preplace netloc demod_pool_core_bpsk_0_var_mag_num 1 4 3 1330 520 1780J 570 2390
+preplace netloc demod_pool_core_bpsk_0_bpsk_bit_data 1 4 3 1310 970 NJ 970 2370
+preplace netloc rst_sample_60M_peripheral_aresetn 1 3 6 920 1030 1260 470 1840 600 2510 630 2900 250 3230J
+preplace netloc demod_pool_core_bpsk_0_mean_mag_num 1 4 3 1310 490 1870J 540 2350
+preplace netloc axi_smc_M02_AXI 1 8 1 3250
+preplace netloc v_axi4s_vid_out_0_vtg_ce 1 9 3 3730 310 4030J 250 4510
+preplace netloc v_axi4s_vid_out_0_vid_hsync 1 11 1 NJ
+preplace netloc v_axi4s_vid_out_0_vid_vsync 1 11 1 NJ
+preplace netloc demod_pool_core_bpsk_0_psk_spike_count 1 4 3 1320 510 1820J 550 2330
+preplace netloc clk_wiz_0_clk_out1 1 2 2 510 1110 940J
+preplace netloc demod_pool_core_bpsk_0_psk_flag 1 4 3 1290 500 1790J 590 2380
+preplace netloc clk_wiz_0_clk_out2 1 2 8 520 1090 950 1020 1250 460 1800 610 2500 620 2870 210 NJ 210 3690J
+preplace netloc processing_system7_0_M_AXI_GP0 1 7 5 2930 130 NJ 130 NJ 130 NJ 130 4520
+preplace netloc demod_pool_core_bpsk_0_bpsk_carrier_locked 1 4 3 1270 480 1830J 580 2310
+preplace netloc demod_pool_core_bpsk_0_bpsk_sample_valid 1 6 1 2440
+preplace netloc xlconstant_0_dout 1 2 5 560 1360 NJ 1360 NJ 1360 NJ 1360 NJ
+preplace netloc feature_bram_writer_0_bram_wdata 1 5 5 1740 800 NJ 800 NJ 800 NJ 800 3640J
+preplace netloc axi_dma_0_s2mm_introut 1 9 2 3670J 610 4010
+preplace netloc demod_pool_core_bpsk_0_frame_done 1 4 3 1300 10 NJ 10 2400
+levelinfo -pg 1 0 170 410 730 1100 1550 2110 2700 3080 3460 3870 4280 4550 -top 0 -bot 1560
 "
 }
 {
-   "da_axi4_cnt":"4",
+   "da_axi4_cnt":"9",
    "da_board_cnt":"2",
    "da_bram_cntlr_cnt":"2",
-   "da_clkrst_cnt":"11",
+   "da_clkrst_cnt":"14",
    "da_ps7_cnt":"2"
 }

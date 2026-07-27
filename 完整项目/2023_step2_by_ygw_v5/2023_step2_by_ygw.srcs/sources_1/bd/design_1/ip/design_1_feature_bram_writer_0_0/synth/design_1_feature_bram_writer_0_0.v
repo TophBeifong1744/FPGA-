@@ -65,6 +65,11 @@ module design_1_feature_bram_writer_0_0 (
   mean_freq_num,
   psk_spike_count,
   psk_flag,
+  bpsk_carrier_locked,
+  bpsk_timing_locked,
+  bpsk_rate_code,
+  bpsk_bit_data,
+  bpsk_bit_valid,
   hist_mag_rd_addr,
   hist_mag_rd_data,
   hist_freq_rd_addr,
@@ -89,6 +94,11 @@ input wire [31 : 0] mean_mag_num;
 input wire [31 : 0] mean_freq_num;
 input wire [31 : 0] psk_spike_count;
 input wire psk_flag;
+input wire bpsk_carrier_locked;
+input wire bpsk_timing_locked;
+input wire [1 : 0] bpsk_rate_code;
+input wire bpsk_bit_data;
+input wire bpsk_bit_valid;
 output wire [3 : 0] hist_mag_rd_addr;
 input wire [31 : 0] hist_mag_rd_data;
 output wire [3 : 0] hist_freq_rd_addr;
@@ -109,6 +119,11 @@ output wire busy;
     .mean_freq_num(mean_freq_num),
     .psk_spike_count(psk_spike_count),
     .psk_flag(psk_flag),
+    .bpsk_carrier_locked(bpsk_carrier_locked),
+    .bpsk_timing_locked(bpsk_timing_locked),
+    .bpsk_rate_code(bpsk_rate_code),
+    .bpsk_bit_data(bpsk_bit_data),
+    .bpsk_bit_valid(bpsk_bit_valid),
     .hist_mag_rd_addr(hist_mag_rd_addr),
     .hist_mag_rd_data(hist_mag_rd_data),
     .hist_freq_rd_addr(hist_freq_rd_addr),

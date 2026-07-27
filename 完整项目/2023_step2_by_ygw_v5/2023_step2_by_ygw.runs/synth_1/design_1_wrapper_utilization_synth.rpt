@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun Jul 26 12:53:03 2026
-| Host         : Y9000P running 64-bit major release  (build 9200)
+| Date         : Mon Jul 27 03:47:07 2026
+| Host         : Toph running 64-bit major release  (build 9200)
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
 | Device       : 7z020clg400-2
@@ -161,11 +161,11 @@ Table of Contents
 | design_1_v_axi4s_vid_out_0_0      |    1 |
 | design_1_util_vector_logic_0_1    |    1 |
 | design_1_util_vector_logic_0_0    |    1 |
+| design_1_smartconnect_0_0         |    1 |
 | design_1_smart_mux_stream_0_0     |    1 |
 | design_1_rst_ps7_0_100M_1         |    1 |
 | design_1_processing_system7_0_0   |    1 |
 | design_1_proc_sys_reset_0_1       |    1 |
-| design_1_ila_bpsk_0_0             |    1 |
 | design_1_feature_bram_writer_0_0  |    1 |
 | design_1_demod_pool_core_bpsk_0_0 |    1 |
 | design_1_ddc_stage1_pl2_top_0_0   |    1 |
@@ -173,10 +173,12 @@ Table of Contents
 | design_1_clk_wiz_1_0              |    1 |
 | design_1_clk_wiz_0_0              |    1 |
 | design_1_blk_mem_gen_0_0          |    1 |
+| design_1_axis_clock_converter_0_0 |    1 |
 | design_1_axi_vdma_0_0             |    1 |
 | design_1_axi_smc_1_1              |    1 |
 | design_1_axi_smc_1                |    1 |
 | design_1_axi_gpio_0_0             |    1 |
+| design_1_axi_dma_0_0              |    1 |
 | design_1_axi_bram_ctrl_0_0        |    1 |
 | design_1_ad9226_stage1_driver_0_0 |    1 |
 +-----------------------------------+------+

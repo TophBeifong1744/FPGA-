@@ -7,28 +7,37 @@ LD_SRCS += \
 ../src/lscript.ld 
 
 C_SRCS += \
-../src/dsp_algorithms.c \
-../src/histogram_classifier.c \
 ../src/main.c \
-../src/ps_decision.c \
-../src/rgb_display.c \
-../src/vdma_api.c 
+../src/pl_feature_reader.c \
+../src/ps_classifier.c \
+../src/ps_decision_engine.c \
+../src/ps_parameter_estimator.c \
+../src/ps_upgrade_pipeline.c \
+../src/ps_waveform_capture.c \
+../src/rgb_result_display.c \
+../src/vdma_display.c 
 
 OBJS += \
-./src/dsp_algorithms.o \
-./src/histogram_classifier.o \
 ./src/main.o \
-./src/ps_decision.o \
-./src/rgb_display.o \
-./src/vdma_api.o 
+./src/pl_feature_reader.o \
+./src/ps_classifier.o \
+./src/ps_decision_engine.o \
+./src/ps_parameter_estimator.o \
+./src/ps_upgrade_pipeline.o \
+./src/ps_waveform_capture.o \
+./src/rgb_result_display.o \
+./src/vdma_display.o 
 
 C_DEPS += \
-./src/dsp_algorithms.d \
-./src/histogram_classifier.d \
 ./src/main.d \
-./src/ps_decision.d \
-./src/rgb_display.d \
-./src/vdma_api.d 
+./src/pl_feature_reader.d \
+./src/ps_classifier.d \
+./src/ps_decision_engine.d \
+./src/ps_parameter_estimator.d \
+./src/ps_upgrade_pipeline.d \
+./src/ps_waveform_capture.d \
+./src/rgb_result_display.d \
+./src/vdma_display.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "smart_mux_stream,Vivado 2018.3" *)
 (* CHECK_LICENSE_TYPE = "design_1_smart_mux_stream_0_0,smart_mux_stream,{}" *)
-(* CORE_GENERATION_INFO = "design_1_smart_mux_stream_0_0,smart_mux_stream,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=smart_mux_stream,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED}" *)
+(* CORE_GENERATION_INFO = "design_1_smart_mux_stream_0_0,smart_mux_stream,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=smart_mux_stream,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,AXIS_FIFO_DEPTH=16}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_smart_mux_stream_0_0 (
@@ -96,7 +96,9 @@ output wire m_axis_tlast;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 m_axis TREADY" *)
 input wire m_axis_tready;
 
-  smart_mux_stream inst (
+  smart_mux_stream #(
+    .AXIS_FIFO_DEPTH(16)
+  ) inst (
     .aclk(aclk),
     .aresetn(aresetn),
     .mux_ctrl(mux_ctrl),

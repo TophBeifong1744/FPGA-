@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:F:/Vivado/2023_step2_by_ygw_v4/2023_step2_by_ygw.srcs/constrs_1/imports/Desktop/ad9226_60m_io.xdc rfile:../../../2023_step2_by_ygw.srcs/constrs_1/imports/Desktop/ad9226_60m_io.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:F:/College/verilog_digital_system/Xilinx/2023_step2_by_ygw_v5/2023_step2_by_ygw.srcs/constrs_1/imports/Desktop/ad9226_60m_io.xdc rfile:../../../2023_step2_by_ygw.srcs/constrs_1/imports/Desktop/ad9226_60m_io.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:26 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN Y7 [get_ports ad_clk_0]
 set_property src_info {type:XDC file:1 line:28 export:INPUT save:INPUT read:READ} [current_design]
